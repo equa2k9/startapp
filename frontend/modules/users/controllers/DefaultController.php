@@ -28,6 +28,10 @@ class DefaultController extends CommonController
                 'actions' => array('error'),
                 'users' => array('*'),
             ),
+            array('deny',
+                'actions'=>array('driverForm'),
+                'expression'=>'Yii::app()->user->role !="user"&&Yii::app()->user->role !="driver"',
+                ),
             array('allow', // allow authenticated users to access all actions
                 'roles' => array('user'),
             ),

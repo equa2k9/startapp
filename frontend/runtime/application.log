@@ -6508,3 +6508,348 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/uploads/avatars/123.jpg
 ---
+2015/04/21 07:34:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/i...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/index
+HTTP_REFERER=http://aal2/users/default/driverForm
+---
+2015/04/21 07:35:46 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/index
+---
+2015/04/21 07:36:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/index
+---
+2015/04/21 07:36:38 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/driverForm
+---
+2015/04/21 07:36:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/index
+---
+2015/04/21 07:36:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/
+---
+2015/04/21 07:38:21 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/
+---
+2015/04/21 07:39:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/site/login
+---
+2015/04/21 07:39:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/changePassword
+---
+2015/04/21 07:41:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/index
+---
+2015/04/21 07:42:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/aal2/vendor/yiisoft/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#10 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/index
+---
+2015/04/21 08:01:17 [error] [exception.CException] exception 'CException' with message 'DefaultController cannot find the requested view "_navigation".' in /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/aal2/themes/bootstrap/views/layouts/main.php(20): CController->renderPartial('_navigation')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#4 /var/www/aal2/frontend/modules/users/controllers/DefaultController.php(126): CController->render('driverform', Array)
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): DefaultController->actionDriverForm()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('driverForm')
+#15 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/d...')
+#16 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#17 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#18 {main}
+REQUEST_URI=/users/default/driverForm
+HTTP_REFERER=http://aal2/users/default/index
+---
+2015/04/21 08:02:01 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "_navigation".' in /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/aal2/themes/bootstrap/views/layouts/main.php(20): CController->renderPartial('_navigation')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(214): COutputProcessor->run()
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(308): CBaseController->endWidget('CContentDecorat...')
+#8 /var/www/aal2/themes/bootstrap/views/layouts/column1.php(6): CBaseController->endContent()
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#10 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#11 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#12 /var/www/aal2/frontend/controllers/SiteController.php(58): CController->render('index')
+#13 /var/www/aal2/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#14 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('')
+#23 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#24 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#25 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#26 {main}
+REQUEST_URI=/
+---
+2015/04/21 08:02:15 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "_navigation".' in /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/aal2/themes/bootstrap/views/layouts/main.php(20): CController->renderPartial('_navigation')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#4 /var/www/aal2/vendor/yiisoft/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(214): COutputProcessor->run()
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(308): CBaseController->endWidget('CContentDecorat...')
+#8 /var/www/aal2/themes/bootstrap/views/layouts/column1.php(6): CBaseController->endContent()
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#10 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#11 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#12 /var/www/aal2/frontend/controllers/SiteController.php(58): CController->render('index')
+#13 /var/www/aal2/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#14 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('')
+#23 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#24 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#25 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#26 {main}
+REQUEST_URI=/
+---
+2015/04/21 08:03:55 [error] [exception.CException] exception 'CException' with message 'DefaultController cannot find the requested view "_navigation".' in /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/aal2/themes/bootstrap/views/layouts/main.php(20): CController->renderPartial('_navigation')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#4 /var/www/aal2/frontend/modules/users/controllers/DefaultController.php(67): CController->render('password', Array)
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): DefaultController->actionChangePassword()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('changePassword')
+#15 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/c...')
+#16 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#17 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#18 {main}
+REQUEST_URI=/users/default/changePassword
+HTTP_REFERER=http://aal2/site/page?view=about
+---
+2015/04/21 08:04:05 [error] [exception.CException] exception 'CException' with message 'DefaultController cannot find the requested view "//_navigation".' in /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/aal2/themes/bootstrap/views/layouts/main.php(20): CController->renderPartial('//_navigation')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#4 /var/www/aal2/frontend/modules/users/controllers/DefaultController.php(67): CController->render('password', Array)
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): DefaultController->actionChangePassword()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('changePassword')
+#15 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/c...')
+#16 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#17 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#18 {main}
+REQUEST_URI=/users/default/changePassword
+HTTP_REFERER=http://aal2/site/page?view=about
+---
+2015/04/21 08:04:11 [error] [exception.CException] exception 'CException' with message 'DefaultController cannot find the requested view "/_navigation".' in /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/aal2/themes/bootstrap/views/layouts/main.php(20): CController->renderPartial('/_navigation')
+#1 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require('/var/www/aal2/t...')
+#2 /var/www/aal2/vendor/yiisoft/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/aal2/t...', Array, true)
+#3 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/aal2/t...', Array, true)
+#4 /var/www/aal2/frontend/modules/users/controllers/DefaultController.php(67): CController->render('password', Array)
+#5 /var/www/aal2/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): DefaultController->actionChangePassword()
+#6 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/aal2/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/aal2/vendor/yiisoft/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('changePassword')
+#15 /var/www/aal2/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users/default/c...')
+#16 /var/www/aal2/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#17 /var/www/aal2/frontend/www/index.php(12): CApplication->run()
+#18 {main}
+REQUEST_URI=/users/default/changePassword
+HTTP_REFERER=http://aal2/site/page?view=about
+---

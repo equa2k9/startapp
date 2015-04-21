@@ -51,10 +51,15 @@ class LoginForm extends CFormModel
             $this->_identity = new UserIdentity($this->username, $this->password);
             if (!$this->_identity->authenticate())
             {
-                if ($this->_identity->errorCode == UserIdentity::ERROR_UNKNOWN_IDENTITY)
+                if ($this->_identity->errorCode == UserIdentity::ERROR_NOT_CONFIRMED)
                 {
-                    $this->addError('password', Yii::t('site', 'User is not activated by Admin'));
+                    $this->addError('password', Yii::t('site', 'Please confirm your e-mail'));
                 }
+               
+//                else if ($this->_identity->errorCode == UserIdentity::ERROR_NOT_ACTIVATED)
+//                {
+//                    $this->addError('password', Yii::t('site', 'User is not activated by Admin'));
+//                }
                 else
                 {
                     $this->addError('password', Yii::t('site', 'Invalid username or password'));

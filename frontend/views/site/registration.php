@@ -2,8 +2,8 @@
 
 <div class="row">
     <!-- Article main content -->
-    <article class="col-xs-12 maincontent">
-        
+    <div class="col-xs-12 maincontent">
+
         <?php
         $this->widget('booster.widgets.TbAlert', array(
 //            'block' => true, // display a larger alert block?
@@ -17,7 +17,7 @@
         <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 class="thin text-center"><?php echo Yii::t('site', 'Input your data')?></h3>
+                    <h3 class="thin text-center"><?php echo Yii::t('site', 'Input your data') ?></h3>
                     <hr>
                     <?php
                     $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -68,6 +68,6 @@
 
             </div>
         </div>
+    </div>
 </div>
-</article>
-</div>
+

@@ -1,0 +1,19 @@
+{
+    "name": "Alpha Paratransit",
+    "description": "Website for Alpha Paratransit",
+    "type": "application",
+    "license": "NONE",
+    "authors": [
+        {
+            "name": "Chopenko Oleksandr Volodymyrovych",
+            "email": "jek3211@gmail.com"
+        }
+    ],
+    "require": {
+        "php":">=5.4.0",
+        "yiisoft/yii": "1.1.16"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

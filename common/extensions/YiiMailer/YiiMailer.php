@@ -87,7 +87,7 @@ class YiiMailer extends PHPMailer {
 		if(isset(Yii::app()->params[self::CONFIG_PARAMS]))
 			$config=Yii::app()->params[self::CONFIG_PARAMS];
 		else
-			$config=require(Yii::getPathOfAlias('application.config').DIRECTORY_SEPARATOR.self::CONFIG_FILE);
+			$config=require(Yii::getPathOfAlias('common').DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.self::CONFIG_FILE); //must change this
 		//set config
 		$this->setConfig($config);
 		//set view

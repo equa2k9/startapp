@@ -4,7 +4,8 @@
 // Yii::setPathOfAlias('local','path/to/local-folder');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
-
+Yii::setPathOfAlias('webroot.images.mail',  ROOT_DIR.'/frontend/www/images/mail');
+Yii::setPathOfAlias('users', ROOT_DIR.'/common/modules/users');
 return array(
     'name' => 'Common application',
     // preloading 'log' component
@@ -16,6 +17,7 @@ return array(
         'common.extensions.*',
         'common.models.*',
         'common.helpers.*',
+        'common.extensions.YiiMailer.YiiMailer',
         'application.models.*',
         'application.components.*',
         'application.controllers.*',
@@ -63,6 +65,15 @@ return array(
             'class' => 'PhpAuthManager',
             'defaultRoles' => array('guest'),
         ),
+        'curl' => array(
+            'class' => 'common.extensions.curl.Curl',
+            'options' => array(
+                'timeout' => 1,
+                'setOptions' => array(
+                    CURLOPT_HEADER => false,
+                ),
+            ),
+        ),
         // database settings are configured in database.php
         'db' => require(dirname(__FILE__) . '/database.php'),
         'log' => array(
@@ -75,4 +86,9 @@ return array(
             ),
         ),
     ),
+    'params'=>array(
+		// this is used in contact page
+		'uploads' => Yii::getPathOfAlias('uploads'),
+        
+	),
 );

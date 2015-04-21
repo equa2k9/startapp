@@ -30,7 +30,7 @@ class CmsSettings extends CApplicationComponent
     protected $loaded = array();
     protected $_cacheComponentId = 'cache';
     protected $_cacheId = 'global_website_settings';
-    protected $_cacheTime = 0;
+    protected $_cacheTime = 3600;
     protected $_dbComponentId = 'db';
     protected $_tableName = '{{settings}}';
     protected $_createTable = false;

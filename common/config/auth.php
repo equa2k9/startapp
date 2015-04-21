@@ -1,6 +1,9 @@
 <?php
 
 return array(
+    /*
+     * only frontend view, login, registering
+     */
     'guest' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'guest',
@@ -11,16 +14,53 @@ return array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'user',
         'children' => array(
-            'guest', // унаследуемся от гостя
+            'guest', // 
         ),
         'bizRule' => null,
         'data' => null,
     ),
-    'moderator' => array(
+    /*
+     * Reader only
+     */
+    'admin_reader' => array( 
         'type' => CAuthItem::TYPE_ROLE,
-        'description' => 'moderator',
+        'description' => 'admin_reader',
         'children' => array(
-            'user', // позволим модератору всё, что позволено пользователю
+            'user', // 
+        ),
+        'bizRule' => null,
+        'data' => null,
+    ),
+    
+    /*
+     * Can accept routesheets, change self info, leave comments etc.
+     */
+    'driver' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'driver',
+        'children' => array(
+            'admin_reader', 
+        ),
+        'bizRule' => null,
+        'data' => null,
+    ),
+    /*
+     * 
+     */
+    'accountant' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'accountant',
+        'children' => array(
+            'driver', // позволим модератору всё, что позволено пользователю
+        ),
+        'bizRule' => null,
+        'data' => null,
+    ),
+    'dispatcher' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'dispatcher',
+        'children' => array(
+            'accountant', // позволим модератору всё, что позволено пользователю
         ),
         'bizRule' => null,
         'data' => null,
@@ -29,7 +69,7 @@ return array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'administrator',
         'children' => array(
-            'moderator', // позволим админу всё, что позволено модератору
+            'dispatcher', // позволим админу всё, что позволено модератору
         ),
         'bizRule' => null,
         'data' => null,

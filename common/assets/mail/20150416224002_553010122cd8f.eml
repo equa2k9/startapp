@@ -1,0 +1,69 @@
+Date: Thu, 16 Apr 2015 22:40:02 +0300
+From: Equa22545544 <66454@i.ua>
+Message-ID: <63b76720c578fa5451190d0b18176fe4@aal2>
+X-Priority: 3
+X-Mailer: PHPMailer 5.2.8 (https://github.com/PHPMailer/PHPMailer/)
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="b1_63b76720c578fa5451190d0b18176fe4"
+Content-Transfer-Encoding: 8bit
+To: 66454@i.ua
+Subject: Registration on Alpha Paratransit
+
+--b1_63b76720c578fa5451190d0b18176fe4
+Content-Type: text/plain; charset=us-ascii
+
+Frontend				
+            
+		
+		
+            
+            	Registration on Alpha Paratransit            
+		
+		
+            
+				553010122bc8a
+You successfully registered!             
+		
+		
+            
+                alphaparatransit.com
+
+
+--b1_63b76720c578fa5451190d0b18176fe4
+Content-Type: text/html; charset=us-ascii
+
+<html>
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+</head>
+<body>
+<table cellspacing="0" cellpadding="10" style="color:#666;font:13px Arial;line-height:1.4em;width:100%;">
+	<tbody>
+		<tr>
+            <td style="color:#4D90FE;font-size:22px;border-bottom: 2px solid #4D90FE;">
+                Frontend				
+            </td>
+		</tr>
+		<tr>
+            <td style="color:#777;font-size:16px;padding-top:5px;">
+            	Registration on Alpha Paratransit            </td>
+		</tr>
+		<tr>
+            <td>
+				553010122bc8a<br>
+You successfully registered!             </td>
+		</tr>
+		<tr>
+            <td style="padding:15px 20px;text-align:right;padding-top:5px;border-top:solid 1px #dfdfdf">
+                <a href="http://aal2">alphaparatransit.com</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
+
+
+
+--b1_63b76720c578fa5451190d0b18176fe4--

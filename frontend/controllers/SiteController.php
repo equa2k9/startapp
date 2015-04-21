@@ -3,18 +3,25 @@
 class SiteController extends FrontendSiteController
 {
 
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
     public function accessRules()
     {
         return array(
-            array('allow',
+            array('allow', // allow all users to perform the 'login' action
                 'actions' => array('*'),
                 'users' => array('*'),
             ),
             array('deny',
-                'actions' => array('registration', 'login'),
+                'actions' => array('registration', 'login','confirm'),
                 'users' => array('@'),
                 'deniedCallback' => function () {
-            Yii::app()->controller->redirect(Yii::app()->createUrl('/'));
+            Yii::app()->controller->redirect(Yii::app()->createUrl('site/index'));
         },
             ),
         );
@@ -116,6 +123,7 @@ class SiteController extends FrontendSiteController
         // display the login form
         $this->render('login', array('model' => $model));
     }
+
     public function actionRegistration()
     {
         $model = new Users('registration');
@@ -132,21 +140,14 @@ class SiteController extends FrontendSiteController
             $model->image = CUploadedFile::getInstance($model, 'image');
             if ($model->validate())
             {
-                $model->password_hash = $this->generateSalt();
-                $model->password = crypt($_POST['Users']['userPassword'], $model->password_hash);
-                $model->role = 'user';
-                $images_path = realpath(Yii::app()->basePath . '/www/images/profile');
-                $model->image->saveAs($images_path . '/' . $model->image);
-                $model->photo = $model->image;
                 if ($model->save())
                 {
-                    Yii::app()->user->setFlash('success', Yii::t('site', 'Вы успешно зарегистрированы.'));
-
+                    Yii::app()->user->setFlash('success', Yii::t('site', 'You registration was success, please check your e-mail for confirm link'));
                     $this->redirect('login');
                 }
                 else
                 {
-                    Yii::app()->user->setFlash('error', Yii::t('site', 'Извините, что-то пошло не так, попробуйте еще раз.'));
+                    Yii::app()->user->setFlash('error', Yii::t('site', 'Sorry, something went wrong, try again later.'));
                     $this->refresh();
                 }
             }
@@ -162,11 +163,6 @@ class SiteController extends FrontendSiteController
         Yii::app()->user->logout();
         Yii::app()->session->clear();
         $this->redirect(Yii::app()->homeUrl);
-    }
-
-    protected function generateSalt()
-    {
-        return uniqid('', true);
     }
 
 }

@@ -7,8 +7,16 @@ return array(
     'theme'=>'bootstrap', //not use booster core css, because it's old 3.1.1 version
     'preload' => array('bootstrap'),
     'aliases' => array(
-        'xupload' => 'common.ext.xupload',
+        'xupload' => 'common.extensions.xupload',
         'yiiwheels' =>  Yii::getPathOfAlias('common'). '/extensions/yiiwheels', // change if necessary
+        
+    ),
+    'modules' => array(
+        // uncomment the following to enable the Gii tool
+        /**/
+        'users'=>array(
+            'class'=>'frontend.modules.users.UsersModule',
+        ),
     ),
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
@@ -48,8 +56,9 @@ return array(
             'class' => 'yiiwheels.YiiWheels',
         ),
         'themeManager'=>array(
-            'basePath'=>Yii::getPathOfAlias('frontend').'/themes',
+            'basePath'=>ROOT_DIR.'/themes',
         ),
+        
         
     ),
     

@@ -27,5 +27,25 @@ class WebApplication extends CWebApplication
             return CLocale::getInstance('en');
         }
     }
+    
+    /**
+     * 
+     * @param string $layout
+     * @param object model $model
+     * @param string $description
+     * @return boolean
+     */
+    public function sendConfirmMail($layout = 'default', $model = NULL, $description = NULL)
+    {
+        $mail = new YiiMailer($layout, array('model' => $model, 'description' => $description));
+
+        $mail->setFrom($model->email, isset($model->username)?$model->username:'');
+        $mail->setSubject($description);
+        $mail->setTo(array($model->email));
+        if ($mail->send())
+            return true;
+        else
+            return false;
+    }
 
 }

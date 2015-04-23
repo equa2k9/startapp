@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $.getJSON('<?php echo $this->createUrl("default/upload", array("_method" => "list", "id" => $model->id)); ?>', function (result) {
+    $.getJSON('<?php echo $this->createUrl("dashboard/upload", array("_method" => "list", "id" => $model->id)); ?>', function (result) {
         var objForm = $('#drivers-info-form');
         if (result && result.length) {
             objForm.fileupload('option', 'done').call(objForm, null, {result: result});
@@ -23,7 +23,7 @@ $this->widget('bootstrap.widgets.TbAlert', array(
 <div class="col-md-12">
 <?php
 $this->widget('xupload.XUpload', array(
-    'url' => Yii::app()->createUrl("users/default/upload"),
+    'url' => Yii::app()->createUrl("users/dashboard/upload"),
     //our XUploadForm
     'model' => $files,
     //We set this for the widget to be able to target our own form

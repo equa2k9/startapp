@@ -43,11 +43,11 @@
                         array('label' => 'Account', 'url' => '#',
                             'items' => array(
                                 array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                                array('label' => 'General info', 'url' => '/users/default/index', 'visible' => !Yii::app()->user->isGuest,
+                                array('label' => 'General info', 'url' => '/users/dashboard', 'visible' => !Yii::app()->user->isGuest,
                                     'active' => Yii::app()->controller->action->id == "index" && Yii::app()->controller->id == "default"),
-                                array('label' => 'Change password', 'url' => '/users/default/changePassword', 'visible' => !Yii::app()->user->isGuest,
+                                array('label' => 'Change password', 'url' => '/users/dashboard/changePassword', 'visible' => !Yii::app()->user->isGuest,
                                     'active' => Yii::app()->controller->action->id == "changePassword"),
-                                array('label' => 'Driver form', 'url' => '/users/default/driverForm', 'visible' => !Yii::app()->user->isGuest &&
+                                array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm', 'visible' => !Yii::app()->user->isGuest &&
                                     Yii::app()->user->role == 'user' ||
                                     Yii::app()->user->role == "driver",
                                     'active' => Yii::app()->controller->action->id == "driverForm"),

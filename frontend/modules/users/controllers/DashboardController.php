@@ -1,6 +1,6 @@
 <?php
 
-class DefaultController extends CommonController
+class DashboardController extends ModuleController
 {
     public function actions()
     {
@@ -60,7 +60,7 @@ class DefaultController extends CommonController
             if ($password->validate())
             {
                 $password->save();
-                Yii::app()->user->setFlash('success', Yii::t('site', 'Your password has changed successfuly'));
+                Yii::app()->user->setFlash('success', Yii::t('site', 'Your password has been changed successfuly'));
                 $this->refresh();
             }
         }
@@ -107,15 +107,10 @@ class DefaultController extends CommonController
         {
             $model->driversInfo = new DriversInfo();
         }
-        if(!$model->driversFiles)
-        {
-            $model->driversFiles = new DriversFiles();
-        }
         if (Yii::app()->request->isPostRequest)
         {
             $model->driversInfo->attributes = $_POST['DriversInfo'];
             $model->driversInfo->id = $model->id;
-//            var_dump($model->driversInfo);exit;
             if($model->driversInfo->validate())
             {
                 $model->driversInfo->save();

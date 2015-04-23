@@ -12,14 +12,25 @@ return array(
         
     ),
     'modules' => array(
-        // uncomment the following to enable the Gii tool
-        /**/
         'users'=>array(
             'class'=>'frontend.modules.users.UsersModule',
         ),
+        'driver'=>array(
+            'class'=>'frontend.modules.driver.DriverModule',
+        ),
+        'reader'=>array(
+            'class'=>'frontend.modules.reader.ReaderModule',
+        ),
+        'accountant'=>array(
+            'class'=>'frontend.modules.accountant.AccountantModule',
+        ),
+        'dispatcher'=>array(
+            'class'=>'frontend.modules.dispatcher.DispatcherModule',
+        ),
+        'administrator'=>array(
+            'class'=>'frontend.modules.administrator.AdministratorModule',
+        ),
     ),
-    // application-level parameters that can be accessed
-    // using Yii::app()->params['paramName']
     'components' => array(
         'urlManager' => array(
             'urlFormat' => 'path',

@@ -45,10 +45,10 @@ $this->pageTitle = Yii::app()->name . ' - Login';
                         <div class="col-lg-4 text-right">
                             <?php
                             $this->widget('booster.widgets.TbButton', array(
-                                        'buttonType' => 'submit', 
-                                        'label' => 'Login',
-                                        'htmlOptions' => array('class' => 'btn btn-success btn-flat'),
-                                )
+                                'buttonType' => 'submit',
+                                'label' => 'Login',
+                                'htmlOptions' => array('class' => 'btn btn-success btn-flat'),
+                                    )
                             );
                             ?>
                         </div>

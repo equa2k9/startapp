@@ -34,7 +34,7 @@ class DriversInfo extends CActiveRecord
     {
         return 'drivers_info';
     }
-    
+
 //    protected function beforeSave()
 //    {
 //        
@@ -57,37 +57,39 @@ class DriversInfo extends CActiveRecord
             array('id, fullname, address, phone, company, company_adress, company_years, work_history, supervisor_name, supervisor_contact, worked_from, worked_to, leaving_reason, position, vehicle, dependent', 'safe', 'on' => 'search'),
         );
     }
+
     protected function beforeSave()
     {
-        if($this->worked_from)
+        if ($this->worked_from)
         {
             $this->worked_from = strtotime($this->worked_from);
         }
-        if($this->worked_to)
+        if ($this->worked_to)
         {
             $this->worked_to = strtotime($this->worked_to);
         }
-       return true;
+        return true;
     }
-    
+
     protected function afterFind()
     {
-        if($this->worked_from)
+        if ($this->worked_from)
         {
-            $this->worked_from = date('m/d/Y',  $this->worked_from);
+            $this->worked_from = date('m/d/Y', $this->worked_from);
         }
-        if($this->worked_to)
+        if ($this->worked_to)
         {
-            $this->worked_to = date('m/d/Y',  $this->worked_to);
+            $this->worked_to = date('m/d/Y', $this->worked_to);
         }
         return true;
     }
-    
+
     protected function afterSave()
     {
         $this->addFiles();
         parent::afterSave();
     }
+
     /**
      * @return array relational rules.
      */
@@ -99,43 +101,52 @@ class DriversInfo extends CActiveRecord
             'id0' => array(self::BELONGS_TO, 'Users', 'id'),
         );
     }
+
     public function addFiles()
     {
         //If we have pending files
-        if (Yii::app()->user->hasState('files')) {
+        if (Yii::app()->user->hasState('files'))
+        {
             $userFiles = Yii::app()->user->getState('files');
             //Resolve the final path for our files
-            $path = Yii::app()->getBasePath()."/../uploads/drivers_files/{$this->id}/";
+            $path = Yii::app()->getBasePath() . "/../uploads/drivers_files/{$this->id}/";
             //Create the folder and give permissions if it doesnt exists
-            if (!is_dir($path)) {
+            if (!is_dir($path))
+            {
                 mkdir($path);
                 chmod($path, 0777);
             }
             //Now lets create the corresponding models and move the files
-            foreach ($userFiles as $file) {
-                if (is_file($file["path"])) {
-                    if (rename($file["path"], $path.$file["filename"])) {
-                        chmod($path.$file["filename"], 0777);
-                       
+            foreach ($userFiles as $file)
+            {
+                if (is_file($file["path"]))
+                {
+                    if (rename($file["path"], $path . $file["filename"]))
+                    {
+                        chmod($path . $file["filename"], 0777);
+
                         $fil = new DriversFiles();
                         $fil->size = $file["size"];
                         $fil->mime = $file["mime"];
                         $fil->name = $file["name"];
 //                        $fil->thumb = "/files/uploads/{$this->id}/thumb/".$file["filename"];
                         $fil->file = $file["filename"];
-                        $fil->source = "/uploads/drivers_files/{$this->id}/".$file["filename"];
+                        $fil->source = "/uploads/drivers_files/{$this->id}/" . $file["filename"];
                         $fil->users_id = $this->id;
-                        if (!$fil->save()) {
+                        if (!$fil->save())
+                        {
                             //Its always good to log something
-                            Yii::log("Could not save file:\n".CVarDumper::dumpAsString(
+                            Yii::log("Could not save file:\n" . CVarDumper::dumpAsString(
                                             $img->getErrors()), CLogger::LEVEL_ERROR);
                             //this exception will rollback the transaction
                             throw new Exception('Could not save file');
                         }
                     }
-                } else {
+                }
+                else
+                {
                     //You can also throw an execption here to rollback the transaction
-                    Yii::log($file["path"]." is not a file", CLogger::LEVEL_WARNING);
+                    Yii::log($file["path"] . " is not a file", CLogger::LEVEL_WARNING);
                 }
             }
             //Clear the user's session

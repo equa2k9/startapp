@@ -4,15 +4,17 @@ class UserIdentity extends CUserIdentity
 {
 
     protected $_id;
-    
+
     /*
      * Not confirmed e-mail
      */
+
     const ERROR_NOT_CONFIRMED = 8;
-    
+
     /*
      * not activated by administrator
      */
+
 //    const ERROR_NOT_ACTIVATED = 9;
 
     public function authenticate()
@@ -22,7 +24,7 @@ class UserIdentity extends CUserIdentity
         {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         }
-        else if($user->hash_link !==NULL)
+        else if ($user->hash_link !== NULL)
         {
             $this->errorCode = self::ERROR_NOT_CONFIRMED;
         }

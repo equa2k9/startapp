@@ -2,5 +2,7 @@
 
 class DispatcherModule extends MainModule
 {
-	public $moduleName = 'dispatcher';
+
+    public $moduleName = 'dispatcher';
+
 }

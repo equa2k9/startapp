@@ -158,7 +158,7 @@ class Users extends CActiveRecord
                 'operator' => '!=',
                 'message' => '{attribute} must not be equal to Old Password'
             ),
-            array('oldPassword', 'checkOldPassword', 'on' => 'changepassword'),//validation if new password are not the same as old
+            array('oldPassword', 'checkOldPassword', 'on' => 'changepassword'), //validation if new password are not the same as old
         );
     }
 

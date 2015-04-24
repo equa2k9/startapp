@@ -1,9 +1,11 @@
 <?php
 
-class DashboardController extends FrontendSiteController
+class DashboardController extends ModuleController
 {
-	public function actionIndex()
-	{
-		$this->render('index');
-	}
+
+    public function actionIndex()
+    {
+        $this->render('index');
+    }
+
 }

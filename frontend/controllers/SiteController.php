@@ -18,7 +18,7 @@ class SiteController extends FrontendSiteController
                 'users' => array('*'),
             ),
             array('deny',
-                'actions' => array('registration', 'login','confirm'),
+                'actions' => array('registration', 'login', 'confirm'),
                 'users' => array('@'),
                 'deniedCallback' => function () {
             Yii::app()->controller->redirect(Yii::app()->createUrl('site/index'));
@@ -118,7 +118,7 @@ class SiteController extends FrontendSiteController
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
-                $this->redirect(Yii::app()->user->returnUrl);
+                $this->redirect('/' . Yii::app()->user->role . '/');
         }
         // display the login form
         $this->render('login', array('model' => $model));

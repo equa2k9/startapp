@@ -2,5 +2,7 @@
 
 class AdministratorModule extends MainModule
 {
-	public $moduleName = 'administrator';
+
+    public $moduleName = 'administrator';
+
 }

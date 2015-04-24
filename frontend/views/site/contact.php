@@ -22,15 +22,15 @@ $this->breadcrumbs = array(
         If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
     </p>
     <?php
-        $this->widget('booster.widgets.TbAlert', array(
+    $this->widget('booster.widgets.TbAlert', array(
 //            'block' => true, // display a larger alert block?
-            'fade' => true, // use transitions?
-            'closeText' => '&times;', // close link text - if set to false, no close link is displayed
-            'alerts' => array(// configurations per alert type
-                'success' => array('block' => true, 'fade' => true, 'closeText' => '&times;')// success, info, warning, error or danger
-            ),
-        ));
-        ?>
+        'fade' => true, // use transitions?
+        'closeText' => '&times;', // close link text - if set to false, no close link is displayed
+        'alerts' => array(// configurations per alert type
+            'success' => array('block' => true, 'fade' => true, 'closeText' => '&times;')// success, info, warning, error or danger
+        ),
+    ));
+    ?>
     <?php
     $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id' => 'contact-form',

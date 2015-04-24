@@ -22,7 +22,7 @@ return array(
     /*
      * Reader only
      */
-    'admin_reader' => array( 
+    'admin_reader' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'admin_reader',
         'children' => array(
@@ -31,7 +31,6 @@ return array(
         'bizRule' => null,
         'data' => null,
     ),
-    
     /*
      * Can accept routesheets, change self info, leave comments etc.
      */
@@ -39,7 +38,7 @@ return array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'driver',
         'children' => array(
-            'admin_reader', 
+            'admin_reader',
         ),
         'bizRule' => null,
         'data' => null,

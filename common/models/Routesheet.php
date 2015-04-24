@@ -78,6 +78,25 @@ class Routesheet extends CActiveRecord
         );
     }
 
+    public function scopes()
+    {
+        parent::scopes();
+    }
+
+    /**
+     * scope
+     */
+    public function driverOrAll()
+    {
+        if (Yii::app()->user->role == Users::ROLE_DRIVER)
+        {
+            $this->getDbCriteria()->mergeWith(array(
+                'condition' => 'users_id=' . Yii::app()->user->id
+            ));
+        }
+        return $this;
+    }
+
     /**
      * Retrieves a list of models based on the current search/filter conditions.
      *
@@ -95,18 +114,21 @@ class Routesheet extends CActiveRecord
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $criteria = new CDbCriteria;
-
-        $criteria->compare('id', $this->id);
+        $criteria->compare('t.id', $this->id);
         $criteria->compare('waybill_id', $this->waybill_id);
-        $criteria->compare('users_id', $this->users_id);
-        $criteria->compare('status_id', $this->status_id);
-        $criteria->compare('created_at', $this->created_at);
-        $criteria->compare('updated_at', $this->updated_at);
+        $criteria->compare('users.users_id', $this->users_id);
+        $criteria->compare('status.status_id', $this->status_id);
+        $criteria->compare('t.created_at', $this->created_at);
+        $criteria->compare('t.updated_at', $this->updated_at);
         $criteria->compare('confirmed', $this->confirmed);
         $criteria->compare('from_import', $this->from_import);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination' => false,
+            'sort' => array(
+                'defaultOrder' => 't.id DESC',
+            ),
         ));
     }
 
@@ -119,6 +141,17 @@ class Routesheet extends CActiveRecord
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+
+    protected function afterFind()
+    {
+        $this->created_at = date('m/d/Y h:i:s A', $this->created_at);
+        $this->updated_at = date('m/d/Y h:i:s A', $this->updated_at);
+        if ($this->waybill_id == 0)
+        {
+            $this->waybill_id = 'Not generated';
+        }
+        parent::afterFind();
     }
 
 }

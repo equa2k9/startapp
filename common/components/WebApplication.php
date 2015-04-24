@@ -27,7 +27,7 @@ class WebApplication extends CWebApplication
             return CLocale::getInstance('en');
         }
     }
-    
+
     /**
      * 
      * @param string $layout
@@ -39,7 +39,7 @@ class WebApplication extends CWebApplication
     {
         $mail = new YiiMailer($layout, array('model' => $model, 'description' => $description));
 
-        $mail->setFrom($model->email, isset($model->username)?$model->username:'');
+        $mail->setFrom($model->email, isset($model->username) ? $model->username : '');
         $mail->setSubject($description);
         $mail->setTo(array($model->email));
         if ($mail->send())

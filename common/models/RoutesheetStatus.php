@@ -101,4 +101,19 @@ class RoutesheetStatus extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * static function to select all statuses
+     * @return array
+     */
+    public static function getStatus()
+    {
+        $model = self::model()->cache(84600)->findAll(array('select' => array('code', 'description')));
+        $statuses = array();
+        foreach ($model as $value)
+        {
+            $statuses[$value->code] = $value->description;
+        }
+        return $statuses;
+    }
+
 }

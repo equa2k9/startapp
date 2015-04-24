@@ -2,13 +2,14 @@
 
 class DashboardController extends ModuleController
 {
+
     public function actions()
     {
         return array(
             'upload' => array(
                 'class' => 'xupload.actions.XUploadAction',
-                'path' => Yii::app()->getBasePath()."/../uploads",
-                'publicPath' => Yii::app()->getBaseUrl()."/uploads",
+                'path' => Yii::app()->getBasePath() . "/../uploads",
+                'publicPath' => Yii::app()->getBaseUrl() . "/uploads",
             ),
         );
     }
@@ -29,9 +30,9 @@ class DashboardController extends ModuleController
                 'users' => array('*'),
             ),
             array('deny',
-                'actions'=>array('driverForm'),
-                'expression'=>'Yii::app()->user->role !="user"&&Yii::app()->user->role !="driver"',
-                ),
+                'actions' => array('driverForm'),
+                'expression' => 'Yii::app()->user->role !="user"&&Yii::app()->user->role !="driver"',
+            ),
             array('allow', // allow authenticated users to access all actions
                 'roles' => array('user'),
             ),
@@ -56,7 +57,7 @@ class DashboardController extends ModuleController
             $password->oldPassword = $_POST['Users']['oldPassword'];
             $password->userPassword = $_POST['Users']['userPassword'];
             $password->userPasswordRe = $_POST['Users']['userPasswordRe'];
-            
+
             if ($password->validate())
             {
                 $password->save();
@@ -66,7 +67,21 @@ class DashboardController extends ModuleController
         }
         $this->render('password', array('password' => $password));
     }
-    
+
+    public function getMenu()
+    {
+        $role = Yii::app()->user->role;
+        return $this->menu = array(
+            array(
+                'label' => 'Dashboard',
+                'url' => '/users',
+            ),
+            array('label' => 'Change password', 'url' => '/users/dashboard/changePassword'),
+            array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm'),
+            array('label' => ucfirst($role) . ' dashboard', 'url' => '/' . $role),
+        );
+    }
+
     /**
      * action to update default user information
      * @return boolean in ajax
@@ -83,7 +98,7 @@ class DashboardController extends ModuleController
                 $model->attributes = $_POST;
 //                if ($_POST['name'] == 'userPassword')
 //                    $model->phone = $_POST['value'];
-                
+
                 $model->save();
             }
         }
@@ -94,16 +109,16 @@ class DashboardController extends ModuleController
         }
         echo CJSON::encode(array('success' => true));
     }
-    
+
     /**
      * action for driver form
      */
     public function actionDriverForm()
     {
-        $model = Users::model()->with('driversInfo','driversFiles')->current();
+        $model = Users::model()->with('driversInfo', 'driversFiles')->current();
         Yii::import("xupload.models.XUploadForm");
         $files = new XUploadForm();
-        if(!$model->driversInfo)
+        if (!$model->driversInfo)
         {
             $model->driversInfo = new DriversInfo();
         }
@@ -111,54 +126,69 @@ class DashboardController extends ModuleController
         {
             $model->driversInfo->attributes = $_POST['DriversInfo'];
             $model->driversInfo->id = $model->id;
-            if($model->driversInfo->validate())
+            if ($model->driversInfo->validate())
             {
                 $model->driversInfo->save();
                 Yii::app()->user->setFlash('success', Yii::t('site', 'Your drivers info has been changed successfuly'));
                 $this->refresh();
             }
         }
-        $this->render('driverform',array('model'=>$model,'files'=>$files));
+        $this->render('driverform', array('model' => $model, 'files' => $files));
     }
-    
+
     public function actionUpload()
     {
         Yii::import("xupload.models.XUploadForm");
         //Here we define the paths where the files will be stored temporarily
-        $path = realpath(Yii::app()->getBasePath()."/../uploads/drivers_files/tmp")."/";
-        $publicPath = Yii::app()->getBaseUrl()."/uploads/drivers_files/tmp/";
+        $path = realpath(Yii::app()->getBasePath() . "/../uploads/drivers_files/tmp") . "/";
+        $publicPath = Yii::app()->getBaseUrl() . "/uploads/drivers_files/tmp/";
         //This is for IE which doens't handle 'Content-type: application/json' correctly
         header('Vary: Accept');
-        if (isset($_SERVER['HTTP_ACCEPT']) && (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)) {
+        if (isset($_SERVER['HTTP_ACCEPT']) && (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false))
+        {
             header('Content-type: application/json');
-        } else {
+        }
+        else
+        {
             header('Content-type: text/plain');
         }
         //Here we check if we are deleting and uploaded file
-        if (isset($_GET["_method"])) {
-            if ($_GET["_method"] == "delete") {
-                if (isset($_GET["file"]) && $_GET["file"][0] !== '.') {
-                    $file = $path.$_GET["file"];
-                    if (is_file($file)) {
+        if (isset($_GET["_method"]))
+        {
+            if ($_GET["_method"] == "delete")
+            {
+                if (isset($_GET["file"]) && $_GET["file"][0] !== '.')
+                {
+                    $file = $path . $_GET["file"];
+                    if (is_file($file))
+                    {
                         unlink($file);
                     }
-                } elseif ($_GET["id"]) {
+                }
+                elseif ($_GET["id"])
+                {
                     $delImage = DriversFiles::model()->findByPk($_GET["id"]);
-                    if ($delImage) {
-                        if (is_file(realpath(Yii::app()->getBasePath().'/..'.$delImage->source))) {
-                            @unlink(realpath(Yii::app()->getBasePath().'/..'.$delImage->source));
+                    if ($delImage)
+                    {
+                        if (is_file(realpath(Yii::app()->getBasePath() . '/..' . $delImage->source)))
+                        {
+                            @unlink(realpath(Yii::app()->getBasePath() . '/..' . $delImage->source));
 //                            @unlink(realpath(Yii::app()->getBasePath().'/..'.$delImage->thumb));
                             $delImage->delete(false);
                         }
                     }
                 }
                 echo json_encode(true);
-            } elseif ($_GET["_method"] == "list") {
+            }
+            elseif ($_GET["_method"] == "list")
+            {
                 $users_id = $_GET['id'];
                 $objProductImages = DriversFiles::model()->findAllByAttributes(array('users_id' => $users_id));
-                if ($objProductImages !== null) {
+                if ($objProductImages !== null)
+                {
                     $arrProductImages = array();
-                    foreach ($objProductImages as $objProductImage) {
+                    foreach ($objProductImages as $objProductImage)
+                    {
                         $arrProductImages[] = array(
                             "name" => $objProductImage->name,
                             "id" => $objProductImage->getPrimaryKey(),
@@ -173,32 +203,39 @@ class DashboardController extends ModuleController
                     echo json_encode($arrProductImages);
                 }
             }
-        } else {
+        }
+        else
+        {
             $model = new XUploadForm();
             $model->file = CUploadedFile::getInstance($model, 'file');
             //We check that the file was successfully uploaded
-            if ($model->file !== null) {
+            if ($model->file !== null)
+            {
                 //Grab some data
                 $model->mime_type = $model->file->getType();
                 $model->size = $model->file->getSize();
                 $model->name = $model->file->getName();
                 //(optional) Generate a random name for our file
-                $filename = md5(Yii::app()->user->id.microtime().$model->name);
-                $filename .= ".".$model->file->getExtensionName();
-                if ($model->validate()) {
+                $filename = md5(Yii::app()->user->id . microtime() . $model->name);
+                $filename .= "." . $model->file->getExtensionName();
+                if ($model->validate())
+                {
                     //Move our file to our temporary dir
-                    $model->file->saveAs($path.$filename);
-                    chmod($path.$filename, 0777);
+                    $model->file->saveAs($path . $filename);
+                    chmod($path . $filename, 0777);
                     //here you can also generate the image versions you need
                     //using something like PHPThumb
                     //Now we need to save this path to the user's session
-                    if (Yii::app()->user->hasState('files')) {
+                    if (Yii::app()->user->hasState('files'))
+                    {
                         $userImages = Yii::app()->user->getState('files');
-                    } else {
+                    }
+                    else
+                    {
                         $userImages = array();
                     }
                     $userImages[] = array(
-                        "path" => $path.$filename,
+                        "path" => $path . $filename,
                         //the same file or a thumb version that you generated
 //                        "thumb" => $path."thumbs/".$filename,
                         "filename" => $filename,
@@ -214,7 +251,7 @@ class DashboardController extends ModuleController
                             "name" => $model->name,
                             "type" => $model->mime_type,
                             "size" => $model->size,
-                            "url" => $publicPath.$filename,
+                            "url" => $publicPath . $filename,
 //                            "thumbnail_url" => $publicPath."thumbs/$filename",
                             "delete_url" => $this->createUrl("upload", array(
                                 "_method" => "delete",
@@ -222,15 +259,19 @@ class DashboardController extends ModuleController
                             )),
                             "delete_type" => "POST",
                     )));
-                } else {
+                }
+                else
+                {
                     //If the upload failed for some reason we log some data and let the widget know
                     echo json_encode(array(
                         array("error" => $model->getErrors('file'),
-                    ), ));
-                    Yii::log("XUploadAction: ".CVarDumper::dumpAsString($model->getErrors()), CLogger::LEVEL_ERROR, "xupload.actions.XUploadAction"
+                        ),));
+                    Yii::log("XUploadAction: " . CVarDumper::dumpAsString($model->getErrors()), CLogger::LEVEL_ERROR, "xupload.actions.XUploadAction"
                     );
                 }
-            } else {
+            }
+            else
+            {
                 throw new CHttpException(500, "Could not upload file");
             }
         }

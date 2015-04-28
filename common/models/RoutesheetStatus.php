@@ -107,11 +107,11 @@ class RoutesheetStatus extends CActiveRecord
      */
     public static function getStatus()
     {
-        $model = self::model()->cache(84600)->findAll(array('select' => array('code', 'description')));
+        $model = self::model()->cache(84600)->findAll(array('select' => array('id', 'description')));
         $statuses = array();
         foreach ($model as $value)
         {
-            $statuses[$value->code] = $value->description;
+            $statuses[$value->id] = $value->description;
         }
         return $statuses;
     }

@@ -7,7 +7,7 @@ class RoutesheetAction extends CommonAction
     {
         $model = new Routesheet('search');
 
-        $model->with(array('status', 'users'))->driverOrAll();
+        $model->with(array('status', 'users.driversInfo'=>array('select'=>'fullname')))->driverOrAll();
         $model->unsetAttributes();
         if (isset($_GET['Routesheet']))
         {

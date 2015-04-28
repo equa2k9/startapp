@@ -22,6 +22,7 @@
 class Routesheet extends CActiveRecord
 {
 
+    public $users_fullname; //for grid filter
     /**
      * @return string the associated database table name
      */
@@ -42,7 +43,7 @@ class Routesheet extends CActiveRecord
             array('waybill_id, users_id, status_id, created_at, updated_at, confirmed, from_import', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, waybill_id, users_id, status_id, created_at, updated_at, confirmed, from_import', 'safe', 'on' => 'search'),
+            array('id, waybill_id, users_id, status_id, created_at, updated_at, confirmed,users_fullname, from_import', 'safe', 'on' => 'search'),
         );
     }
 
@@ -75,6 +76,7 @@ class Routesheet extends CActiveRecord
             'updated_at' => 'Updated At',
             'confirmed' => 'Confirmed',
             'from_import' => 'From Import',
+            'users_fullname'=>'Fullname'
         );
     }
 
@@ -114,20 +116,46 @@ class Routesheet extends CActiveRecord
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $criteria = new CDbCriteria;
-        $criteria->compare('t.id', $this->id);
-        $criteria->compare('waybill_id', $this->waybill_id);
-        $criteria->compare('users.users_id', $this->users_id);
-        $criteria->compare('status.status_id', $this->status_id);
-        $criteria->compare('t.created_at', $this->created_at);
-        $criteria->compare('t.updated_at', $this->updated_at);
-        $criteria->compare('confirmed', $this->confirmed);
-        $criteria->compare('from_import', $this->from_import);
+        $criteria->with = array('status', 'users.driversInfo' => array('select' => 'fullname'));
+        if(isset($this->id))
+        {
+            $criteria->compare('t.id', $this->id);
+        }
+        if(isset($this->waybill_id))
+        {
+            $criteria->compare('t.waybill_id', $this->waybill_id);
+        }
+        if(isset($this->users_fullname))
+        {
+            $criteria->compare('driversInfo.fullname', $this->users_fullname, true);
+        }
+        if(isset($this->status_id))
+        {
+            $criteria->compare('t.status_id', $this->status_id);
+        }
+        if(isset($this->created_at))
+        {
+            $criteria->compare('t.created_at', $this->created_at);
+        }
+        if(isset($this->updated_at))
+        {
+            $criteria->compare('t.updated_at', $this->updated_at);
+        }
+//        $criteria->compare('confirmed', $this->confirmed);
+//        $criteria->compare('from_import', $this->from_import);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
             'pagination' => false,
             'sort' => array(
                 'defaultOrder' => 't.id DESC',
+                'attributes' => array(
+                    'users_fullname' => array(
+                        'asc' => 'driversInfo.fullname',
+                        'desc' => 'driversInfo.fullname DESC',
+                    ),
+                    '*',
+                ),
             ),
         ));
     }

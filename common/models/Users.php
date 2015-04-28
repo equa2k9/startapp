@@ -33,6 +33,8 @@ class Users extends CActiveRecord
     public $userPasswordRe; //re-type password
     public $oldPassword; //for change password
     public $skype;
+    public $dependent;
+    public $fullname;
 
     /*
      * ROLES of users
@@ -92,19 +94,19 @@ class Users extends CActiveRecord
             $this->hash_link = uniqid("", false);
             $this->created_at = time();
 
-            return true;
+            
         }
-        if ($this->getScenario() == 'confirm')
-        {
-            return true;
-        }
+//        if ($this->getScenario() == 'confirm')
+//        {
+//            
+//        }
         if ($this->getScenario() == 'changepassword')
         {
             $this->password_hash = self::generateSalt();
             $this->password = crypt($this->userPassword, $this->password_hash);
-            return true;
+            
         }
-        parent::beforeSave();
+        return true;
     }
 
     protected function afterSave()
@@ -140,7 +142,7 @@ class Users extends CActiveRecord
             array('email', 'email', 'on' => 'registration'),
             array('email', 'unique', 'attributeName' => 'email', 'className' => 'Users', 'enableClientValidation' => true, 'on' => 'registration'),
             array('username', 'unique', 'attributeName' => 'username', 'className' => 'Users', 'enableClientValidation' => true, 'on' => 'registration'),
-            array('id, username,skype,phone', 'safe', 'on' => 'search'),
+            array('id, username,skype,phone,is_activated,dependent,email,fullname', 'safe', 'on' => 'search,searchforms'),
             array('image', 'safe', 'on' => 'updateuser'),
             array('hash_link', 'safe', 'on' => 'confirm'),
             //rules for change password
@@ -202,6 +204,18 @@ class Users extends CActiveRecord
             'userPasswordRe' => Yii::t('site', 'Re-enter password'),
         );
     }
+    protected function afterFind()
+    {
+        if($this->created_at==0)
+        {
+            $this->unsetAttributes(array('created_at'));
+        }
+        else
+        {
+            $this->created_at = date('m/d/Y h:i:s A',  $this->created_at);
+        }
+        parent::afterFind();
+    }
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.
@@ -220,21 +234,99 @@ class Users extends CActiveRecord
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $criteria = new CDbCriteria;
-
-        $criteria->compare('id', $this->id);
-        $criteria->compare('username', $this->username, true);
-        $criteria->compare('password', $this->password, true);
-        $criteria->compare('password_hash', $this->password_hash, true);
-        $criteria->compare('role', $this->role, true);
-        $criteria->compare('email', $this->email, true);
-        $criteria->compare('is_activated', $this->is_activated);
-        $criteria->compare('hash_link', $this->hash_link, true);
-        $criteria->compare('created_at', $this->created_at);
+//        $criteria->with = array('driversInfo','driversRates');
+        $criteria->scopes = array('all_drivers','activated');
+        $criteria->with = array('driversInfo');
+        
+        if(isset($this->id))
+        {
+            $criteria->compare('t.id', $this->id);
+        }
+        if(isset($this->fullname))
+        {
+            $criteria->compare('driversInfo.fullname', $this->fullname, true);
+        }
+        if(isset($this->email))
+        {
+            $criteria->compare('t.email', $this->email, true);
+        }
+        if(isset($this->dependent))
+        {
+            $criteria->compare('driversInfo.dependent', $this->dependent, true);
+        }
+        if(isset($this->created_at))
+        {
+            $criteria->compare('t.created_at', $this->created_at);
+        }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>false,
+            'sort' => array(
+                'defaultOrder' => 't.id DESC',
+                'attributes' => array(
+                    'fullname' => array(
+                        'asc' => 'driversInfo.fullname',
+                        'desc' => 'driversInfo.fullname DESC',
+                    ),
+                    'dependent' => array(
+                        'asc' => 'driversInfo.dependent',
+                        'desc' => 'driversInfo.dependent DESC',
+                    ),
+                    '*',
+                ),
+            ),
         ));
     }
+    public function searchforms()
+    {
+        // @todo Please modify the following code to remove attributes that should not be searched.
+        $criteria = new CDbCriteria;
+//        $criteria->with = array('driversInfo','driversRates');
+        $criteria->scopes = array('all_drivers','not_activated');
+        $criteria->with = array('driversInfo');
+        
+        if(isset($this->id))
+        {
+            $criteria->compare('t.id', $this->id);
+        }
+        if(isset($this->fullname))
+        {
+            $criteria->compare('driversInfo.fullname', $this->fullname, true);
+        }
+        if(isset($this->email))
+        {
+            $criteria->compare('t.email', $this->email, true);
+        }
+        if(isset($this->dependent))
+        {
+            $criteria->compare('driversInfo.dependent', $this->dependent, true);
+        }
+        if(isset($this->created_at))
+        {
+            $criteria->compare('t.created_at', $this->created_at);
+        }
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>false,
+            'sort' => array(
+                'defaultOrder' => 't.id DESC',
+                'attributes' => array(
+                    'fullname' => array(
+                        'asc' => 'driversInfo.fullname',
+                        'desc' => 'driversInfo.fullname DESC',
+                    ),
+                    'dependent' => array(
+                        'asc' => 'driversInfo.dependent',
+                        'desc' => 'driversInfo.dependent DESC',
+                    ),
+                    '*',
+                ),
+            ),
+        ));
+    }
+    
 
     /**
      * Returns the static model of the specified AR class.
@@ -245,6 +337,21 @@ class Users extends CActiveRecord
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+    
+    public function scopes()
+    {
+        return array(
+            'activated'=>array(
+              'condition'=>'is_activated ='.self::IS_ACTIVATED
+            ),
+            'not_activated'=>array(
+              'condition'=>'is_activated ='.self::IS_NOT_ACTIVATED
+            ),
+            'all_drivers'=>array(
+                'condition'=>"role ="."'".self::ROLE_DRIVER."'"
+            ),
+        );
     }
 
     /**

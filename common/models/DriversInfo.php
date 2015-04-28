@@ -26,6 +26,13 @@
  */
 class DriversInfo extends CActiveRecord
 {
+    const DRIVER_DEPENDENT = 1;
+    const DRIVER_INDEPENDENT = 0;
+    
+    public $dependence = array(
+        self::DRIVER_INDEPENDENT => 'Independent',
+        self::DRIVER_DEPENDENT => 'Dependent'
+    );
 
     /**
      * @return string the associated database table name
@@ -68,6 +75,11 @@ class DriversInfo extends CActiveRecord
         {
             $this->worked_to = strtotime($this->worked_to);
         }
+        if($this->isNewRecord)
+        {
+            $this->id0->role = Users::ROLE_DRIVER;
+            $this->id0->save(false);
+        }
         return true;
     }
 
@@ -80,6 +92,21 @@ class DriversInfo extends CActiveRecord
         if ($this->worked_to)
         {
             $this->worked_to = date('m/d/Y', $this->worked_to);
+        }
+        if($this->dependent !=NULL)
+        {
+            if($this->dependent == self::DRIVER_DEPENDENT)
+            {
+                $this->dependent = 'Dependent';
+            }
+            else
+            {
+                $this->dependent = 'Independent';
+            }
+        }
+        else
+        {
+            $this->dependent = '';
         }
         return true;
     }

@@ -23,8 +23,8 @@ class DashboardController extends ModuleController
                 'url' => '/driver',
             ),
             array('label' => 'Route Sheets', 'url' => '/driver/dashboard/routesheet'),
-            array('label' => 'Waybills', 'url' => '#'),
-            array('label' => 'Cashiering Receipts', 'url' => '#'),
+            array('label' => 'Waybills', 'url' => '/driver/dashboard/waybill'),
+            array('label' => 'Cashiering Receipts', 'url' => '/driver/dashboard/cashreceipt'),
             array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm'),
         );
     }

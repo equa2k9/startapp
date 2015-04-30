@@ -19,7 +19,7 @@ class DashboardController extends ModuleController
 
     public function actionViewDriver($id = NULL)
     {
-        $model = Users::model()->all_drivers()->with('driversInfo', 'driversFiles')->findByPk($id);
+        $model = Users::model()->all_drivers()->with('driversInfo', 'driversFiles','driversRates')->findByPk($id);
 
         if (!$id || !$model)
         {
@@ -27,6 +27,28 @@ class DashboardController extends ModuleController
         }
 
         $this->render('viewDriver', array('model' => $model));
+    }
+    
+    public function actionEnrollDriver()
+    {
+        if((int)$id = Yii::app()->request->getParam('id'))
+        {
+            if($model = Users::model()->not_activated()->findByPk($id))
+            {
+                if($model->activateDriver())
+                {
+                    Yii::app()->user->setFlash('success', 'Driver successfuly enrolled.<br>Please, set rates to this driver!');
+                    $this->redirect(Yii::app()->createUrl('administrator/dashboard/viewDriver/'.$model->id));
+                    
+                }
+            }
+        }
+        throw new CHttpException('Something goes wrong, please try again');
+    }
+    
+    public function actionDriverRates()
+    {
+        
     }
 
     public function getMenu()

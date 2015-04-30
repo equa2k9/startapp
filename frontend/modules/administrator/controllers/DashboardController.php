@@ -23,7 +23,8 @@ class DashboardController extends ModuleController
 
         if (!$id || !$model)
         {
-            throw new CHttpException('Requested page is not exist', 404);
+            Yii::app()->user->setFlash('danger', 'You request bad link.');
+            $this->redirect(Yii::app()->createUrl('administrator/dashboard/drivers'));
         }
 
         $this->render('viewDriver', array('model' => $model));
@@ -43,7 +44,8 @@ class DashboardController extends ModuleController
                 }
             }
         }
-        throw new CHttpException('Something goes wrong, please try again');
+        Yii::app()->user->setFlash('danger', 'You request bad link. Or driver already activated');
+        $this->redirect(Yii::app()->createUrl('administrator/dashboard/driversForms'));
     }
     
     public function actionDriverRates()

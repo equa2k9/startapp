@@ -441,7 +441,9 @@ class Users extends CActiveRecord
     public function activateDriver()
     {
         $this->is_activated = self::IS_ACTIVATED;
+        Yii::app()->sendConfirmMail('activedriver',$this,'Driver profile is activated');
         $this->save(false);
+        
         return true;
     }
 

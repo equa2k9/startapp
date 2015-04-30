@@ -17,7 +17,8 @@ class DriverModule extends MainModule
                 }
                 else
                 {
-                    throw new CHttpException("Your Driver profile is not activated.", '');
+                    Yii::app()->user->setFlash('warning', 'Your driver profile is not activated. You will receive an e-mail notification');
+                    $controller->redirect(Yii::app()->createUrl('users'));
                 }
             }
             Yii::app()->request->redirect('/site/login');

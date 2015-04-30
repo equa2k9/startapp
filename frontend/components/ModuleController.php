@@ -39,7 +39,7 @@ class ModuleController extends FrontendSiteController
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated users to access all actions
-                'expression' => 'Yii::app()->user->role ==Yii::app()->controller->module->id',
+                'expression' => 'Yii::app()->user->role == Yii::app()->controller->module->id',
             ),
             array('deny'),
         );

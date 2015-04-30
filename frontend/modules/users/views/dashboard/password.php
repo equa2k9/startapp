@@ -2,14 +2,6 @@
     <h2>Change password <small>Here you can change your password</small></h2>
 </div>
 <?php
-$this->widget('bootstrap.widgets.TbAlert', array(
-//    'block' => true, // display a larger alert block?
-    'fade' => true, // use transitions?
-    'closeText' => '&times;', // close link text - if set to false, no close link is displayed
-    'alerts' => array(// configurations per alert type
-        'success' => array('block' => true, 'fade' => true, 'closeText' => '&times;'), // success, info, warning, error or danger
-    ),
-));
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'id' => 'password-change-form',
     'type' => 'vertical',

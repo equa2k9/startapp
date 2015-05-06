@@ -33,7 +33,7 @@ class DriversRate extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('users_id, client_id', 'required'),
+            array('users_id, client_id,rate', 'required'),
             array('users_id, client_id', 'numerical', 'integerOnly' => true),
             array('rate, percentage', 'numerical'),
             // The following rule is used by search().
@@ -81,22 +81,17 @@ class DriversRate extends CActiveRecord
      * @return CActiveDataProvider the data provider that can return the models
      * based on the search/filter conditions.
      */
-    public function search()
+    public function search($id)
     {
-        // @todo Please modify the following code to remove attributes that should not be searched.
-
-        $criteria = new CDbCriteria;
-
-        $criteria->compare('id', $this->id);
-        $criteria->compare('users_id', $this->users_id);
-        $criteria->compare('client_id', $this->client_id);
-        $criteria->compare('rate', $this->rate);
-        $criteria->compare('percentage', $this->percentage);
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'users_id = '.$id;
 
         return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
+            'criteria'=>$criteria,
+            'pagination'=>false,
         ));
     }
+    
 
     /**
      * Returns the static model of the specified AR class.
@@ -107,6 +102,15 @@ class DriversRate extends CActiveRecord
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+    
+    public function viewDriver($id)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'users_id = '.$id;
+//        $criteria->compare('users_id',$id,false);
+        $this->getDbCriteria()->mergeWith($criteria);
+        return $this;
     }
 
 }

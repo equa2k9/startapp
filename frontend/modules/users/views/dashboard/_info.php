@@ -10,7 +10,12 @@ $this->widget('bootstrap.widgets.TbEditableDetailView', array(
     'emptytext' => 'no value',
 //    'apply' => true, //you can turn off applying editable to all attributes
     'attributes' => array(
-//        'image'=>array('type'=>'raw','name'=>'image','value'=> CHtml::image(Yii::getPathOfAlias('uploads').'/avatars/'.$model->photo)),
+        'image' => array(
+            'type' => 'raw',
+            'name' => 'image',
+            'value' => CHtml::image(Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo)
+                ,'',array('class'=>"img-responsive"))
+        ),
         'username',
         'email',
     ),

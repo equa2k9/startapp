@@ -93,21 +93,6 @@ class DriversInfo extends CActiveRecord
         {
             $this->worked_to = date('m/d/Y', $this->worked_to);
         }
-        if($this->dependent !=NULL)
-        {
-            if($this->dependent == self::DRIVER_DEPENDENT)
-            {
-                $this->dependent = 'Dependent';
-            }
-            else
-            {
-                $this->dependent = 'Independent';
-            }
-        }
-        else
-        {
-            $this->dependent = '';
-        }
         return true;
     }
 

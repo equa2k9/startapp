@@ -7,8 +7,8 @@ class DashboardController extends ModuleController
     {
         return array(
             'routesheet' => 'common.components.actions.RoutesheetAction',
-            'drivers'=>'common.components.actions.DriverAction',
-            'driversForms'=>'common.components.actions.DriverAction'
+            'drivers' => 'common.components.actions.DriverAction',
+            'driversForms' => 'common.components.actions.DriverAction'
         );
     }
 
@@ -19,7 +19,7 @@ class DashboardController extends ModuleController
 
     public function actionViewDriver($id = NULL)
     {
-        $model = Users::model()->all_drivers()->with('driversInfo', 'driversFiles','driversRates')->findByPk($id);
+        $model = Users::model()->all_drivers()->with('driversInfo', 'driversFiles', 'driversRates')->findByPk($id);
 
         if (!$id || !$model)
         {
@@ -27,32 +27,74 @@ class DashboardController extends ModuleController
             $this->redirect(Yii::app()->createUrl('administrator/dashboard/drivers'));
         }
 
-        $this->render('viewDriver', array('model' => $model));
+//        $rates = new CActiveDataProvider('DriversRate',array('criteria'=>array('condition'=>'users_id ='.$model->id)));
+        $rates = DriversRate::model()->search($id);
+
+        $this->render('viewDriver', array('model' => $model, 'rates' => $rates));
     }
-    
+
     public function actionEnrollDriver()
     {
-        if((int)$id = Yii::app()->request->getParam('id'))
+        if ((int) $id = Yii::app()->request->getParam('id'))
         {
-            if($model = Users::model()->not_activated()->findByPk($id))
+            if ($model = Users::model()->not_activated()->findByPk($id))
             {
-                if($model->activateDriver())
+                if ($model->activateDriver())
                 {
                     Yii::app()->user->setFlash('success', 'Driver successfuly enrolled.<br>Please, set rates to this driver!');
-                    $this->redirect(Yii::app()->createUrl('administrator/dashboard/viewDriver/'.$model->id));
-                    
+                    $this->redirect(Yii::app()->createUrl('administrator/dashboard/viewDriver/' . $model->id));
                 }
             }
         }
         Yii::app()->user->setFlash('danger', 'You request bad link. Or driver already activated');
         $this->redirect(Yii::app()->createUrl('administrator/dashboard/driversForms'));
     }
-    
-    public function actionDriverRates()
+
+    /**
+     * ajax action to set rate for driver
+     */
+    public function actionSetRate()
     {
-        
+        if (Yii::app()->request->isAjaxRequest)
+        {
+            if (Yii::app()->request->isPostRequest)
+            {
+                $data = array();
+                $model = new DriversRate();
+                $model->attributes = Yii::app()->request->getPost('DriversRate');
+                if ($model->save())
+                {
+                    $data['status'] = 'success';
+                }
+                else
+                {
+                    $data = $model->errors;
+                }
+                echo CJSON::encode($data);
+            }
+            Yii::app()->end();
+        }
+        else
+        {
+            Yii::app()->user->setFlash('danger', 'You request bad link');
+            $this->redirect(Yii::app()->createUrl('administrator'));
+        }
     }
 
+    public function actionDeleteRate($id)
+    {
+        if(Yii::app()->request->isAjaxRequest)
+        {
+            if(Yii::app()->request->isPostRequest)
+            {
+                DriversRate::model()->deleteByPk($id);
+            }
+        }
+    }
+
+    /**
+     * overdrived function to set menu
+     */
     public function getMenu()
     {
         return $this->menu = array(

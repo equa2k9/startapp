@@ -111,4 +111,41 @@ class Clients extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @param int
+     * find all clients to dropdown in drivers rate
+     * excluded client that has rates for current driver
+     * @return array
+     */
+    public static function getClients($users_id)
+    {
+
+        $data = array();
+        $rateArray = array();
+        $rateCriteria = new CDbCriteria();
+        $rateCriteria->distinct = true;
+        $rateCriteria->select = 'client_id';
+        $rateCriteria->compare('users_id',$users_id,false);
+        $rates = DriversRate::model()->findAll($rateCriteria);
+
+        foreach ($rates as $rate)
+        {
+            $rateArray[] = $rate->client_id;
+        }
+        $criteria = new CDbCriteria();
+        $criteria->select = array('id, name');
+        $criteria->addNotInCondition('id',$rateArray);
+
+        if($model = self::model()->findAll($criteria))
+        {
+
+            foreach($model as $value)
+            {
+                $data[$value->id] = $value->name;
+            }
+
+        }
+        return $data;
+    }
+
 }

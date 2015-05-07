@@ -27,8 +27,36 @@
             'driversInfo.work_history',
             'driversInfo.supervisor_name',
             'driversInfo.supervisor_contact',
-            'driversInfo.worked_from',
-            'driversInfo.worked_to',
+            array(
+                'label' => 'Worked from',
+                'type' => 'raw',
+                'value' => $this->widget('booster.widgets.TbEditableField', array(
+                'type' => 'date',
+                    'viewformat'=>'mm/dd/yyyy',
+                    'format'=>'mm/dd/yyyy',
+                'model' => $model,
+                'mode' => 'popup',
+                'attribute' => 'driversInfo.worked_from',
+                'url' => $this->createUrl('updateDriver'), //url for submit data
+                'source' => $model->driversInfo->worked_from,
+            ),
+                true),
+            ),
+            array(
+                'label' => 'Worked to',
+                'type' => 'raw',
+                'value' => $this->widget('booster.widgets.TbEditableField', array(
+                    'type' => 'date',
+                    'viewformat'=>'mm/dd/yyyy',
+                    'format'=>'mm/dd/yyyy',
+                    'model' => $model,
+                    'mode' => 'popup',
+                    'attribute' => 'driversInfo.worked_to',
+                    'url' => $this->createUrl('updateDriver'), //url for submit data
+                    'source' => $model->driversInfo->worked_to,
+                ),
+                    true),
+            ),
             'driversInfo.leaving_reason',
             array(
                 'label' => 'Drivers depend',
@@ -39,6 +67,11 @@
                 'attribute' => 'driversInfo.dependent',
                 'url' => $this->createUrl('updateDriver'), //url for submit data
                 'source' => $model->driversInfo->dependence,
+                'success' => 'js: function(response, newValue) {
+  if (!response.success)
+    $.fn.yiiGridView.update("yw3");
+    return true;
+}'
             ),
                 true),
             ),

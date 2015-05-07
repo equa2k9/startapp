@@ -63,11 +63,7 @@ $this->beginWidget(
                 {
                     $("#yw0").click();
                     $.fn.yiiGridView.update("yw3");
-                    $("#rates").on("hidden.bs.modal", function () {
-location.reload();
-})
                 }
-
             }'
             ), array('class' => 'btn btn-primary',)
     );

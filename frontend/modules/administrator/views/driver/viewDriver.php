@@ -29,3 +29,12 @@ $this->renderPartial('/driver/_setRates', array('modelDriver' => $model, 'model'
     <?php $this->renderPartial('/driver/_rates',array('model'=>$model,'not_activated'=>$not_activated,'rates'=>$rates))?>
     <?php $this->renderPartial('/driver/_files',array('model'=>$model->driversFiles))?>
 </div>
+<script type="text/javascript">
+    function updatePage()
+    {
+        $("#rates").on("hidden.bs.modal", function () {
+            location.reload()
+        });
+
+    }
+    </script>

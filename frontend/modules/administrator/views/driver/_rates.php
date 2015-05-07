@@ -45,6 +45,7 @@
                     'deleteButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/deleteRate/".$data->id)',
                 ),
             ),
+            'afterAjaxUpdate'=>'js: function(){updatePage()}',
         )
     );
     ?>

@@ -23,9 +23,11 @@ class Routesheet extends CActiveRecord
 {
 
     public $users_fullname; //for grid filter
+
     /**
      * @return string the associated database table name
      */
+
     public function tableName()
     {
         return 'routesheet';
@@ -76,7 +78,7 @@ class Routesheet extends CActiveRecord
             'updated_at' => 'Updated At',
             'confirmed' => 'Confirmed',
             'from_import' => 'From Import',
-            'users_fullname'=>'Fullname'
+            'users_fullname' => 'Fullname'
         );
     }
 
@@ -117,27 +119,27 @@ class Routesheet extends CActiveRecord
 
         $criteria = new CDbCriteria;
         $criteria->with = array('status', 'users.driversInfo' => array('select' => 'fullname'));
-        if(isset($this->id))
+        if (isset($this->id))
         {
             $criteria->compare('t.id', $this->id);
         }
-        if(isset($this->waybill_id))
+        if (isset($this->waybill_id))
         {
             $criteria->compare('t.waybill_id', $this->waybill_id);
         }
-        if(isset($this->users_fullname))
+        if (isset($this->users_fullname))
         {
             $criteria->compare('driversInfo.fullname', $this->users_fullname, true);
         }
-        if(isset($this->status_id))
+        if (isset($this->status_id))
         {
             $criteria->compare('t.status_id', $this->status_id);
         }
-        if(isset($this->created_at))
+        if (isset($this->created_at))
         {
             $criteria->compare('t.created_at', $this->created_at);
         }
-        if(isset($this->updated_at))
+        if (isset($this->updated_at))
         {
             $criteria->compare('t.updated_at', $this->updated_at);
         }

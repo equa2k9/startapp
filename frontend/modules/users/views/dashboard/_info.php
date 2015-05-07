@@ -14,7 +14,7 @@ $this->widget('bootstrap.widgets.TbEditableDetailView', array(
             'type' => 'raw',
             'name' => 'image',
             'value' => CHtml::image(Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo)
-                ,'',array('class'=>"img-responsive"))
+                    , '', array('class' => "img-responsive"))
         ),
         'username',
         'email',

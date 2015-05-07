@@ -26,9 +26,10 @@
  */
 class DriversInfo extends CActiveRecord
 {
+
     const DRIVER_DEPENDENT = 1;
     const DRIVER_INDEPENDENT = 0;
-    
+
     public $dependence = array(
         self::DRIVER_INDEPENDENT => 'Independent',
         self::DRIVER_DEPENDENT => 'Dependent'
@@ -58,7 +59,7 @@ class DriversInfo extends CActiveRecord
             array('fullname, address, phone', 'required'),
             array('id, company_years, dependent', 'numerical', 'integerOnly' => true),
             array('fullname, address, phone, company, company_adress, supervisor_name, supervisor_contact, leaving_reason, position, vehicle', 'length', 'max' => 255),
-            array('work_history,worked_from,worked_to', 'safe'),
+            array('work_history,worked_from,address,worked_to', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, fullname, address, phone, company, company_adress, company_years, work_history, supervisor_name, supervisor_contact, worked_from, worked_to, leaving_reason, position, vehicle, dependent', 'safe', 'on' => 'search'),
@@ -75,10 +76,14 @@ class DriversInfo extends CActiveRecord
         {
             $this->worked_to = strtotime($this->worked_to);
         }
-        if($this->isNewRecord)
+        if ($this->isNewRecord)
         {
             $this->id0->role = Users::ROLE_DRIVER;
             $this->id0->save(false);
+        }
+        if ($this->dependent)
+        {
+            DriversRate::deleteRates($this->id);
         }
         return true;
     }

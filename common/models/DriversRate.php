@@ -33,9 +33,11 @@ class DriversRate extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('users_id, client_id,rate', 'required'),
+            array('users_id, client_id', 'required'),
             array('users_id, client_id', 'numerical', 'integerOnly' => true),
             array('rate, percentage', 'numerical'),
+            array('rate','required','on'=>'rate'),
+            array('percentage','required','on'=>'percentage'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, users_id, client_id, rate, percentage', 'safe', 'on' => 'search'),
@@ -84,14 +86,13 @@ class DriversRate extends CActiveRecord
     public function search($id)
     {
         $criteria = new CDbCriteria();
-        $criteria->condition = 'users_id = '.$id;
+        $criteria->condition = 'users_id = ' . $id;
 
         return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria,
-            'pagination'=>false,
+            'criteria' => $criteria,
+            'pagination' => false,
         ));
     }
-    
 
     /**
      * Returns the static model of the specified AR class.
@@ -103,11 +104,21 @@ class DriversRate extends CActiveRecord
     {
         return parent::model($className);
     }
-    
+
+    public static function deleteRates($id)
+    {
+        if(self::model()->deleteAllByAttributes(array('users_id'=>$id)))
+        {
+            return true;
+        }
+            return false;
+
+    }
+
     public function viewDriver($id)
     {
         $criteria = new CDbCriteria();
-        $criteria->condition = 'users_id = '.$id;
+        $criteria->condition = 'users_id = ' . $id;
 //        $criteria->compare('users_id',$id,false);
         $this->getDbCriteria()->mergeWith($criteria);
         return $this;

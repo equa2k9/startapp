@@ -30,7 +30,7 @@ class DashboardController extends ModuleController
 //        $rates = new CActiveDataProvider('DriversRate',array('criteria'=>array('condition'=>'users_id ='.$model->id)));
         $rates = DriversRate::model()->search($id);
 
-        $this->render('viewDriver', array('model' => $model, 'rates' => $rates));
+        $this->render('/driver/viewDriver', array('model' => $model, 'rates' => $rates));
     }
 
     public function actionEnrollDriver()
@@ -83,13 +83,43 @@ class DashboardController extends ModuleController
 
     public function actionDeleteRate($id)
     {
-        if(Yii::app()->request->isAjaxRequest)
+        if (Yii::app()->request->isAjaxRequest)
         {
-            if(Yii::app()->request->isPostRequest)
+            if (Yii::app()->request->isPostRequest)
             {
                 DriversRate::model()->deleteByPk($id);
             }
         }
+    }
+
+    /**
+     * action to update default user information
+     * @return boolean in ajax
+     */
+    public function actionUpdateDriver()
+    {
+        try
+        {
+            if (Yii::app()->request->isPostRequest&&Yii::app()->request->isAjaxRequest)
+            {
+                $model = DriversInfo::model()->findByPk(Yii::app()->request->getParam('pk'));
+
+                foreach($model->attributes as $key=>$attribute)
+                {
+                   if($key == Yii::app()->request->getParam('name'))
+                   {
+                       $model->setAttribute(Yii::app()->request->getParam('name'),Yii::app()->request->getParam('value'));
+                   }
+                }
+                $model->save();
+            }
+        }
+        catch (CException $e)
+        {
+            echo CJSON::encode(array('success' => false, 'msg' => $e->getMessage()));
+            return;
+        }
+        echo CJSON::encode(array('success' => true));
     }
 
     /**

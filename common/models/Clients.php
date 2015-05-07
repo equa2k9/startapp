@@ -125,7 +125,7 @@ class Clients extends CActiveRecord
         $rateCriteria = new CDbCriteria();
         $rateCriteria->distinct = true;
         $rateCriteria->select = 'client_id';
-        $rateCriteria->compare('users_id',$users_id,false);
+        $rateCriteria->compare('users_id', $users_id, false);
         $rates = DriversRate::model()->findAll($rateCriteria);
 
         foreach ($rates as $rate)
@@ -134,16 +134,15 @@ class Clients extends CActiveRecord
         }
         $criteria = new CDbCriteria();
         $criteria->select = array('id, name');
-        $criteria->addNotInCondition('id',$rateArray);
+        $criteria->addNotInCondition('id', $rateArray);
 
-        if($model = self::model()->findAll($criteria))
+        if ($model = self::model()->findAll($criteria))
         {
 
-            foreach($model as $value)
+            foreach ($model as $value)
             {
                 $data[$value->id] = $value->name;
             }
-
         }
         return $data;
     }

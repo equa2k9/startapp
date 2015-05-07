@@ -93,8 +93,6 @@ class Users extends CActiveRecord
             $this->photo = $this->image;
             $this->hash_link = uniqid("", false);
             $this->created_at = time();
-
-            
         }
 //        if ($this->getScenario() == 'confirm')
 //        {
@@ -104,7 +102,6 @@ class Users extends CActiveRecord
         {
             $this->password_hash = self::generateSalt();
             $this->password = crypt($this->userPassword, $this->password_hash);
-            
         }
         return true;
     }
@@ -204,15 +201,16 @@ class Users extends CActiveRecord
             'userPasswordRe' => Yii::t('site', 'Re-enter password'),
         );
     }
+
     protected function afterFind()
     {
-        if($this->created_at==0)
+        if ($this->created_at == 0)
         {
             $this->unsetAttributes(array('created_at'));
         }
         else
         {
-            $this->created_at = date('m/d/Y h:i:s A',  $this->created_at);
+            $this->created_at = date('m/d/Y h:i:s A', $this->created_at);
         }
         parent::afterFind();
     }
@@ -235,33 +233,33 @@ class Users extends CActiveRecord
 
         $criteria = new CDbCriteria;
 //        $criteria->with = array('driversInfo','driversRates');
-        $criteria->scopes = array('all_drivers','activated');
+        $criteria->scopes = array('all_drivers', 'activated');
         $criteria->with = array('driversInfo');
-        
-        if(isset($this->id))
+
+        if (isset($this->id))
         {
             $criteria->compare('t.id', $this->id);
         }
-        if(isset($this->fullname))
+        if (isset($this->fullname))
         {
             $criteria->compare('driversInfo.fullname', $this->fullname, true);
         }
-        if(isset($this->email))
+        if (isset($this->email))
         {
             $criteria->compare('t.email', $this->email, true);
         }
-        if(isset($this->dependent))
+        if (isset($this->dependent))
         {
             $criteria->compare('driversInfo.dependent', $this->dependent, true);
         }
-        if(isset($this->created_at))
+        if (isset($this->created_at))
         {
             $criteria->compare('t.created_at', $this->created_at);
         }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'pagination'=>false,
+            'pagination' => false,
             'sort' => array(
                 'defaultOrder' => 't.id DESC',
                 'attributes' => array(
@@ -278,38 +276,39 @@ class Users extends CActiveRecord
             ),
         ));
     }
+
     public function searchforms()
     {
         // @todo Please modify the following code to remove attributes that should not be searched.
         $criteria = new CDbCriteria;
 //        $criteria->with = array('driversInfo','driversRates');
-        $criteria->scopes = array('all_drivers','not_activated');
+        $criteria->scopes = array('all_drivers', 'not_activated');
         $criteria->with = array('driversInfo');
-        
-        if(isset($this->id))
+
+        if (isset($this->id))
         {
             $criteria->compare('t.id', $this->id);
         }
-        if(isset($this->fullname))
+        if (isset($this->fullname))
         {
             $criteria->compare('driversInfo.fullname', $this->fullname, true);
         }
-        if(isset($this->email))
+        if (isset($this->email))
         {
             $criteria->compare('t.email', $this->email, true);
         }
-        if(isset($this->dependent))
+        if (isset($this->dependent))
         {
             $criteria->compare('driversInfo.dependent', $this->dependent, true);
         }
-        if(isset($this->created_at))
+        if (isset($this->created_at))
         {
             $criteria->compare('t.created_at', $this->created_at);
         }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'pagination'=>false,
+            'pagination' => false,
             'sort' => array(
                 'defaultOrder' => 't.id DESC',
                 'attributes' => array(
@@ -326,7 +325,6 @@ class Users extends CActiveRecord
             ),
         ));
     }
-    
 
     /**
      * Returns the static model of the specified AR class.
@@ -338,18 +336,18 @@ class Users extends CActiveRecord
     {
         return parent::model($className);
     }
-    
+
     public function scopes()
     {
         return array(
-            'activated'=>array(
-              'condition'=>'is_activated ='.self::IS_ACTIVATED
+            'activated' => array(
+                'condition' => 'is_activated =' . self::IS_ACTIVATED
             ),
-            'not_activated'=>array(
-              'condition'=>'is_activated ='.self::IS_NOT_ACTIVATED
+            'not_activated' => array(
+                'condition' => 'is_activated =' . self::IS_NOT_ACTIVATED
             ),
-            'all_drivers'=>array(
-                'condition'=>"role ="."'".self::ROLE_DRIVER."'"
+            'all_drivers' => array(
+                'condition' => "role =" . "'" . self::ROLE_DRIVER . "'"
             ),
         );
     }
@@ -437,13 +435,13 @@ class Users extends CActiveRecord
             return TRUE;
         }
     }
-    
+
     public function activateDriver()
     {
         $this->is_activated = self::IS_ACTIVATED;
-        Yii::app()->sendConfirmMail('activedriver',$this,'Driver profile is activated');
+        Yii::app()->sendConfirmMail('activedriver', $this, 'Driver profile is activated');
         $this->save(false);
-        
+
         return true;
     }
 

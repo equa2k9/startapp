@@ -62,7 +62,7 @@ $this->beginWidget(
                 if(obj.status=="success")
                 {
                     $("#yw0").click();
-                    $.fn.yiiGridView.update("yw3");
+                    $.fn.yiiGridView.update("table-rates");
                 }
             }'
             ), array('class' => 'btn btn-primary',)
@@ -80,7 +80,8 @@ $this->beginWidget(
     ?>
 
 </div>
-<?php $this->endWidget(); ?>
-<?php $this->endWidget();
+<?php
+$this->endWidget();
+$this->endWidget();
 ?>
 

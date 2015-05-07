@@ -17,6 +17,7 @@
     <?php
     $this->widget('booster.widgets.TbExtendedGridView', array(
             'fixedHeader' => false,
+            'id'=>'table-rates',
 //            'headerOffset' => 40,
             // 40px is the height of the main navigation at bootstrap
             'type' => 'striped bordered condensed',
@@ -45,7 +46,7 @@
                     'deleteButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/deleteRate/".$data->id)',
                 ),
             ),
-            'afterAjaxUpdate'=>'js: function(){updatePage()}',
+            'afterAjaxUpdate'=>'js: function(data){updatePage()}',
         )
     );
     ?>

@@ -50,6 +50,53 @@ class DashboardController extends ModuleController
         $this->redirect(Yii::app()->createUrl('administrator/dashboard/driversForms'));
     }
 
+    public function actionDeactivateDriver()
+    {
+        if ((int) $id = Yii::app()->request->getParam('id'))
+        {
+            if ($model = Users::model()->activated()->findByPk($id))
+            {
+                if ($model->deactivateDriver())
+                {
+                    Yii::app()->user->setFlash('success', 'Driver successfuly deactivated!');
+                    $this->redirect(Yii::app()->createUrl('administrator/dashboard/viewDriver/' . $model->id));
+                }
+            }
+        }
+        Yii::app()->user->setFlash('danger', 'You request bad link. Or driver already deactivated');
+        $this->redirect(Yii::app()->createUrl('administrator/dashboard/drivers'));
+    }
+
+    /**
+     * action to update default user information
+     * @return boolean in ajax
+     */
+    public function actionUpdateDriver()
+    {
+        try
+        {
+            if (Yii::app()->request->isPostRequest&&Yii::app()->request->isAjaxRequest)
+            {
+                $model = DriversInfo::model()->findByPk(Yii::app()->request->getParam('pk'));
+
+                foreach($model->attributes as $key=>$attribute)
+                {
+                    if($key == Yii::app()->request->getParam('name'))
+                    {
+                        $model->setAttribute(Yii::app()->request->getParam('name'),Yii::app()->request->getParam('value'));
+                    }
+                }
+                $model->save();
+            }
+        }
+        catch (CException $e)
+        {
+            echo CJSON::encode(array('success' => false, 'msg' => $e->getMessage()));
+            return;
+        }
+        echo CJSON::encode(array('success' => true));
+    }
+
     /**
      * ajax action to set rate for driver
      */
@@ -92,35 +139,7 @@ class DashboardController extends ModuleController
         }
     }
 
-    /**
-     * action to update default user information
-     * @return boolean in ajax
-     */
-    public function actionUpdateDriver()
-    {
-        try
-        {
-            if (Yii::app()->request->isPostRequest&&Yii::app()->request->isAjaxRequest)
-            {
-                $model = DriversInfo::model()->findByPk(Yii::app()->request->getParam('pk'));
-
-                foreach($model->attributes as $key=>$attribute)
-                {
-                   if($key == Yii::app()->request->getParam('name'))
-                   {
-                       $model->setAttribute(Yii::app()->request->getParam('name'),Yii::app()->request->getParam('value'));
-                   }
-                }
-                $model->save();
-            }
-        }
-        catch (CException $e)
-        {
-            echo CJSON::encode(array('success' => false, 'msg' => $e->getMessage()));
-            return;
-        }
-        echo CJSON::encode(array('success' => true));
-    }
+    
 
     /**
      * overdrived function to set menu

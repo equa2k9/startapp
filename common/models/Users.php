@@ -445,4 +445,12 @@ class Users extends CActiveRecord
         return true;
     }
 
+    public function deactivateDriver()
+    {
+        $this->is_activated = self::IS_NOT_ACTIVATED;
+        $this->save(false);
+
+        return true;
+    }
+
 }

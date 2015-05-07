@@ -42,6 +42,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
         ),
         array(
             'htmlOptions' => array('nowrap' => 'nowrap'),
+            'template'=>'{view}{delete}',
             'class' => 'booster.widgets.TbButtonColumn',
             'viewButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/viewDriver/$data->id")',
         )

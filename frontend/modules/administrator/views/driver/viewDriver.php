@@ -21,6 +21,20 @@ $this->renderPartial('/driver/_setRates', array('modelDriver' => $model, 'model'
                     )
             );
         }
+        else
+        {
+            $this->widget(
+                'bootstrap.widgets.TbButton', array(
+                    'label' => 'Deactivate driver',
+                    'context' => 'danger',
+                    'url' => Yii::app()->createUrl('administrator/dashboard/deactivateDriver', array('id' => $model->id)),
+                    'buttonType' => 'link',
+                    'htmlOptions' => array(
+                        'class' => 'pull-right',
+                    ),
+                )
+            );
+        }
         ?>  
     </h2>
 </div>

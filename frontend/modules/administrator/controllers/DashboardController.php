@@ -8,7 +8,16 @@ class DashboardController extends ModuleController
         return array(
             'routesheet' => 'common.components.actions.RoutesheetAction',
             'drivers' => 'common.components.actions.DriverAction',
-            'driversForms' => 'common.components.actions.DriverAction'
+            'driversForms' => 'common.components.actions.DriverAction',
+
+            'updateClientsRate'=>array(
+                'class'=>'common.components.actions.UpdateEditable',
+                'model_name'=>'ClientsRate',
+            ),
+            'updateDriver'=>array(
+                'class'=>'common.components.actions.UpdateEditable',
+                'model_name'=>'DriversInfo',
+            ),
         );
     }
 
@@ -17,12 +26,15 @@ class DashboardController extends ModuleController
         $this->render('index');
     }
 
-    public function actionViewDriver($id = NULL)
+
+    /*
+     * Driver actions
+     */
+    public function actionViewDriver($id = null)
     {
         $model = Users::model()->all_drivers()->with('driversInfo', 'driversFiles', 'driversRates')->findByPk($id);
 
-        if (!$id || !$model)
-        {
+        if (!$id || !$model) {
             Yii::app()->user->setFlash('danger', 'You request bad link.');
             $this->redirect(Yii::app()->createUrl('administrator/dashboard/drivers'));
         }
@@ -35,13 +47,13 @@ class DashboardController extends ModuleController
 
     public function actionEnrollDriver()
     {
-        if ((int) $id = Yii::app()->request->getParam('id'))
-        {
-            if ($model = Users::model()->not_activated()->findByPk($id))
-            {
-                if ($model->activateDriver())
-                {
-                    Yii::app()->user->setFlash('success', 'Driver successfuly enrolled.<br>Please, set rates to this driver!');
+        if ((int)$id = Yii::app()->request->getParam('id')) {
+            if ($model = Users::model()->not_activated()->findByPk($id)) {
+                if ($model->activateDriver()) {
+                    Yii::app()->user->setFlash(
+                        'success',
+                        'Driver successfuly enrolled.<br>Please, set rates to this driver!'
+                    );
                     $this->redirect(Yii::app()->createUrl('administrator/dashboard/viewDriver/' . $model->id));
                 }
             }
@@ -52,12 +64,9 @@ class DashboardController extends ModuleController
 
     public function actionDeactivateDriver()
     {
-        if ((int) $id = Yii::app()->request->getParam('id'))
-        {
-            if ($model = Users::model()->activated()->findByPk($id))
-            {
-                if ($model->deactivateDriver())
-                {
+        if ((int)$id = Yii::app()->request->getParam('id')) {
+            if ($model = Users::model()->activated()->findByPk($id)) {
+                if ($model->deactivateDriver()) {
                     Yii::app()->user->setFlash('success', 'Driver successfuly deactivated!');
                     $this->redirect(Yii::app()->createUrl('administrator/dashboard/viewDriver/' . $model->id));
                 }
@@ -68,61 +77,24 @@ class DashboardController extends ModuleController
     }
 
     /**
-     * action to update default user information
-     * @return boolean in ajax
-     */
-    public function actionUpdateDriver()
-    {
-        try
-        {
-            if (Yii::app()->request->isPostRequest&&Yii::app()->request->isAjaxRequest)
-            {
-                $model = DriversInfo::model()->findByPk(Yii::app()->request->getParam('pk'));
-
-                foreach($model->attributes as $key=>$attribute)
-                {
-                    if($key == Yii::app()->request->getParam('name'))
-                    {
-                        $model->setAttribute(Yii::app()->request->getParam('name'),Yii::app()->request->getParam('value'));
-                    }
-                }
-                $model->save();
-            }
-        }
-        catch (CException $e)
-        {
-            echo CJSON::encode(array('success' => false, 'msg' => $e->getMessage()));
-            return;
-        }
-        echo CJSON::encode(array('success' => true));
-    }
-
-    /**
      * ajax action to set rate for driver
      */
     public function actionSetRate()
     {
-        if (Yii::app()->request->isAjaxRequest)
-        {
-            if (Yii::app()->request->isPostRequest)
-            {
+        if (Yii::app()->request->isAjaxRequest) {
+            if (Yii::app()->request->isPostRequest) {
                 $data = array();
                 $model = new DriversRate();
                 $model->attributes = Yii::app()->request->getPost('DriversRate');
-                if ($model->save())
-                {
+                if ($model->save()) {
                     $data['status'] = 'success';
-                }
-                else
-                {
+                } else {
                     $data = $model->errors;
                 }
                 echo CJSON::encode($data);
             }
             Yii::app()->end();
-        }
-        else
-        {
+        } else {
             Yii::app()->user->setFlash('danger', 'You request bad link');
             $this->redirect(Yii::app()->createUrl('administrator'));
         }
@@ -130,52 +102,48 @@ class DashboardController extends ModuleController
 
     public function actionDeleteRate($id)
     {
-        if (Yii::app()->request->isAjaxRequest)
-        {
-            if (Yii::app()->request->isPostRequest)
-            {
+        if (Yii::app()->request->isAjaxRequest) {
+            if (Yii::app()->request->isPostRequest) {
                 DriversRate::model()->deleteByPk($id);
             }
         }
     }
 
+    /*
+     * CLIENTS actions
+     */
     public function actionClients()
     {
         $model = new Clients('search');
 
         $model->unsetAttributes();
 
-        if (isset($_GET['Clients']))
-        {
+        if (isset($_GET['Clients'])) {
             $model->attributes = $_GET['Clients'];
         }
 
-        $this->render('/clients/index',array('model'=>$model));
+        $this->render('/clients/index', array('model' => $model));
     }
 
-    public function actionPassengers()
+    public function actionClientsRate()
     {
         $clientId = Yii::app()->request->getParam('id');
         $clientsRate = ClientsRate::model()->findByPk($clientId);
 
-        $passengers = new Passengers('search');
-        $passengers->unsetAttributes();
+        $this->renderPartial(
+            '/clients/_clientsRate',
+            array(
+                'id' => $clientId,
+                'clientsRate' => $clientsRate,
+            ), false, true);
+    }
 
-        if(isset($_GET['Passengers']))
-        {
-            $passengers->attributes = $_GET['Passengers'];
-        }
+    public function actionCreateClient()
+    {
+        $model = new Clients();
+        $model->with('clientsRate');
 
-
-        $this->renderPartial('/clients/_clientsRate', array(
-            'id' => $clientId,
-            'clientsRate'=>$clientsRate,
-        ),false,true);
-        // partially rendering "_relational" view
-        $this->renderPartial('/clients/_passengers', array(
-            'id' => $clientId,
-            'passengers'=>$passengers
-        ),false,true);
+        $this->render('/clients/create',array('model'=>$model));
     }
 
     /**

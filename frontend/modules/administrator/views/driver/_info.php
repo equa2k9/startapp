@@ -69,7 +69,7 @@
                 'source' => $model->driversInfo->dependence,
                 'success' => 'js: function(response, newValue) {
   if (!response.success)
-    $.fn.yiiGridView.update("yw3");
+    $.fn.yiiGridView.update("table-rates");
     return true;
 }'
             ),

@@ -71,6 +71,15 @@ class Clients extends CActiveRecord
         );
     }
 
+    protected function afterFind()
+    {
+        if($this->created_at)
+        {
+            $this->created_at = date('m/d/Y h:i:s A',$this->created_at);
+        }
+        return parent::afterFind();
+    }
+
     /**
      * Retrieves a list of models based on the current search/filter conditions.
      *

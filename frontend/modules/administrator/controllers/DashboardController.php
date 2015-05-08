@@ -139,7 +139,44 @@ class DashboardController extends ModuleController
         }
     }
 
-    
+    public function actionClients()
+    {
+        $model = new Clients('search');
+
+        $model->unsetAttributes();
+
+        if (isset($_GET['Clients']))
+        {
+            $model->attributes = $_GET['Clients'];
+        }
+
+        $this->render('/clients/index',array('model'=>$model));
+    }
+
+    public function actionPassengers()
+    {
+        $clientId = Yii::app()->request->getParam('id');
+        $clientsRate = ClientsRate::model()->findByPk($clientId);
+
+        $passengers = new Passengers('search');
+        $passengers->unsetAttributes();
+
+        if(isset($_GET['Passengers']))
+        {
+            $passengers->attributes = $_GET['Passengers'];
+        }
+
+
+        $this->renderPartial('/clients/_clientsRate', array(
+            'id' => $clientId,
+            'clientsRate'=>$clientsRate,
+        ),false,true);
+        // partially rendering "_relational" view
+        $this->renderPartial('/clients/_passengers', array(
+            'id' => $clientId,
+            'passengers'=>$passengers
+        ),false,true);
+    }
 
     /**
      * overdrived function to set menu

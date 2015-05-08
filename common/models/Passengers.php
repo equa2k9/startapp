@@ -90,7 +90,7 @@ class Passengers extends CActiveRecord
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $criteria = new CDbCriteria;
-
+//        $criteria->condition = 'clients_id = ' . $id;
         $criteria->compare('id', $this->id);
         $criteria->compare('clients_id', $this->clients_id);
         $criteria->compare('name', $this->name, true);

@@ -23,8 +23,8 @@
             'type' => 'striped bordered condensed',
             'dataProvider' => $rates,
             'responsiveTable' => true,
-            'template' => "{items}",
             'htmlOptions' => array('style' => 'padding-top: 0!important;'),
+            'template' => "{items}",
             'columns' => array(
                 'id',
                 'client_id' => array(

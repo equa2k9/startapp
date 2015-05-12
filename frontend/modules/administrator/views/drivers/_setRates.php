@@ -13,7 +13,7 @@ $this->beginWidget(
     $form = $this->beginWidget(
             'booster.widgets.TbActiveForm', array(
         'id' => 'rates-form',
-        'action' => Yii::app()->createUrl('administrator/dashboard/setRate'),
+        'action' => Yii::app()->createUrl('administrator/drivers/setRate'),
         'type' => 'horizontal',
         'enableAjaxValidation' => false,
         'enableClientValidation' => true,
@@ -54,7 +54,7 @@ $this->beginWidget(
 
     <?php
     echo CHtml::ajaxSubmitButton(
-            'Save', Yii::app()->createUrl('administrator/dashboard/setRate'), array(
+            'Save', Yii::app()->createUrl('administrator/drivers/setRate'), array(
         'type' => 'POST',
         'data' => 'js:$("#rates-form").serialize()',
         'success' => 'js:function(data){

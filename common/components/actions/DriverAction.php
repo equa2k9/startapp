@@ -5,11 +5,11 @@ class DriverAction extends CommonAction
 
     public function run()
     {
-        if ($this->getController()->getAction()->id == 'drivers')
+        if ($this->getController()->getAction()->id == 'index')
         {
             $model = new Users('search');
         }
-        if ($this->getController()->getAction()->id == 'driversForms')
+        if ($this->getController()->getAction()->id == 'forms')
         {
             $model = new Users('searchforms');
         }

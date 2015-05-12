@@ -5,7 +5,7 @@
         'data' => $clientsRate,
         'mode' => 'popup',
         'disabled' => false,
-        'url' => $this->createUrl('updateClientsRate'), //common submit url for all fields
+        'url' => $this->createUrl('updateRate'), //common submit url for all fields
         'emptytext' => 'no value',
         'apply' => true, //you can turn off applying editable to all attributes
         'attributes' => array(

@@ -7,7 +7,7 @@
 $buttons = '{view}';
 $visible = false;
 
-if (Yii::app()->user->role == Users::ROLE_ADMIN || Users::ROLE_DISPATCHER)
+if (Yii::app()->user->role == Users::ROLE_ADMIN ||  Yii::app()->user->role == Users::ROLE_DISPATCHER)
 {
     $buttons.='{update}{delete}';
     $visible = true;

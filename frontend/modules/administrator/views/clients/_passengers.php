@@ -5,7 +5,7 @@
 $this->widget('booster.widgets.TbExtendedGridView', array(
     'type'=>'striped bordered condensed',
 //    'ajaxUpdate'=>false,
-    'ajaxUrl' => $this->createUrl('clients'),
+//    'ajaxUrl' => $this->createUrl('index'),
     'dataProvider' => $passengers->search(),
     'responsiveTable' => true,
     'htmlOptions' => array('style' => 'padding-top: 0!important;'),

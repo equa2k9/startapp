@@ -118,7 +118,18 @@ class SiteController extends FrontendSiteController
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
-                $this->redirect('/' . Yii::app()->user->role . '/');
+            {
+                if(Yii::app()->user->role==Users::ROLE_USER)
+                {
+                    $role = Yii::app()->user->role.'s';
+                }
+                else
+                {
+                    $role = Yii::app()->user->role;
+                }
+                $this->redirect('/' .$role. '/');
+            }
+
         }
         // display the login form
         $this->render('login', array('model' => $model));

@@ -49,7 +49,7 @@ class Users extends CActiveRecord
     const ROLE_BANNED = 'banned';
 
     /*
-     * Active user or not
+     * Activated driver or not
      */
     const IS_ACTIVATED = 1;
     const IS_NOT_ACTIVATED = 0;
@@ -283,6 +283,7 @@ class Users extends CActiveRecord
         $criteria = new CDbCriteria;
 //        $criteria->with = array('driversInfo','driversRates');
         $criteria->scopes = array('all_drivers', 'not_activated');
+
         $criteria->with = array('driversInfo');
 
         if (isset($this->id))

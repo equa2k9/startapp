@@ -13,7 +13,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
     'columns' => array(
         array(
             'class'=>'booster.widgets.TbRelationalColumn',
-            'url' => $this->createUrl('clientsRate'),
+            'url' => $this->createUrl('rate'),
             'value'=> '"show"',
             'afterAjaxUpdate' => 'js:function(tr,rowid,data){
 

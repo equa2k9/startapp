@@ -43,7 +43,7 @@
                     'htmlOptions' => array('nowrap' => 'nowrap'),
                     'class' => 'bootstrap.widgets.TbButtonColumn',
                     'template' => '{delete}',
-                    'deleteButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/deleteRate/".$data->id)',
+                    'deleteButtonUrl' => 'Yii::app()->createUrl("administrator/drivers/deleteRate/".$data->id)',
                 ),
             ),
             'afterAjaxUpdate'=>'js: function(data){updatePage()}',

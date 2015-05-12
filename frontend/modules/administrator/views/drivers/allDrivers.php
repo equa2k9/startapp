@@ -1,6 +1,6 @@
 <div class="page-header">
     <h2>
-        All Drivers <?php echo ($this->action->id == 'driversForms') ? 'Forms' : '' ?>
+        All Drivers <?php echo ($this->action->id == 'forms') ? 'Forms' : '' ?>
     </h2>
 </div>
 <div class="clearfix"></div>
@@ -11,7 +11,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
     'fixedHeader' => false,
     'responsiveTable' => true,
     'type' => 'striped bordered condensed',
-    'dataProvider' => ($this->action->id == 'driversForms') ? $model->searchforms() : $model->search(),
+    'dataProvider' => ($this->action->id == 'forms') ? $model->searchforms() : $model->search(),
     'template' => "{items}",
     'columns' => array(
         'id' => array('name' => 'id',
@@ -44,7 +44,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'htmlOptions' => array('nowrap' => 'nowrap'),
             'template'=>'{view}{delete}',
             'class' => 'booster.widgets.TbButtonColumn',
-            'viewButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/viewDriver/$data->id")',
+            'viewButtonUrl' => 'Yii::app()->createUrl("administrator/drivers/view/$data->id")',
         )
     ),
 ));

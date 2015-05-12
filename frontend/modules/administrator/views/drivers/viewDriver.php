@@ -1,6 +1,6 @@
 <?php
 $not_activated = ($model->is_activated == Users::IS_NOT_ACTIVATED);
-$this->renderPartial('/driver/_setRates', array('modelDriver' => $model, 'model' => new DriversRate()), FALSE);
+$this->renderPartial('_setRates', array('modelDriver' => $model, 'model' => new DriversRate()), FALSE);
 ?>
 
 <div class="page-header">
@@ -13,7 +13,7 @@ $this->renderPartial('/driver/_setRates', array('modelDriver' => $model, 'model'
                     'bootstrap.widgets.TbButton', array(
                 'label' => 'Enroll this driver',
                 'context' => 'warning',
-                'url' => Yii::app()->createUrl('administrator/dashboard/enrollDriver', array('id' => $model->id)),
+                'url' => Yii::app()->createUrl('administrator/drivers/enroll', array('id' => $model->id)),
                 'buttonType' => 'link',
                 'htmlOptions' => array(
                     'class' => 'pull-right',
@@ -27,7 +27,7 @@ $this->renderPartial('/driver/_setRates', array('modelDriver' => $model, 'model'
                 'bootstrap.widgets.TbButton', array(
                     'label' => 'Deactivate driver',
                     'context' => 'danger',
-                    'url' => Yii::app()->createUrl('administrator/dashboard/deactivateDriver', array('id' => $model->id)),
+                    'url' => Yii::app()->createUrl('administrator/drivers/deactivate', array('id' => $model->id)),
                     'buttonType' => 'link',
                     'htmlOptions' => array(
                         'class' => 'pull-right',
@@ -39,9 +39,9 @@ $this->renderPartial('/driver/_setRates', array('modelDriver' => $model, 'model'
     </h2>
 </div>
 <div class="row">
-    <?php $this->renderPartial('/driver/_info',array('model'=>$model,'not_activated'=>$not_activated))?>
-    <?php $this->renderPartial('/driver/_rates',array('model'=>$model,'not_activated'=>$not_activated,'rates'=>$rates))?>
-    <?php $this->renderPartial('/driver/_files',array('model'=>$model->driversFiles))?>
+    <?php $this->renderPartial('_info',array('model'=>$model,'not_activated'=>$not_activated))?>
+    <?php $this->renderPartial('_rates',array('model'=>$model,'not_activated'=>$not_activated,'rates'=>$rates))?>
+    <?php $this->renderPartial('_files',array('model'=>$model->driversFiles))?>
 </div>
 <script type="text/javascript">
     function updatePage()

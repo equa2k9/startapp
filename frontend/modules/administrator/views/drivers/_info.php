@@ -6,7 +6,7 @@
         'data' => $model,
         'mode' => 'inline',
         'disabled' => false,
-        'url' => $this->createUrl('updateDriver'), //common submit url for all fields
+        'url' => $this->createUrl('update'), //common submit url for all fields
         'emptytext' => 'no value',
         'apply' => true, //you can turn off applying editable to all attributes
         'attributes' => array(
@@ -37,7 +37,7 @@
                 'model' => $model,
                 'mode' => 'popup',
                 'attribute' => 'driversInfo.worked_from',
-                'url' => $this->createUrl('updateDriver'), //url for submit data
+                'url' => $this->createUrl('update'), //url for submit data
                 'source' => $model->driversInfo->worked_from,
             ),
                 true),
@@ -52,7 +52,7 @@
                     'model' => $model,
                     'mode' => 'popup',
                     'attribute' => 'driversInfo.worked_to',
-                    'url' => $this->createUrl('updateDriver'), //url for submit data
+                    'url' => $this->createUrl('update'), //url for submit data
                     'source' => $model->driversInfo->worked_to,
                 ),
                     true),
@@ -65,7 +65,7 @@
                 'model' => $model,
                 'mode' => 'inline',
                 'attribute' => 'driversInfo.dependent',
-                'url' => $this->createUrl('updateDriver'), //url for submit data
+                'url' => $this->createUrl('update'), //url for submit data
                 'source' => $model->driversInfo->dependence,
                 'success' => 'js: function(response, newValue) {
   if (!response.success)

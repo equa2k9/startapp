@@ -1,8 +1,6 @@
 <?php
 
 /**
- *    Хелпер, содержащий самые необходимые функции для работы с текстом
- *    Большинство функций взяты из фреймворка Codeigniter (text_helper)
  *
  * @package Yupe
  * @subpackage helpers
@@ -14,44 +12,7 @@
 class YText
 {
 
-    public static function translit($str)
-    {
-        $str = str_replace(' ', '-', $str);
-        $str = str_replace('_', '-', $str);
 
-        $tr = array(
-            "А" => "A", "Б" => "B", "В" => "V", "Г" => "G",
-            "Д" => "D", "Е" => "E", "Ж" => "J", "З" => "Z", "И" => "I",
-            "Й" => "Y", "К" => "K", "Л" => "L", "М" => "M", "Н" => "N",
-            "О" => "O", "П" => "P", "Р" => "R", "С" => "S", "Т" => "T",
-            "У" => "U", "Ф" => "F", "Х" => "H", "Ц" => "TS", "Ч" => "CH",
-            "Ш" => "SH", "Щ" => "SCH", "Ъ" => "", "Ы" => "YI", "Ь" => "",
-            "Э" => "E", "Ю" => "YU", "Я" => "YA", "а" => "a", "б" => "b",
-            "в" => "v", "г" => "g", "д" => "d", "е" => "e", "ж" => "j",
-            "з" => "z", "и" => "i", "й" => "y", "к" => "k", "л" => "l",
-            "м" => "m", "н" => "n", "о" => "o", "п" => "p", "р" => "r",
-            "с" => "s", "т" => "t", "у" => "u", "ф" => "f", "х" => "h",
-            "ц" => "ts", "ч" => "ch", "ш" => "sh", "щ" => "sch", "ъ" => "y",
-            "ы" => "yi", "ь" => "", "э" => "e", "ю" => "yu", "я" => "ya",
-        );
-
-        $str = strtolower(strtr($str, $tr));
-        $str = preg_replace('/[^0-9a-z\-]/', '', $str);
-
-        return $str;
-    }
-
-    /**
-     * Character Limiter
-     *
-     * Обрезать текст до определенного колиства символов, добавив в конце "..."
-     *
-     * @access public
-     * @param  string  - строка для обрезания
-     * @param  integer - до скольких символов обрезать строку
-     * @param  string  - окончание текста
-     * @return string - новая строка
-     */
     public static function characterLimiter($str, $n = 500, $end_char = '&#8230;')
     {
         if (mb_strlen($str) < $n)
@@ -80,17 +41,6 @@ class YText
         }
     }
 
-    /**
-     * Word Limiter
-     *
-     * Обрезать текст до определенного колиства слов, добавив в конце "..."
-     *
-     * @access public
-     * @param  string  - строка для обрезания
-     * @param  integer - до скольких символов обрезать строку
-     * @param  string  - окончание текста
-     * @return string - новая строка
-     */
     public static function wordLimiter($str, $limit = 100, $end_char = '&#8230;')
     {
         if (trim($str) == '')
@@ -108,18 +58,7 @@ class YText
         return rtrim($matches[0]) . $end_char;
     }
 
-    /**
-     * Цензор слов
-     *
-     * Принимает строку и массив запрещенных слов. Слова в строке,
-     * которые содержатся в массиве заменяются на символы ###
-     *
-     * @access public
-     * @param  string - строка
-     * @param  array  - массив запрещенных слов
-     * @param  string - чем замещать слова
-     * @return string - строка после замены
-     */
+
     public static function wordCensor($str, $censored, $replacement = '')
     {
         if (!is_array($censored))
@@ -154,18 +93,7 @@ class YText
         return trim($str);
     }
 
-    /**
-     * Выделить фразу
-     *
-     * Выделить фразу в тексте
-     *
-     * @access public
-     * @param  string - строка для поиска
-     * @param  string - фраза для выделения
-     * @param  string - текст, который будет вставлен до найденной фразы
-     * @param  string - текст, который будет вставлен после найденной фразы
-     * @return string - строка с выделенными фразами
-     */
+    
     public static function highlightPhrase($str, $phrase, $tag_open = '<strong>', $tag_close = '</strong>')
     {
         if ($str == '')

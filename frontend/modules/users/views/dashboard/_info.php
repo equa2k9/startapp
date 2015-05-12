@@ -1,5 +1,7 @@
 <?php
-
+$profilePhoto = file_exists(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo)?
+    Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo):
+    Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/avatar_blank.png');
 $this->widget('bootstrap.widgets.TbEditableDetailView', array(
     'data' => $model,
 //'mode' => 'inline',
@@ -13,10 +15,7 @@ $this->widget('bootstrap.widgets.TbEditableDetailView', array(
         'image' => array(
             'type' => 'raw',
             'name' => 'image',
-            'value' => CHtml::image((file_exists(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo)?
-                Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo):
-                Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/avatar_blank.png')), '',array('class' => "img-responsive",'style'=>'height: 300px;')),
-
+            'value' => CHtml::image($profilePhoto, '', array('class' => "img-responsive",'style'=>'max-height: 300px!important;'))
         ),
         'username',
         'email',

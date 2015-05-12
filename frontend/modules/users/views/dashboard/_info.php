@@ -15,8 +15,8 @@ $this->widget('bootstrap.widgets.TbEditableDetailView', array(
             'name' => 'image',
             'value' => CHtml::image((file_exists(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo)?
                 Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/' . $model->photo):
-                Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/avatar_blank.png'))),
-                '',array('class' => "img-responsive")
+                Yii::app()->assetManager->publish(Yii::getPathOfAlias('uploads') . '/avatars/avatar_blank.png')), '',array('class' => "img-responsive",'style'=>'height: 300px;')),
+
         ),
         'username',
         'email',

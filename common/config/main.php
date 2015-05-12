@@ -45,6 +45,9 @@ return array(
             'class' => 'WebUser',
             'allowAutoLogin' => true,
         ),
+        'assetManager' => array(
+            'linkAssets' => true,
+        ),
         'cache' => array(
             'class' => 'system.caching.CFileCache',
         ),

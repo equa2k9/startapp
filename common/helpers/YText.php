@@ -93,7 +93,7 @@ class YText
         return trim($str);
     }
 
-    
+
     public static function highlightPhrase($str, $phrase, $tag_open = '<strong>', $tag_close = '</strong>')
     {
         if ($str == '')

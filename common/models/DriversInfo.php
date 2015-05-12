@@ -79,6 +79,7 @@ class DriversInfo extends CActiveRecord
         if ($this->isNewRecord)
         {
             $this->id0->role = Users::ROLE_DRIVER;
+            $this->dependent = self::DRIVER_DEPENDENT;
             $this->id0->save(false);
         }
         if ($this->dependent)
@@ -154,7 +155,7 @@ class DriversInfo extends CActiveRecord
                         {
                             //Its always good to log something
                             Yii::log("Could not save file:\n" . CVarDumper::dumpAsString(
-                                            $img->getErrors()), CLogger::LEVEL_ERROR);
+                                            $fil->getErrors()), CLogger::LEVEL_ERROR);
                             //this exception will rollback the transaction
                             throw new Exception('Could not save file');
                         }

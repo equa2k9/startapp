@@ -8,7 +8,18 @@ class ClientsController extends AdministratorController
                 'class'=>'common.components.actions.UpdateEditable',
                 'model_name'=>'ClientsRate',
             ),
-
+            'update'=>array(
+                'class'=>'common.components.actions.UpdateEditable',
+                'model_name'=>'Clients',
+            ),
+            'deletePassengers'=>array(
+                'class'=>'common.components.actions.DeleteAjaxAction',
+                'model_name'=>'Passengers',
+            ),
+            'delete'=>array(
+                'class'=>'common.components.actions.DeleteAjaxAction',
+                'model_name'=>'Clients',
+            ),
         );
     }
 
@@ -28,28 +39,67 @@ class ClientsController extends AdministratorController
         $this->render('index', array('model' => $model));
     }
 
-    public function actionRate()
+    public function actionView($id = NULL)
     {
-        $clientId = Yii::app()->request->getParam('id');
-        $clientsRate = ClientsRate::model()->findByPk($clientId);
-        if(!$clientsRate)
-        {
-            $clientsRate = new ClientsRate();
-            $clientsRate->id = $clientId;
+        $model = Clients::model()->findByPk($id);
+        if (!$id || !$model) {
+            Yii::app()->user->setFlash('danger', 'You request bad link.');
+            $this->redirect(Yii::app()->createUrl('administrator/clients'));
         }
-        $this->renderPartial('_clientsRate',array(
-                'id' => $clientId,
-                'clientsRate' => $clientsRate,
-            ), false, true);
+        $passengers = new Passengers('search');
+        $passengers->clients_id = $id;
+
+        $clientsRate = ClientsRate::model()->findByPk($id);
+
+        $this->render('viewClients', array('model' => $model, 'passengers' => $passengers,'clientsRate'=>$clientsRate));
     }
 
     public function actionCreate()
     {
-        $model = new Clients();
-        $model->with('clientsRate');
+        if (Yii::app()->request->isAjaxRequest) {
+            if (Yii::app()->request->isPostRequest) {
 
+                $data = array();
+                $model = new Clients();
+                $clientsRate = new ClientsRate();
+                $model->attributes = Yii::app()->request->getPost('Clients');
+                if ($model->save()) {
+                    $clientsRate->id =$model->id;
+                    $clientsRate->save(false);
+                    $data['status'] = 'success';
+                } else {
+                    $data = $model->errors;
+                }
+                echo CJSON::encode($data);
+            }
+            Yii::app()->end();
+        } else {
+            Yii::app()->user->setFlash('danger', 'You request bad link');
+            $this->redirect(Yii::app()->createUrl('administrator'));
+        }
+    }
+    public function actionCreatePassenger()
+    {
+        if (Yii::app()->request->isAjaxRequest) {
+            if (Yii::app()->request->isPostRequest) {
 
-        $this->render('create',array('model'=>$model));
+                $data = array();
+                $model = new Passengers();
+
+                $model->attributes = Yii::app()->request->getPost('Passengers');
+
+                if ($model->save()) {
+                    $data['status'] = 'success';
+                } else {
+                    $data = $model->errors;
+                }
+                echo CJSON::encode($data);
+            }
+            Yii::app()->end();
+        } else {
+            Yii::app()->user->setFlash('danger', 'You request bad link');
+            $this->redirect(Yii::app()->createUrl('administrator'));
+        }
     }
 
 }

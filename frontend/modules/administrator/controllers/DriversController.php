@@ -11,6 +11,10 @@ class DriversController extends AdministratorController
                 'class'=>'common.components.actions.UpdateEditable',
                 'model_name'=>'DriversInfo',
             ),
+            'deleteRate'=>array(
+                'class'=>'common.components.actions.DeleteAjaxAction',
+                'model_name'=>'DriversRate',
+            ),
         );
     }
 
@@ -84,16 +88,6 @@ class DriversController extends AdministratorController
         } else {
             Yii::app()->user->setFlash('danger', 'You request bad link');
             $this->redirect(Yii::app()->createUrl('administrator'));
-        }
-    }
-
-    public function actionDeleteRate($id)
-    {
-        if (Yii::app()->request->isAjaxRequest) {
-            if (Yii::app()->request->isPostRequest) {
-                DriversRate::model()->deleteByPk($id);
-                Yii::app()->end();
-            }
         }
     }
 }

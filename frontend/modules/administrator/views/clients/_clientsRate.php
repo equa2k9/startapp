@@ -1,5 +1,6 @@
-<div class="row">
-<div class="col-md-6">
+<div class="col-md-3">
+    <h3>Rates:</h3>
+    <hr>
     <?php
     $this->widget('bootstrap.widgets.TbEditableDetailView', array(
         'data' => $clientsRate,

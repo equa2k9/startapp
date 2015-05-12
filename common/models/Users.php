@@ -202,19 +202,6 @@ class Users extends CActiveRecord
         );
     }
 
-    protected function afterFind()
-    {
-        if ($this->created_at == 0)
-        {
-            $this->unsetAttributes(array('created_at'));
-        }
-        else
-        {
-            $this->created_at = date('m/d/Y h:i:s A', $this->created_at);
-        }
-        parent::afterFind();
-    }
-
     /**
      * Retrieves a list of models based on the current search/filter conditions.
      *

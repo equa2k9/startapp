@@ -78,7 +78,6 @@ class DashboardController extends ModuleController
             ),
             array('label' => 'Change password', 'url' => '/users/dashboard/changePassword'),
             array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm', 'visible' => Yii::app()->user->role == array(Users::ROLE_DRIVER, Users::ROLE_USER)),
-            array('label' => ucfirst($role) . ' dashboard', 'url' => '/' . $role),
         );
     }
 

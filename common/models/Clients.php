@@ -34,13 +34,21 @@ class Clients extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('name, created_at', 'required'),
+            array('name', 'required'),
             array('created_at', 'numerical', 'integerOnly' => true),
             array('name, phone, email', 'length', 'max' => 255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, name, phone, email, created_at', 'safe', 'on' => 'search'),
         );
+    }
+    protected function beforeSave()
+    {
+        if($this->isNewRecord)
+        {
+            $this->created_at = time();
+        }
+        return true;
     }
 
     /**
@@ -156,4 +164,23 @@ class Clients extends CActiveRecord
         return $data;
     }
 
+    /**
+     * @param int
+     * find all clients to dropdown in passenger modal
+     * @return array
+     */
+    public static function getAllClients()
+    {
+        $data = array();
+
+        if ($model = self::model()->findAll())
+        {
+
+            foreach ($model as $value)
+            {
+                $data[$value->id] = $value->name;
+            }
+        }
+        return $data;
+    }
 }

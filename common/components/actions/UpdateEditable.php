@@ -21,6 +21,7 @@ class UpdateEditable extends CommonAction
                     }
                 }
                 $model->save();
+
             }
         } catch (CException $e) {
             echo CJSON::encode(array('success' => false, 'msg' => $e->getMessage()));
@@ -28,5 +29,6 @@ class UpdateEditable extends CommonAction
             return;
         }
         echo CJSON::encode(array('success' => true));
+
     }
 }

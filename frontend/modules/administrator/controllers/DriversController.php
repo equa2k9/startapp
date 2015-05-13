@@ -30,7 +30,7 @@ class DriversController extends AdministratorController
             $this->redirect(Yii::app()->createUrl('administrator/drivers'));
         }
 
-//        $rates = new CActiveDataProvider('DriversRate',array('criteria'=>array('condition'=>'users_id ='.$model->id)));
+
         $rates = DriversRate::model()->search($id);
 
         $this->render('viewDriver', array('model' => $model, 'rates' => $rates));
@@ -88,6 +88,27 @@ class DriversController extends AdministratorController
         } else {
             Yii::app()->user->setFlash('danger', 'You request bad link');
             $this->redirect(Yii::app()->createUrl('administrator'));
+        }
+    }
+
+    public function actionAddComment()
+    {
+        if (Yii::app()->request->isAjaxRequest) {
+            if (Yii::app()->request->isPostRequest) {
+                $data = array();
+                $model = new DriversComments();
+                $model->attributes = Yii::app()->request->getPost('DriversComments');
+                if ($model->save()) {
+                    $data['status'] = 'success';
+                } else {
+                    $data = $model->errors;
+                }
+                echo CJSON::encode($data);
+            }
+            Yii::app()->end();
+        } else {
+            Yii::app()->user->setFlash('danger', 'You request bad link');
+            $this->redirect(Yii::app()->createUrl('administrator/drivers'));
         }
     }
 }

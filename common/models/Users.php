@@ -178,6 +178,8 @@ class Users extends CActiveRecord
             'routesheets' => array(self::HAS_MANY, 'Routesheet', 'users_id'),
             'tmptrips' => array(self::HAS_MANY, 'Tmptrip', 'users_id'),
             'tripsActivities' => array(self::HAS_MANY, 'TripsActivity', 'users_id'),
+            'driversComments' => array(self::HAS_MANY, 'DriversComments', 'leave_comment_id'),
+            'driversComments1' => array(self::HAS_MANY, 'DriversComments', 'users_id'),
         );
     }
 
@@ -424,6 +426,10 @@ class Users extends CActiveRecord
         }
     }
 
+    /**
+     * enroll this driver
+     * @return bool
+     */
     public function activateDriver()
     {
         $this->is_activated = self::IS_ACTIVATED;
@@ -433,6 +439,10 @@ class Users extends CActiveRecord
         return true;
     }
 
+    /**
+     *
+     * @return bool
+     */
     public function deactivateDriver()
     {
         $this->is_activated = self::IS_NOT_ACTIVATED;

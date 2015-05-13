@@ -38,7 +38,8 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'name' => 'created_at',
             'sortable' => true,
             'type' => 'raw',
-            'headerHtmlOptions' => array('width' => '14%;')
+            'headerHtmlOptions' => array('width' => '14%;'),
+            'value'=>'date("m/d/Y h:i:s A","$data->created_at")'
         ),
         array(
             'htmlOptions' => array('nowrap' => 'nowrap'),

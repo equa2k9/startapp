@@ -5,10 +5,11 @@ return array(
     'basePath' => 'frontend',
     'name' => 'Frontend',
     'theme'=>'bootstrap', //not use booster core css, because it's old 3.1.1 version
+    //now it's replaced in this extension with new version
     'preload' => array('bootstrap'),
     'aliases' => array(
         'xupload' => 'common.extensions.xupload',
-        'yiiwheels' =>  Yii::getPathOfAlias('common'). '/extensions/yiiwheels', // change if necessary
+//        'yiiwheels' =>  Yii::getPathOfAlias('common'). '/extensions/yiiwheels', // change if necessary
         
     ),
     'modules' => array(
@@ -47,10 +48,10 @@ return array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
         ),
-        'phpThumb' => array(
-            'class' => 'common.ext.EPhpThumb.EPhpThumb',
-            'options' => array(),
-        ),
+//        'phpThumb' => array(
+//            'class' => 'common.ext.EPhpThumb.EPhpThumb',
+//            'options' => array(),
+//        ),
         'editable' => array(
             'class' => 'editable.EditableConfig',
             'form' => 'bootstrap', //form style: 'bootstrap', 'jqueryui', 'plain'
@@ -61,13 +62,14 @@ return array(
         ),
         'bootstrap' => array(
             'class' => 'bootstrap.components.Booster',
+            'enableCdn'=>false,
             'responsiveCss' => true,
             'minify' => true,
             'coreCss' => true,
         ),
-        'yiiwheels' => array(
-            'class' => 'yiiwheels.YiiWheels',
-        ),
+//        'yiiwheels' => array(
+//            'class' => 'yiiwheels.YiiWheels',
+//        ),
         'themeManager'=>array(
             'basePath'=>ROOT_DIR.'/themes',
         ),

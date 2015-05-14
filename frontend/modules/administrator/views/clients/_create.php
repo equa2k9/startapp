@@ -22,15 +22,15 @@ $this->beginWidget(
     );
     ?>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'name')?>
+        <?php echo $form->textFieldGroup($model, 'name') ?>
 
     </div>
 
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'phone')?>
+        <?php echo $form->textFieldGroup($model, 'phone') ?>
     </div>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'email')?>
+        <?php echo $form->textFieldGroup($model, 'email') ?>
     </div>
 </div>
 

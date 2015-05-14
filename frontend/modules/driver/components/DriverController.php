@@ -1,6 +1,8 @@
 <?php
+
 class DriverController extends ModuleController
 {
+
     public function getMenu()
     {
         return $this->menu = array(
@@ -14,4 +16,5 @@ class DriverController extends ModuleController
             array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm'),
         );
     }
+
 }

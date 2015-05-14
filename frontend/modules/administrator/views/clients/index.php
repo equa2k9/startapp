@@ -1,28 +1,29 @@
-<?php $this->renderPartial('_create', array('model' => new Clients()), FALSE);?>
+<?php $this->renderPartial('_create', array('model' => new Clients()), FALSE); ?>
 <div class="page-header">
     <h2>
         Clients
         <?php
         $this->widget(
-            'bootstrap.widgets.TbButton', array(
-                'label' => 'Add new client',
-                'context' => 'info',
-                'htmlOptions' => array(
-                    'class' => 'pull-right',
-                    'data-toggle' => 'modal',
-                    'data-target' => '#create-client',
-                ),
-            )
+                'bootstrap.widgets.TbButton', array(
+            'label' => 'Add new client',
+            'context' => 'info',
+            'htmlOptions' => array(
+                'class' => 'pull-right',
+                'data-toggle' => 'modal',
+                'data-target' => '#create-client',
+            ),
+                )
         );
         ?>
-        </h2>
-       </div>
+    </h2>
+</div>
 <?php
 $this->widget('booster.widgets.TbExtendedGridView', array(
-    'filter'=>$model,
-    'type'=>'striped bordered condensed',
+    'filter' => $model,
+    'type' => 'striped bordered condensed',
+    'responsiveTable' => true,
     'dataProvider' => $model->search(),
-    'id'=>'all-clients',
+    'id' => 'all-clients',
     'template' => "{items}",
     'columns' => array(
         'id',
@@ -30,11 +31,11 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
         'phone',
         'email',
         'created_at',
-         array(
-             'htmlOptions' => array('nowrap' => 'nowrap'),
-             'template'=>'{view}{delete}',
-             'class' => 'booster.widgets.TbButtonColumn',
-             'viewButtonUrl' => 'Yii::app()->createUrl("administrator/clients/view/$data->id")',
-         ),
+        array(
+            'htmlOptions' => array('nowrap' => 'nowrap'),
+            'template' => '{view}{delete}',
+            'class' => 'booster.widgets.TbButtonColumn',
+            'viewButtonUrl' => 'Yii::app()->createUrl("administrator/clients/view/$data->id")',
+        ),
     ),
 ));

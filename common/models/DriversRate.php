@@ -36,8 +36,8 @@ class DriversRate extends CActiveRecord
             array('users_id, client_id', 'required'),
             array('users_id, client_id', 'numerical', 'integerOnly' => true),
             array('rate, percentage', 'numerical'),
-            array('rate','required','on'=>'rate'),
-            array('percentage','required','on'=>'percentage'),
+            array('rate', 'required', 'on' => 'rate'),
+            array('percentage', 'required', 'on' => 'percentage'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, users_id, client_id, rate, percentage', 'safe', 'on' => 'search'),
@@ -107,12 +107,11 @@ class DriversRate extends CActiveRecord
 
     public static function deleteRates($id)
     {
-        if(self::model()->deleteAllByAttributes(array('users_id'=>$id)))
+        if (self::model()->deleteAllByAttributes(array('users_id' => $id)))
         {
             return true;
         }
-            return false;
-
+        return false;
     }
 
     public function viewDriver($id)

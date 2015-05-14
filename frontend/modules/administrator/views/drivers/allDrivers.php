@@ -39,11 +39,11 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'sortable' => true,
             'type' => 'raw',
             'headerHtmlOptions' => array('width' => '14%;'),
-            'value'=>'date("m/d/Y h:i:s A","$data->created_at")'
+            'value' => 'date("m/d/Y h:i:s A","$data->created_at")'
         ),
         array(
             'htmlOptions' => array('nowrap' => 'nowrap'),
-            'template'=>'{view}{delete}',
+            'template' => '{view}{delete}',
             'class' => 'booster.widgets.TbButtonColumn',
             'viewButtonUrl' => 'Yii::app()->createUrl("administrator/drivers/view/$data->id")',
         )

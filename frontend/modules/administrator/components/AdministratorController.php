@@ -1,6 +1,8 @@
 <?php
+
 class AdministratorController extends ModuleController
 {
+
     /**
      * overdrived function to set menu
      */
@@ -19,4 +21,5 @@ class AdministratorController extends ModuleController
             array('label' => 'Clients', 'url' => '/administrator/clients'),
         );
     }
+
 }

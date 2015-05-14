@@ -23,25 +23,25 @@ $this->beginWidget(
     ?>
     <div class="row">
         <?php
-        echo $form->hiddenField($model,'clients_id',array('value'=>$id));
+        echo $form->hiddenField($model, 'clients_id', array('value' => $id));
         ?>
     </div>
     <div class="clearfix"></div>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'name')?>
+        <?php echo $form->textFieldGroup($model, 'name') ?>
 
     </div>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'phone')?>
+        <?php echo $form->textFieldGroup($model, 'phone') ?>
     </div>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'email')?>
+        <?php echo $form->textFieldGroup($model, 'email') ?>
     </div>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'pickup_number')?>
+        <?php echo $form->textFieldGroup($model, 'pickup_number') ?>
     </div>
     <div class="row">
-        <?php echo $form->textFieldGroup($model,'dropoff_number')?>
+        <?php echo $form->textFieldGroup($model, 'dropoff_number') ?>
     </div>
 </div>
 

@@ -15,6 +15,6 @@
             'per_mile',
             'ambulatory',
             'wheelchair'
-        )));
+    )));
     ?>
 </div>

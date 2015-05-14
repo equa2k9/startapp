@@ -42,9 +42,10 @@ class Clients extends CActiveRecord
             array('id, name, phone, email, created_at', 'safe', 'on' => 'search'),
         );
     }
+
     protected function beforeSave()
     {
-        if($this->isNewRecord)
+        if ($this->isNewRecord)
         {
             $this->created_at = time();
         }
@@ -81,9 +82,9 @@ class Clients extends CActiveRecord
 
     protected function afterFind()
     {
-        if($this->created_at)
+        if ($this->created_at)
         {
-            $this->created_at = date('m/d/Y h:i:s A',$this->created_at);
+            $this->created_at = date('m/d/Y h:i:s A', $this->created_at);
         }
         return parent::afterFind();
     }
@@ -183,4 +184,5 @@ class Clients extends CActiveRecord
         }
         return $data;
     }
+
 }

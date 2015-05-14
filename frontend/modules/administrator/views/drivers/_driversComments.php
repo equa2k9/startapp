@@ -9,7 +9,11 @@
     </div>
 
     <div class="modal-body">
-        <p><?php
+    <div class="well" style=" max-height: 450px; height: auto;
+    overflow-y: scroll;">
+        <hr>
+
+        <?php
             $this->widget('zii.widgets.CListView', array(
                 'dataProvider'=>new CActiveDataProvider('DriversComments',array('criteria'=>array('condition'=>'users_id='.$model->id),'pagination'=>false)),
                 'itemView'=>'_comment',
@@ -18,7 +22,10 @@
                 'enablePagination'=>false,
                 'enableSorting'=>false
             ));
-            ?></p>
+            ?>
+
+    </div>
+
         <?php
         $comments = new DriversComments();
 
@@ -43,7 +50,7 @@
     <div class="modal-footer">
         <?php
         echo CHtml::ajaxSubmitButton(
-            'Save', Yii::app()->createUrl('administrator/drivers/addComment'), array(
+            'Add comment', Yii::app()->createUrl('administrator/drivers/addComment'), array(
             'type' => 'POST',
             'data' => 'js:$("#comments-form").serialize()',
             'success' => 'js:function(data){

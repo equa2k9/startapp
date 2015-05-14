@@ -7,8 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-        <!--<link rel="stylesheet" href="<?php // echo Yii::app()->theme->baseUrl.'/'   ?>css/custom-style.css">-->
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>.
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -32,7 +31,6 @@
                     <div class="panel-body">
                         <?php
                         $this->widget('bootstrap.widgets.TbAlert', array(
-//    'block' => true, // display a larger alert block?
                             'fade' => true, // use transitions?
                             'closeText' => '&times;', // close link text - if set to false, no close link is displayed
                             'alerts' => array(// configurations per alert type

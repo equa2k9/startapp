@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 квіт 2015, 9:30:20
+    Author     : oles
+*/
+/*.panel-body .btn:not(.btn-block) */
+/*{ */
+    /*width:150px;*/
+    /*margin-bottom:10px; */
+/*}*/
+
+.list-group-item:first-child,.list-group-item:last-child {
+    border-radius:0;
+}
+
+h3 {
+    border:0 solid #efefef;
+    border-bottom-width:1px;
+    padding-bottom:10px;
+}
+.comments
+{
+
+}

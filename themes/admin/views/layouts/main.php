@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title><?php echo CHtml::encode($this->pageTitle); ?></title>.
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -22,7 +22,6 @@
             <div class="col-md-2 sidebar">
                 <?php $this->renderPartial('//site/_dashmenu') ?>
             </div>
-
             <div class="col-md-10 content">
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -46,6 +45,5 @@
                     </div>
                 </div>
             </div>
-
     </body>
 </html>

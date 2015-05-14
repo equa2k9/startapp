@@ -14,7 +14,29 @@
  */
 class Activity extends CActiveRecord
 {
+    /**
+     * date
+     * @var $dateFrom
+     */
+    public $dateFrom;
 
+    /**
+     * date
+     * @var $dateTo
+     */
+    public $dateTo;
+
+    /**
+     * date
+     * @var $dateFromO
+     */
+    public $dateFromO;
+
+    /**
+     *
+     * @var date $dateToO
+     */
+    public $dateToO;
     /**
      * @return string the associated database table name
      */
@@ -34,7 +56,7 @@ class Activity extends CActiveRecord
             array('users_id, login, logout', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, users_id, login, logout', 'safe', 'on' => 'search'),
+            array('id, users_id, dateToO, dateTo, dateFromO, dateFrom, login, logout', 'safe', 'on' => 'search'),
         );
     }
 
@@ -78,16 +100,58 @@ class Activity extends CActiveRecord
     public function search()
     {
         // @todo Please modify the following code to remove attributes that should not be searched.
+        $dateF = strtotime($this->dateFrom);
+        $dateT = strtotime($this->dateTo);
+        $dateFoO = strtotime($this->dateFromO);
+        $dateToO = strtotime($this->dateToO);
 
         $criteria = new CDbCriteria;
 
-        $criteria->compare('id', $this->id);
+        if (!empty($this->id))
+        {
+            $criteria->compare('id', $this->id);
+        }
         $criteria->compare('users_id', $this->users_id);
-        $criteria->compare('login', $this->login);
-        $criteria->compare('logout', $this->logout);
+        if (!empty($this->dateFrom) && (!empty($this->dateTo) && ($this->dateTo == $this->dateFrom)))
+        {
+            $dat = strtotime($this->dateTo . " 23:59:59");
+            $criteria->addCondition("login >= '$dateF' AND login <= '$dat'");
+        }
+        if (!empty($this->dateFrom) && (!empty($this->dateTo) && ($this->dateTo != $this->dateFrom)))
+        {
+            $criteria->addCondition("login >= '$dateF' AND login <= '$dateT'");
+        }
+        if (empty($this->dateFrom) && (!empty($this->dateTo)))
+        {
+            $criteria->addCondition("login <= '$dateT'");
+        }
+        if (!empty($this->dateFrom) && (empty($this->dateTo)))
+        {
+            $criteria->addCondition("login >= '$dateF'");
+        }
+
+        if (!empty($this->dateFromO) && (!empty($this->dateToO) && ($this->dateToO == $this->dateFromO)))
+        {
+
+            $criteria->compare("logout", strtotime($this->dateToO));
+        }
+        if (!empty($this->dateFromO) && (!empty($this->dateToO) && ($this->dateToO != $this->dateFromO)))
+        {
+            $criteria->addCondition("logout >= '$dateFoO' AND logout <= '$dateToO'");
+        }
+        if (empty($this->dateFromO) && (!empty($this->dateToO)))
+        {
+            $criteria->addCondition("logout <= '$dateToO'");
+        }
+        if (!empty($this->dateFromO) && (empty($this->dateToO)))
+        {
+            $criteria->addCondition("logout >= '$dateFoO'");
+        }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort' => array('defaultOrder' => array('id' => 'DESC')),
+            'pagination' => false
         ));
     }
 
@@ -100,6 +164,34 @@ class Activity extends CActiveRecord
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+
+    /**
+     * id of user
+     * type of of action
+     * @param $id
+     * @param $type
+     */
+    public static function logUser($id, $type = true)
+    {
+        if ($type)
+        {
+            $model = new Activity();
+            $model->users_id = $id;
+            $model->login = time();
+        }
+        else
+        {
+            $criteria = new CDbCriteria();
+            $criteria->order = 'id DESC';
+            $criteria->compare('users_id', Yii::app()->user->id, false);
+
+            $model = self::model()->find($criteria);
+            $model->logout = time();
+        }
+
+        $model->save(false);
+
     }
 
 }

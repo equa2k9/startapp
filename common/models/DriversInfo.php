@@ -84,7 +84,14 @@ class DriversInfo extends CActiveRecord
         }
         if ($this->dependent)
         {
-            DriversRate::deleteRates($this->id);
+            $rates = DriversRate::model()->findAllByAttributes(array('users_id'=>$this->id));
+            if($rates)
+            {
+                foreach ($rates as $value)
+                {
+                    $value->delete();
+                }
+            }
         }
         return true;
     }

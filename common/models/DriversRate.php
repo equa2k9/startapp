@@ -107,11 +107,8 @@ class DriversRate extends CActiveRecord
 
     public static function deleteRates($id)
     {
-        if (self::model()->deleteAllByAttributes(array('users_id' => $id)))
-        {
-            return true;
-        }
-        return false;
+        self::model()->deleteAllByAttributes(array('users_id' => $id));
+        return true;
     }
 
     public function viewDriver($id)

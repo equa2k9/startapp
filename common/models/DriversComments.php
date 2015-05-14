@@ -25,15 +25,6 @@ class DriversComments extends CActiveRecord
         return 'drivers_comments';
     }
 
-    protected function beforeSave()
-    {
-        if ($this->created_at)
-        {
-            $this->created_at = time();
-        }
-        return true;
-    }
-
     /**
      * @return array validation rules for model attributes.
      */
@@ -44,7 +35,7 @@ class DriversComments extends CActiveRecord
         return array(
             array('users_id, leave_comment_id', 'required'),
             array('users_id, leave_comment_id, created_at', 'numerical', 'integerOnly' => true),
-            array('message', 'safe'),
+            array('message,created_at', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, users_id, leave_comment_id, message, created_at', 'safe', 'on' => 'search'),

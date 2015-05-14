@@ -16,6 +16,14 @@ class DriversController extends AdministratorController
                 'class' => 'common.components.actions.DeleteAjaxAction',
                 'model_name' => 'DriversRate',
             ),
+            'setRate' => array(
+                'class' => 'common.components.actions.AjaxAdd',
+                'model_name' => 'DriversRate',
+            ),
+            'addComment' => array(
+                'class' => 'common.components.actions.AjaxAdd',
+                'model_name' => 'DriversComments',
+            ),
         );
     }
 
@@ -73,65 +81,6 @@ class DriversController extends AdministratorController
         }
         Yii::app()->user->setFlash('danger', 'You request bad link. Or driver already deactivated');
         $this->redirect(Yii::app()->createUrl('administrator/drivers'));
-    }
-
-    /**
-     * ajax action to set rate for driver
-     */
-    public function actionSetRate()
-    {
-        if (Yii::app()->request->isAjaxRequest)
-        {
-            if (Yii::app()->request->isPostRequest)
-            {
-                $data = array();
-                $model = new DriversRate();
-                $model->attributes = Yii::app()->request->getPost('DriversRate');
-                if ($model->save())
-                {
-                    $data['status'] = 'success';
-                }
-                else
-                {
-                    $data = $model->errors;
-                }
-                echo CJSON::encode($data);
-            }
-            Yii::app()->end();
-        }
-        else
-        {
-            Yii::app()->user->setFlash('danger', 'You request bad link');
-            $this->redirect(Yii::app()->createUrl('administrator'));
-        }
-    }
-
-    public function actionAddComment()
-    {
-        if (Yii::app()->request->isAjaxRequest)
-        {
-            if (Yii::app()->request->isPostRequest)
-            {
-                $data = array();
-                $model = new DriversComments();
-                $model->attributes = Yii::app()->request->getPost('DriversComments');
-                if ($model->save())
-                {
-                    $data['status'] = 'success';
-                }
-                else
-                {
-                    $data = $model->errors;
-                }
-                echo CJSON::encode($data);
-            }
-            Yii::app()->end();
-        }
-        else
-        {
-            Yii::app()->user->setFlash('danger', 'You request bad link');
-            $this->redirect(Yii::app()->createUrl('administrator/drivers'));
-        }
     }
 
 }

@@ -10,13 +10,13 @@ $this->beginWidget(
 </div>
 
 <div class="modal-body">
-    <div class="well" style=" max-height: 450px; height: auto;
+    <div id="comments-block" class="well" style="max-height: 400px; height: auto;
          overflow-y: scroll;">
         <hr>
 
         <?php
         $this->widget('zii.widgets.CListView', array(
-            'dataProvider' => new CActiveDataProvider('DriversComments', array('criteria' => array('condition' => 'users_id=' . $model->id), 'pagination' => false)),
+            'dataProvider' => new CActiveDataProvider('DriversComments', array('criteria' => array('condition' => 'users_id=' . $model->id,'with'=>'leaveComment'), 'pagination' => false)),
             'itemView' => '_comment',
             'id' => 'commentViewList',
             'template' => '{items}',
@@ -34,7 +34,7 @@ $this->beginWidget(
             'booster.widgets.TbActiveForm', array(
         'id' => 'comments-form',
         'action' => Yii::app()->createUrl('administrator/drivers/addComment'),
-        'type' => 'horizontal',
+        'type' => 'vertical',
         'enableAjaxValidation' => false,
         'enableClientValidation' => true,
         'htmlOptions' => array('class' => 'well', 'validateOnSubmit' => false), // for insert effect
@@ -44,6 +44,7 @@ $this->beginWidget(
     <?php echo $form->textAreaGroup($comments, 'message', array('rows' => 3)); ?>
     <?php echo $form->hiddenField($comments, 'users_id', array('value' => $model->id)) ?>
     <?php echo $form->hiddenField($comments, 'leave_comment_id', array('value' => Yii::app()->user->id)) ?>
+    <?php echo $form->hiddenField($comments, 'created_at', array('value' => time())) ?>
 
 
 </div>
@@ -59,6 +60,10 @@ $this->beginWidget(
                 if(obj.status=="success")
                 {
                     $.fn.yiiListView.update("commentViewList");
+                    var area = document.getElementById("comments-block");
+                    if (area.selectionStart == area.selectionEnd) {
+                    area.scrollTop = area.scrollHeight;
+                }
                 }
             }'
             ), array('class' => 'btn btn-primary',)

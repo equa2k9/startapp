@@ -185,7 +185,6 @@ class Activity extends CActiveRecord
             $criteria = new CDbCriteria();
             $criteria->order = 'id DESC';
             $criteria->compare('users_id', Yii::app()->user->id, false);
-
             $model = self::model()->find($criteria);
             $model->logout = time();
         }

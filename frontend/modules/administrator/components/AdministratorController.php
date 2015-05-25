@@ -20,6 +20,7 @@ class AdministratorController extends ModuleController
             array('label' => 'Drivers Forms', 'url' => '/administrator/drivers/forms'),
             array('label' => 'Clients', 'url' => '/administrator/clients'),
             array('label' => 'Activity', 'url' => '/administrator/dashboard/activity'),
+            array('label' => 'Statuses', 'url' => '/administrator/dashboard/statuses'),
         );
     }
 

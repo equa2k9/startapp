@@ -27,7 +27,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'filter' => CHtml::activeTextField($model, 'fullname', array('class' => 'form-control')),
         ),
         array('name' => 'dependent',
-            'value' => '$data->driversInfo ? $data->driversInfo->dependent : " "',
+            'value' => 'DriversInfo::model()->dependence[$data->driversInfo->dependent]',
             'type' => 'raw',
             'sortable' => TRUE,
             'filter' => CHtml::activeDropDownList($model, 'dependent', DriversInfo::model()->dependence, array('empty' => '', 'class' => 'form-control')),

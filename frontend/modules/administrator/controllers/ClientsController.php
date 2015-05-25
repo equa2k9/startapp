@@ -22,6 +22,10 @@ class ClientsController extends AdministratorController
                 'class' => 'common.components.actions.DeleteAjaxAction',
                 'model_name' => 'Clients',
             ),
+            'createPassenger' => array(
+                'class' => 'common.components.actions.AjaxAdd',
+                'model_name' => 'Passengers',
+            ),
         );
     }
 
@@ -74,37 +78,6 @@ class ClientsController extends AdministratorController
                 {
                     $clientsRate->id = $model->id;
                     $clientsRate->save(false);
-                    $data['status'] = 'success';
-                }
-                else
-                {
-                    $data = $model->errors;
-                }
-                echo CJSON::encode($data);
-            }
-            Yii::app()->end();
-        }
-        else
-        {
-            Yii::app()->user->setFlash('danger', 'You request bad link');
-            $this->redirect(Yii::app()->createUrl('administrator'));
-        }
-    }
-
-    public function actionCreatePassenger()
-    {
-        if (Yii::app()->request->isAjaxRequest)
-        {
-            if (Yii::app()->request->isPostRequest)
-            {
-
-                $data = array();
-                $model = new Passengers();
-
-                $model->attributes = Yii::app()->request->getPost('Passengers');
-
-                if ($model->save())
-                {
                     $data['status'] = 'success';
                 }
                 else

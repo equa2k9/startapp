@@ -1,3 +1,5 @@
+<?php $this->renderPartial('_createRouteStatus', array('model' => new RoutesheetStatus()), FALSE); ?>
+<?php $this->renderPartial('_createTripsStatus', array('model' => new TripsStatus()), FALSE); ?>
 <div class="page-header">
     <h2>
         Statuses

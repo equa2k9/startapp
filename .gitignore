@@ -7,3 +7,5 @@ nbproject
 # composer vendor dir
 vendor
 
+/common/assets/mail/
+/common/assets/

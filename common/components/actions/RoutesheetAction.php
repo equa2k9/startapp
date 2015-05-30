@@ -13,7 +13,7 @@ class RoutesheetAction extends CommonAction
         {
             $model->attributes = $_GET['Routesheet'];
         }
-        $this->render('//dashboard/routesheet', array('model' => $model));
+        $this->render('//routesheet/routesheet', array('model' => $model));
     }
 
 }

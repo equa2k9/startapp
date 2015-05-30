@@ -7,9 +7,9 @@
 $buttons = '{view}';
 $visible = false;
 
-if (Yii::app()->user->role == Users::ROLE_ADMIN ||  Yii::app()->user->role == Users::ROLE_DISPATCHER)
+if (Yii::app()->user->role == Users::ROLE_ADMIN || Yii::app()->user->role == Users::ROLE_DISPATCHER)
 {
-    $buttons.='{update}{delete}';
+    $buttons.='{delete}';
     $visible = true;
 }
 $this->widget(
@@ -74,9 +74,8 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'htmlOptions' => array('nowrap' => 'nowrap'),
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => $buttons,
-            'viewButtonUrl' => 'Yii::app()->createUrl(Yii::app()->controller->module->id."/dashboard/viewRoutesheet/".$data->id)',
-            'updateButtonUrl' => 'Yii::app()->createUrl(Yii::app()->controller->module->id."/dashboard/updateRoutesheet/".$data->id)',
-            'deleteButtonUrl' => 'Yii::app()->createUrl(Yii::app()->controller->module->id."/dashboard/deleteRoutesheet/".$data->id)',
+            'viewButtonUrl' => 'Yii::app()->createUrl(Yii::app()->controller->module->id."/routesheet/view/".$data->id)',
+            'deleteButtonUrl' => 'Yii::app()->createUrl(Yii::app()->controller->module->id."/routesheet/delete/".$data->id)',
         ),
     ),
 ));

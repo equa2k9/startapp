@@ -95,11 +95,12 @@ class Routesheet extends CActiveRecord
         if (Yii::app()->user->role == Users::ROLE_DRIVER)
         {
             $this->getDbCriteria()->mergeWith(array(
-                'condition' => 'users_id=' . Yii::app()->user->id
+                'condition' => 'users_id= ' ."'". Yii::app()->user->id."'"
             ));
         }
         return $this;
     }
+
 
     /**
      * Retrieves a list of models based on the current search/filter conditions.

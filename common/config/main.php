@@ -16,6 +16,7 @@ return array(
         'common.components.actions.*',
         'common.controllers.*',
         'common.extensions.*',
+        'common.extensions.dynamictabularform.*',
         'common.models.*',
         'common.helpers.*',
         'common.extensions.YiiMailer.YiiMailer',

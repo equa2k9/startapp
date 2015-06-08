@@ -15,6 +15,7 @@
  * @property integer $google_sec
  * @property integer $dropoff_zipcode
  * @property integer $pickup_zipcode
+ * @property integer $mileage
  *
  * The followings are the available model relations:
  * @property TripsActivity[] $tripsActivities
@@ -24,7 +25,7 @@
  */
 class TripsPassengers extends CActiveRecord
 {
-
+    public $updateType;  //for dynamic rows in create trip
     /**
      * @return string the associated database table name
      */
@@ -47,7 +48,7 @@ class TripsPassengers extends CActiveRecord
             array('google_time', 'length', 'max' => 100),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, trips_id, passengers_id, pickup_adress, dropoff_adress, pickup_time, dropoff_time, google_time, google_sec, dropoff_zipcode, pickup_zipcode', 'safe', 'on' => 'search'),
+            array('id, trips_id, passengers_id, pickup_adress, dropoff_adress,mileage, pickup_time, dropoff_time, google_time, google_sec, dropoff_zipcode, pickup_zipcode', 'safe', 'on' => 'search'),
         );
     }
 
@@ -83,6 +84,7 @@ class TripsPassengers extends CActiveRecord
             'google_sec' => 'Google Sec',
             'dropoff_zipcode' => 'Dropoff Zipcode',
             'pickup_zipcode' => 'Pickup Zipcode',
+            'mileage' => 'Mileage',
         );
     }
 
@@ -115,6 +117,7 @@ class TripsPassengers extends CActiveRecord
         $criteria->compare('google_sec', $this->google_sec);
         $criteria->compare('dropoff_zipcode', $this->dropoff_zipcode);
         $criteria->compare('pickup_zipcode', $this->pickup_zipcode);
+        $criteria->compare('mileage', $this->mileage);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

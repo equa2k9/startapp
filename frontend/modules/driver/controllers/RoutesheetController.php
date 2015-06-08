@@ -7,8 +7,7 @@ class RoutesheetController extends DriverController
     {
         return array(
             'index' => 'common.components.actions.RoutesheetAction',
-            'view'=> 'common.components.actions.RoutesheetActionView',
-
+            'view' => 'common.components.actions.RoutesheetActionView',
         );
     }
 

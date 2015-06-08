@@ -4077,4 +4077,4 @@ EOD;
 		if (!empty($span))
 			$htmlOptions = self::addClassName('span' . $span, $htmlOptions);
 	}
-}
+        }

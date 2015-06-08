@@ -1,15 +1,15 @@
 <h3>Trips statuses:
     <?php
     $this->widget(
-        'bootstrap.widgets.TbButton', array(
-            'label' => 'Add new trip status',
-            'context' => 'info',
-            'htmlOptions' => array(
-                'class' => 'pull-right',
-                'data-toggle' => 'modal',
-                'data-target' => '#create-trips-status',
-            ),
-        )
+            'bootstrap.widgets.TbButton', array(
+        'label' => 'Add new trip status',
+        'context' => 'info',
+        'htmlOptions' => array(
+            'class' => 'pull-right',
+            'data-toggle' => 'modal',
+            'data-target' => '#create-trips-status',
+        ),
+            )
     );
     ?>
 </h3>
@@ -46,8 +46,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'htmlOptions' => array('nowrap' => 'nowrap'),
             'template' => '{delete}',
             'class' => 'booster.widgets.TbButtonColumn',
-            'deleteButtonUrl'=>'Yii::app()->createUrl("administrator/dashboard/deleteTripsStatus",array("id"=>$data->id))'
-
+            'deleteButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/deleteTripsStatus",array("id"=>$data->id))'
         )
     ),
 ));

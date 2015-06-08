@@ -7,7 +7,7 @@ class RoutesheetController extends AdministratorController
     {
         return array(
             'index' => 'common.components.actions.RoutesheetAction',
-            'view'=> 'common.components.actions.RoutesheetActionView',
+            'view' => 'common.components.actions.RoutesheetActionView',
             'delete' => array(
                 'class' => 'common.components.actions.DeleteAjaxAction',
                 'model_name' => 'Routesheet',

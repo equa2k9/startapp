@@ -9,12 +9,12 @@
 <div class="row">
     <div class="col-md-6">
         <?php
-        $this->renderPartial('_routeStatus',array('routeStatus'=>$routeStatus));
+        $this->renderPartial('_routeStatus', array('routeStatus' => $routeStatus));
         ?>
     </div>
     <div class="col-md-6">
         <?php
-        $this->renderPartial('_tripsStatus',array('tripsStatus'=>$tripsStatus));
+        $this->renderPartial('_tripsStatus', array('tripsStatus' => $tripsStatus));
         ?>
     </div>
 </div>

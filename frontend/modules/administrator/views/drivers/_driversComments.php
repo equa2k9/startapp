@@ -16,7 +16,7 @@ $this->beginWidget(
 
         <?php
         $this->widget('zii.widgets.CListView', array(
-            'dataProvider' => new CActiveDataProvider('DriversComments', array('criteria' => array('condition' => 'users_id=' . $model->id,'with'=>'leaveComment'), 'pagination' => false)),
+            'dataProvider' => new CActiveDataProvider('DriversComments', array('criteria' => array('condition' => 'users_id=' . $model->id, 'with' => 'leaveComment'), 'pagination' => false)),
             'itemView' => '_comment',
             'id' => 'commentViewList',
             'template' => '{items}',

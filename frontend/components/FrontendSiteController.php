@@ -25,4 +25,6 @@ class FrontendSiteController extends CommonController
      */
     public $breadcrumbs = array();
 
+
+
 }

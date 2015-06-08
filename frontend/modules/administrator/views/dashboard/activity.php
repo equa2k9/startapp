@@ -48,31 +48,31 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
     'responsiveTable' => true,
     'type' => 'striped bordered condensed',
     'columns' => array(
-        'id'=>array('name'=>'id','htmlOptions'=>array('style'=>'width:5%;'),'headerHtmlOptions'=>array('style'=>'width:5%;')),
-        'users_id'=>array('name'=>'users_id','type'=>'raw','value'=> '$data->users->username'),
+        'id' => array('name' => 'id', 'htmlOptions' => array('style' => 'width:5%;'), 'headerHtmlOptions' => array('style' => 'width:5%;')),
+        'users_id' => array('name' => 'users_id', 'type' => 'raw', 'value' => '$data->users->username'),
         'login' => array('name' => 'login',
             'value' => 'date("m/d/Y h:i:s A",$data->login)',
             'type' => 'raw',
             'sortable' => TRUE,
             'filter' => ($this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                    'model' => $model,
-                    'id' => 'dateFrom',
-                    'attribute' => 'dateFrom',
-                    'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'From date'),
-                    'options' => array(
-                        'dateFormat' => 'mm/dd/yy',
-                        'changeYear' => true
-                    ),
-                ), true)) . ($this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                    'model' => $model,
-                    'id' => 'dateTo',
-                    'attribute' => 'dateTo',
-                    'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'To date'),
-                    'options' => array(
-                        'dateFormat' => 'mm/dd/yy',
-                        'changeYear' => true
-                    ),
-                ), true)),
+                'model' => $model,
+                'id' => 'dateFrom',
+                'attribute' => 'dateFrom',
+                'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'From date'),
+                'options' => array(
+                    'dateFormat' => 'mm/dd/yy',
+                    'changeYear' => true
+                ),
+                    ), true)) . ($this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                'model' => $model,
+                'id' => 'dateTo',
+                'attribute' => 'dateTo',
+                'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'To date'),
+                'options' => array(
+                    'dateFormat' => 'mm/dd/yy',
+                    'changeYear' => true
+                ),
+                    ), true)),
             'htmlOptions' => array('style' => 'bg-color:red;'),
             'headerHtmlOptions' => array('width' => '25%;')
         ),
@@ -81,38 +81,36 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'type' => 'raw',
             'sortable' => TRUE,
             'filter' => ($this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                    'model' => $model,
-                    'id' => 'dateFromO',
-                    'attribute' => 'dateFromO',
-                    'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'From date'),
-                    'options' => array(
-                        'dateFormat' => 'mm/dd/yy',
-                        'changeYear' => true
-                    ),
-                ), true)) . ($this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                    'model' => $model,
-                    'id' => 'dateToO',
-                    'attribute' => 'dateToO',
-                    'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'To date'),
-                    'options' => array(
-                        'dateFormat' => 'mm/dd/yy',
-
-                        'changeYear' => true
-                    ),
-                ), true)),
+                'model' => $model,
+                'id' => 'dateFromO',
+                'attribute' => 'dateFromO',
+                'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'From date'),
+                'options' => array(
+                    'dateFormat' => 'mm/dd/yy',
+                    'changeYear' => true
+                ),
+                    ), true)) . ($this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                'model' => $model,
+                'id' => 'dateToO',
+                'attribute' => 'dateToO',
+                'htmlOptions' => array('class' => 'form-control', 'placeholder' => 'To date'),
+                'options' => array(
+                    'dateFormat' => 'mm/dd/yy',
+                    'changeYear' => true
+                ),
+                    ), true)),
             'htmlOptions' => array('style' => 'bg-color:red;'),
             'headerHtmlOptions' => array('width' => '25%;')
         ),
-        array('header'=>'time',
-            'type'=>'raw',
-            'sortable'=>false,
-            'filter'=>FALSE,
-            'value'=>function($data, $row)
-            {
-                $time1 = new DateTime(date('m/d/Y h:i:s A',$data->login));
-                $time2 = new DateTime(date('m/d/Y h:i:s A',$data->logout));
+        array('header' => 'time',
+            'type' => 'raw',
+            'sortable' => false,
+            'filter' => FALSE,
+            'value' => function($data, $row) {
+                $time1 = new DateTime(date('m/d/Y h:i:s A', $data->login));
+                $time2 = new DateTime(date('m/d/Y h:i:s A', $data->logout));
                 $interval = $time2->diff($time1);
-                return ($data->logout!=NULL)?$interval->format('%h hour(s) ').$interval->format('%i minute(s) ').$interval->format('%s second(s)'):"";
+                return ($data->logout != NULL) ? $interval->format('%h hour(s) ') . $interval->format('%i minute(s) ') . $interval->format('%s second(s)') : "";
             }
         ),
     ),

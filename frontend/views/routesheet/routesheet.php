@@ -14,7 +14,9 @@ if (Yii::app()->user->role == Users::ROLE_ADMIN || Yii::app()->user->role == Use
 }
 $this->widget(
         'bootstrap.widgets.TbButton', array(
-    'label' => 'Create',
+    'label' => 'Create trip',
+        'url' => Yii::app()->createUrl('administrator/trips/create'),
+        'buttonType' => 'link',
     'context' => 'primary',
     'htmlOptions' => array(
         'class' => 'pull-right'

@@ -119,19 +119,17 @@ class SiteController extends FrontendSiteController
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
             {
-                if(Yii::app()->user->role==Users::ROLE_USER)
+                if (Yii::app()->user->role == Users::ROLE_USER)
                 {
-                    $role = Yii::app()->user->role.'s';
+                    $role = Yii::app()->user->role . 's';
                 }
                 else
                 {
                     $role = Yii::app()->user->role;
                 }
                 Activity::logUser(Yii::app()->user->id);
-                $this->redirect('/' .$role. '/');
-
+                $this->redirect('/' . $role . '/');
             }
-
         }
         // display the login form
         $this->render('login', array('model' => $model));
@@ -173,7 +171,7 @@ class SiteController extends FrontendSiteController
      */
     public function actionLogout()
     {
-        Activity::logUser(Yii::app()->user->id,false);
+        Activity::logUser(Yii::app()->user->id, false);
         Yii::app()->user->logout();
         Yii::app()->session->clear();
         $this->redirect(Yii::app()->homeUrl);

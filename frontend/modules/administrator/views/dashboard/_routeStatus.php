@@ -1,15 +1,15 @@
 <h3>Route sheets statuses:
     <?php
     $this->widget(
-        'bootstrap.widgets.TbButton', array(
-            'label' => 'Add new route status',
-            'context' => 'info',
-            'htmlOptions' => array(
-                'class' => 'pull-right',
-                'data-toggle' => 'modal',
-                'data-target' => '#create-route-status',
-            ),
-        )
+            'bootstrap.widgets.TbButton', array(
+        'label' => 'Add new route status',
+        'context' => 'info',
+        'htmlOptions' => array(
+            'class' => 'pull-right',
+            'data-toggle' => 'modal',
+            'data-target' => '#create-route-status',
+        ),
+            )
     );
     ?>
 </h3>
@@ -46,7 +46,7 @@ $this->widget('booster.widgets.TbExtendedGridView', array(
             'htmlOptions' => array('nowrap' => 'nowrap'),
             'template' => '{delete}',
             'class' => 'booster.widgets.TbButtonColumn',
-            'deleteButtonUrl'=>'Yii::app()->createUrl("administrator/dashboard/deleteRouteStatus",array("id"=>$data->id))'
+            'deleteButtonUrl' => 'Yii::app()->createUrl("administrator/dashboard/deleteRouteStatus",array("id"=>$data->id))'
         )
     ),
 ));

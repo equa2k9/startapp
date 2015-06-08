@@ -1,6 +1,6 @@
 <?php
 $this->beginWidget(
-    'booster.widgets.TbModal', array('id' => 'create-trips-status')
+        'booster.widgets.TbModal', array('id' => 'create-trips-status')
 );
 ?>
 <div class="modal-header">
@@ -11,14 +11,14 @@ $this->beginWidget(
 <div class="modal-body">
     <?php
     $form = $this->beginWidget(
-        'booster.widgets.TbActiveForm', array(
-            'id' => 'trips-status-form',
-            'action' => Yii::app()->createUrl('administrator/dashboard/createTripsStatus'),
-            'type' => 'horizontal',
-            'enableAjaxValidation' => false,
-            'enableClientValidation' => true,
-            'htmlOptions' => array('class' => 'well', 'validateOnSubmit' => false), // for insert effect
-        )
+            'booster.widgets.TbActiveForm', array(
+        'id' => 'trips-status-form',
+        'action' => Yii::app()->createUrl('administrator/dashboard/createTripsStatus'),
+        'type' => 'horizontal',
+        'enableAjaxValidation' => false,
+        'enableClientValidation' => true,
+        'htmlOptions' => array('class' => 'well', 'validateOnSubmit' => false), // for insert effect
+            )
     );
     ?>
     <div class="clearfix"></div>
@@ -31,7 +31,7 @@ $this->beginWidget(
 
     <?php
     echo CHtml::ajaxSubmitButton(
-        'Save', Yii::app()->createUrl('administrator/dashboard/createTripsStatus'), array(
+            'Save', Yii::app()->createUrl('administrator/dashboard/createTripsStatus'), array(
         'type' => 'POST',
         'data' => 'js:$("#trips-status-form").serialize()',
         'success' => 'js:function(data){
@@ -42,17 +42,17 @@ $this->beginWidget(
                     $.fn.yiiGridView.update("trips-status");
                 }
             }'
-    ), array('class' => 'btn btn-primary',)
+            ), array('class' => 'btn btn-primary',)
     );
     ?>
 
     <?php
     $this->widget(
-        'booster.widgets.TbButton', array(
-            'label' => 'Close',
-            'url' => '#',
-            'htmlOptions' => array('data-dismiss' => 'modal'),
-        )
+            'booster.widgets.TbButton', array(
+        'label' => 'Close',
+        'url' => '#',
+        'htmlOptions' => array('data-dismiss' => 'modal'),
+            )
     );
     ?>
 

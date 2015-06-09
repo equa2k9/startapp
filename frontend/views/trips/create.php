@@ -3,6 +3,7 @@
 Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places');
 ?>
 <script>
+
 var directionsDisplay = {};
 var directionsService = new google.maps.DirectionsService();
 var map = {};
@@ -56,6 +57,7 @@ function calcRoute(type,key) {
     setTimeout(map[key].setZoom(13),4000);
 }
 </script>
+
 
 <?php
 $form = $this->beginWidget('DynamicTabularForm', array(

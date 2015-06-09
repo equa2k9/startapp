@@ -26,6 +26,7 @@
 class TripsPassengers extends CActiveRecord
 {
     public $updateType;  //for dynamic rows in create trip
+    public $clients_id;  //in create trip field for dropdown
     /**
      * @return string the associated database table name
      */
@@ -42,7 +43,7 @@ class TripsPassengers extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('trips_id, passengers_id, pickup_adress, dropoff_adress, pickup_time, dropoff_time', 'required'),
+            array('trips_id, passengers_id, pickup_adress, dropoff_adress, clients_id, pickup_time, dropoff_time', 'required'),
             array('trips_id, passengers_id, pickup_time, dropoff_time, google_sec, dropoff_zipcode, pickup_zipcode', 'numerical', 'integerOnly' => true),
             array('pickup_adress, dropoff_adress', 'length', 'max' => 255),
             array('google_time', 'length', 'max' => 100),

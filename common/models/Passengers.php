@@ -116,4 +116,10 @@ class Passengers extends CActiveRecord
         return parent::model($className);
     }
 
+    public static function getPassengersByClient($client_id)
+    {
+
+        return CHtml::listData(self::model()->findAllByAttributes(array('clients_id'=>$client_id)),'id','name');
+    }
+
 }

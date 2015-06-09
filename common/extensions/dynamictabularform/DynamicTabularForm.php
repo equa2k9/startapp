@@ -65,8 +65,8 @@ class DynamicTabularForm extends TbActiveForm {
         foreach ($models as $key => $model) {
             $this->controller->renderPartial($rowView, array('key' => $key, 'model' => $model, 'form' => $this));
         }
-        echo "</div>";
 
+        echo "</div>";
         $buttonId = 'addButton-' . $this->rowViewCounter;
 //        echo CHtml::button('+', array(
 //            'id' => $buttonId,
@@ -80,8 +80,32 @@ class DynamicTabularForm extends TbActiveForm {
                 )
             )
         );
+
         $cs = Yii::app()->clientScript;
 
+        echo '<script>
+function getPassengers(key,passengers_id)
+    {
+
+    var clients_id = {};
+        clients_id[key] = $("#TripsPassengers_"+key+"_clients_id").val();
+
+        $.ajax({
+            url: "' . Yii::app()->controller->createUrl("getPassengers") . '",
+data: "clients_id=" + clients_id[key],
+type: "POST",
+success: function (data) {
+$("#TripsPassengers_"+key+"_passengers_id").html(data);
+
+if(passengers_id!=0)
+{
+    $("#TripsPassengers_"+key+"_passengers_id").prop("value", passengers_id);
+}
+
+}
+});
+}
+</script>';
         $cs->registerScript("DynamicForm", "
             var counter = " . sizeof($models) . ";
             function addRow(){

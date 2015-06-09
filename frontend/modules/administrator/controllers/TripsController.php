@@ -54,63 +54,70 @@ class TripsController extends AdministratorController
         $tripsInfo = new TripsInfo();
         $tripsPassengers = array(new TripsPassengers());
 
-        if (isset($_POST))
-        {
+        if (isset($_POST)) {
 //            $trips->attributes = $_POST['Trips'];
 
 
-            if (isset($_POST['TripsPassengers']))
-            {
+            if (isset($_POST['TripsPassengers'])) {
                 $tripsPassengers = array();
-                foreach ($_POST['TripsPassengers'] as $key => $value)
-                {
+                foreach ($_POST['TripsPassengers'] as $key => $value) {
                     $tripsPassenger = new TripsPassengers();
                     $tripsPassenger->attributes = $value;
-                    if (CommonHelper::checkAllEmptyAttributes($tripsPassenger))
-                    {
+                    if (CommonHelper::checkAllEmptyAttributes($tripsPassenger)) {
                         $tripsPassengers[] = $tripsPassenger;
                     }
                 }
 
                 $valid = $trips->validate();
 
-                foreach ($tripsPassengers as $passengers)
-                {
+                foreach ($tripsPassengers as $passengers) {
 
                     $valid = $passengers->validate() & $valid;
                 }
 
-                if ($valid)
-                {
+                if ($valid) {
                     $transaction = $trips->getDbConnection()->beginTransaction();
-                    try
-                    {
+                    try {
                         $trips->save();
                         $trips->refresh();
 
-                        foreach ($tripsPassengers as $passengers)
-                        {
+                        foreach ($tripsPassengers as $passengers) {
                             $passengers->trips_id = $trips->id;
                             $passengers->save();
                         }
                         $transaction->commit();
-                    }
-                    catch (Exception $e)
-                    {
+                    } catch (Exception $e) {
                         $transaction->rollback();
                     }
 
 
                     $this->redirect('create');
                 }
+//                var_dump($tripsPassengers);exit;
             }
+
         }
         $this->render(
-                '//trips/create', array(
-            'trips' => $trips,
-            'tripsPassengers' => $tripsPassengers,
-                )
+            '//trips/create',
+            array(
+                'trips' => $trips,
+                'tripsPassengers' => $tripsPassengers,
+            )
         );
+    }
+
+    public function actionGetPassengers()
+    {
+        if(Yii::app()->request->isAjaxRequest&&Yii::app()->request->isPostRequest)
+        {
+            $data = Passengers::getPassengersByClient(Yii::app()->request->getParam('clients_id'));
+            foreach($data as $value=>$name)
+            {
+                echo CHtml::tag('option',
+                    array('value'=>$value),CHtml::encode($name),true);
+            }
+
+        }
     }
 
 }

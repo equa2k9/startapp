@@ -2,6 +2,22 @@
 
 Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places');
 ?>
+<script type="text/javascript">
+    function setDropoff(key)
+    {
+        var dropoff;
+        var pickup;
+        var google;
+
+        google = document.getElementById('TripsPassengers_'+key+'_google_sec').value;
+        if(google) {
+            pickup = $('#TripsPassengers_'+key+'_pickup_time').datetimepicker('getDate');
+            dropoff = (pickup).getTime()+google*1000;
+            $("#TripsPassengers_"+key+"_dropoff_time").datetimepicker('setDate', (new Date(dropoff)) );
+        }
+
+    }
+    </script>
 <script>
 
 var directionsDisplay = {};
@@ -51,10 +67,11 @@ function calcRoute(type,key) {
             }
             directionsDisplay[key].setDirections(response);
 
-
+            setDropoff(key);
         }
     });
     setTimeout(map[key].setZoom(13),4000);
+
 }
 </script>
 

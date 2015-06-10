@@ -55,9 +55,9 @@ $row_id = "tripsPassengers-" . $key ?>
                         'options'=>array(
                             'ampm'=>true,
                             "dateFormat"=>'mm/dd/yy',
-                            'timeFormat'=>'hh:mm tt'
-//                            'language'=>'en-GB',
-//                            'regional'=>'en-GB',
+                            'timeFormat'=>'hh:mm tt',
+                            'showAnim'=>'fold',
+                            'onClose'=>"js:function(){setDropoff($key)}",
                         ),
 
                         'htmlOptions' => array('class'=>'form-control'),
@@ -77,13 +77,13 @@ $row_id = "tripsPassengers-" . $key ?>
                         'mode'=>'datetime', // available parameter is datetime or time
                         'language'=>'en-GB',
                         'options'=>array(
+                            'ampm'=>true,
                             "dateFormat"=>'mm/dd/yy',
+                            'timeFormat'=>'hh:mm tt',
 
-//                            'language'=>'en-GB',
-//                            'regional'=>'en-GB',
                         ),
 
-        'htmlOptions' => array('class'=>'form-control','disabled'=>true),
+        'htmlOptions' => array('class'=>'form-control',),
                     )
                 );
                 ?>

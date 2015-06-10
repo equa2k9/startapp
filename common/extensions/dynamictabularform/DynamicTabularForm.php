@@ -1,12 +1,15 @@
 <?php
+
 Yii::import('booster.widgets.TbActiveForm');
+
 /**
  * Allows the user to create tabular forms with a javascript "+" button
  * uses partial views for each row
  *
  * @author Ezekiel Fernandez <ezekiel_p_fernandez@yahoo.com>
  */
-class DynamicTabularForm extends TbActiveForm {
+class DynamicTabularForm extends TbActiveForm
+{
 
     const UPDATE_TYPE_CREATE = 'create';
     const UPDATE_TYPE_DELETE = 'delete';
@@ -23,11 +26,10 @@ class DynamicTabularForm extends TbActiveForm {
      * @var string view file that is going to be used for initialization
      */
     public $defaultRowView = '_rowForm';
-
-
     public $rowViewCounter = 0;
 
-    public function init() {
+    public function init()
+    {
         parent::init();
         if ($this->rowUrl == null)
             $this->rowUrl = $this->controller->createUrl('getRowForm');
@@ -38,7 +40,8 @@ class DynamicTabularForm extends TbActiveForm {
      * @param array $models the array of models that will be used
      * @param array $htmlOptions
      */
-    public function updateTypeField($model, $key, $attribute, $htmlOptions = array()) {
+    public function updateTypeField($model, $key, $attribute, $htmlOptions = array())
+    {
         if ($model->isNewRecord)
             $model->{$attribute} = self::UPDATE_TYPE_CREATE;
         else
@@ -46,15 +49,16 @@ class DynamicTabularForm extends TbActiveForm {
 
         $htmlOptions = array_merge($htmlOptions, array('id' => get_class($model) . '_updateType_' . $htmlOptions['key']));
 
-        return parent::hiddenField($model, "[$key]".$attribute, $htmlOptions);
+        return parent::hiddenField($model, "[$key]" . $attribute, $htmlOptions);
     }
 
     /**
      * @param CModel[] $models
      * @param array $htmlOptions
      */
-    public function rowForm($models = array(), $rowView=null, $htmlOptions = array()) {
-        if($rowView==null)
+    public function rowForm($models = array(), $rowView = null, $htmlOptions = array())
+    {
+        if ($rowView == null)
             $rowView = $this->defaultRowView;
 
         $htmlOptions = array_merge(array('id' => 'row-' . $this->rowViewCounter), $htmlOptions);
@@ -62,50 +66,47 @@ class DynamicTabularForm extends TbActiveForm {
 
         echo CHtml::openTag('div', $htmlOptions);
 
-        foreach ($models as $key => $model) {
+        foreach ($models as $key => $model)
+        {
             $this->controller->renderPartial($rowView, array('key' => $key, 'model' => $model, 'form' => $this));
         }
+        
 
         echo "</div>";
+        echo "<div class='row'>";
         $buttonId = 'addButton-' . $this->rowViewCounter;
-//        echo CHtml::button('+', array(
-//            'id' => $buttonId,
-//        ));
         $this->widget(
-            'bootstrap.widgets.TbButton', array(
-                'label' => '+',
-                'context' => 'info',
-                'htmlOptions' => array(
-                    'id' => $buttonId,
-                )
+                'bootstrap.widgets.TbButton', array(
+            'label' => '+',
+            'context' => 'info',
+            'htmlOptions' => array(
+                'id' => $buttonId,
             )
+                )
         );
-
+        echo "</div>";
         $cs = Yii::app()->clientScript;
 
         echo '<script>
-function getPassengers(key,passengers_id)
-    {
-
-    var clients_id = {};
-        clients_id[key] = $("#TripsPassengers_"+key+"_clients_id").val();
-
-        $.ajax({
-            url: "' . Yii::app()->controller->createUrl("getPassengers") . '",
-data: "clients_id=" + clients_id[key],
-type: "POST",
-success: function (data) {
-$("#TripsPassengers_"+key+"_passengers_id").html(data);
-
-if(passengers_id!=0)
-{
-    $("#TripsPassengers_"+key+"_passengers_id").prop("value", passengers_id);
-}
-
-}
-});
-}
-</script>';
+        function getPassengers(key,passengers_id)
+        {
+            var clients_id = {};
+            clients_id[key] = $("#TripsPassengers_"+key+"_clients_id").val();
+                $.ajax({
+                    url: "' . Yii::app()->controller->createUrl("getPassengers") . '",
+                    data: "clients_id=" + clients_id[key],
+                    type: "POST",
+                    success: function (data) 
+                    {
+                        $("#TripsPassengers_"+key+"_passengers_id").html(data);
+                        if(passengers_id!=0)
+                        {
+                            $("#TripsPassengers_"+key+"_passengers_id").prop("value", passengers_id);
+                        }
+                    }
+                    });
+        }
+        </script>';
         $cs->registerScript("DynamicForm", "
             var counter = " . sizeof($models) . ";
             function addRow(){
@@ -157,21 +158,22 @@ if(passengers_id!=0)
         $this->rowViewCounter = $this->rowViewCounter + 1;
     }
 
-    public function deleteRowButton($row_id, $key, $label='X', $htmlOptions = array()) {
-        if(array_key_exists('class', $htmlOptions))
+    public function deleteRowButton($row_id, $key, $label = 'X', $htmlOptions = array())
+    {
+        if (array_key_exists('class', $htmlOptions))
             $htmlOptions['class'] = $htmlOptions['class'] . ' ' . 'delete-row-button';
         else
-            $htmlOptions = array_merge($htmlOptions,array('class'=>'delete-row-button'));
+            $htmlOptions = array_merge($htmlOptions, array('class' => 'delete-row-button'));
 
         $htmlOptions = array_merge($htmlOptions, array('data-delete' => $row_id, 'data-key' => $key));
 
 //        echo CHtml::button($label, $htmlOptions);
         $this->widget(
-            'bootstrap.widgets.TbButton', array(
-                'label' => $label,
-                'context' => 'danger',
-                'htmlOptions' => $htmlOptions
-            )
+                'bootstrap.widgets.TbButton', array(
+            'label' => $label,
+            'context' => 'danger',
+            'htmlOptions' => $htmlOptions
+                )
         );
     }
 

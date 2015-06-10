@@ -37,18 +37,28 @@ class CommonHelper
 
     /**
      * function to check if one row has all empty attribute
-     * if one of the attributes has value return true and false if none of
+     * if one of the attributes has value, return true and false if none of
      * attributes has no value
      */
     public static function checkAllEmptyAttributes(&$model)
     {
         foreach($model as $key=>$attribute)
         {
+
             if($attribute !== null && $attribute !=='')
             {
                 return true;
             }
+
         }
+        foreach($model->tripsPays as $keyPay => $attributePay)
+        {
+            if($attributePay !== null && $attributePay !=='')
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 

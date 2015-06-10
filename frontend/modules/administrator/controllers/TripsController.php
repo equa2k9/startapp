@@ -50,7 +50,6 @@ class TripsController extends AdministratorController
     {
         $trips = new Trips();
         $routesheet = new Routesheet();
-        $tripsPays = array(new TripsPay());
         $tripsInfo = new TripsInfo();
         $tripsPassengers = array(new TripsPassengers());
 
@@ -60,9 +59,15 @@ class TripsController extends AdministratorController
 
             if (isset($_POST['TripsPassengers'])) {
                 $tripsPassengers = array();
+
                 foreach ($_POST['TripsPassengers'] as $key => $value) {
                     $tripsPassenger = new TripsPassengers();
+                    $tripsPassenger->tripsPays = new TripsPay();
                     $tripsPassenger->attributes = $value;
+                    if(isset($_POST['TripsPay']))
+                    {
+                            $tripsPassenger->tripsPays->attributes = $_POST['TripsPay'][$key];
+                    }
                     if (CommonHelper::checkAllEmptyAttributes($tripsPassenger)) {
                         $tripsPassengers[] = $tripsPassenger;
                     }
@@ -72,7 +77,9 @@ class TripsController extends AdministratorController
 
                 foreach ($tripsPassengers as $passengers) {
 
-                    $valid = $passengers->validate() & $valid;
+                    $valid = $passengers->validate() &
+                        $passengers->tripsPays->validate() &
+                        $valid;
                 }
 
                 if ($valid) {

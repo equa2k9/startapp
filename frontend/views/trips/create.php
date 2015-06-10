@@ -15,7 +15,6 @@ Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/a
             dropoff = (pickup).getTime()+google*1000;
             $("#TripsPassengers_"+key+"_dropoff_time").datetimepicker('setDate', (new Date(dropoff)) );
         }
-
     }
     </script>
 <script>
@@ -71,7 +70,6 @@ function calcRoute(type,key) {
         }
     });
     setTimeout(map[key].setZoom(13),4000);
-
 }
 </script>
 
@@ -84,6 +82,8 @@ $form = $this->beginWidget('DynamicTabularForm', array(
 
 <?php echo $form->rowForm($tripsPassengers); ?>
 <hr>
+<div class="col-md-2">
+    <div class="row">
 <div class="form-actions">
     <?php
     $this->widget('booster.widgets.TbButton', array(
@@ -92,5 +92,7 @@ $form = $this->beginWidget('DynamicTabularForm', array(
         'label' => $trips->isNewRecord ? 'Create' : 'Save',
     ));
     ?>
+    </div>
+    </div>
 </div>
 <?php $this->endWidget();?>

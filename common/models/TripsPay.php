@@ -25,7 +25,7 @@
  */
 class TripsPay extends CActiveRecord
 {
-
+    public $updateType;
     /**
      * @return string the associated database table name
      */
@@ -42,7 +42,7 @@ class TripsPay extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id, trips_id, trips_passengers_id', 'required'),
+            array('id, trips_id, trips_passengers_id, cc_copay', 'required'),
             array('id, trips_id, trips_passengers_id', 'numerical', 'integerOnly' => true),
             array('driver_fee, payment_due, cc_copay, cash_copay, initial_fee, drop_rate, mileage_rate, deduction, adjusted_fee', 'numerical'),
             array('notes, notes_waybill', 'length', 'max' => 255),

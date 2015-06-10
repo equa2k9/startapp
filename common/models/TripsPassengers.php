@@ -44,7 +44,7 @@ class TripsPassengers extends CActiveRecord
         // will receive user inputs.
         return array(
             array('trips_id, passengers_id, pickup_adress, dropoff_adress, clients_id, pickup_time, dropoff_time', 'required'),
-            array('trips_id, passengers_id, pickup_time, dropoff_time, google_sec, dropoff_zipcode, pickup_zipcode', 'numerical', 'integerOnly' => true),
+            array('trips_id, passengers_id, google_sec, dropoff_zipcode, pickup_zipcode', 'numerical', 'integerOnly' => true),
             array('pickup_adress, dropoff_adress', 'length', 'max' => 255),
             array('google_time', 'length', 'max' => 100),
             // The following rule is used by search().

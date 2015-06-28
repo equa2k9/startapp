@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 черв 2015, 14:46:30
+    Author     : oles
+*/
+
+.bread
+{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #eeeeee !important;  
+}
+.navbar
+{
+    margin-bottom:0;
+}
+.bread.navbar
+{
+    margin-bottom: 25px;
+}
+body
+{
+    background-color: #e0e0e0 !important;
+}
+/*.panel-body 
+{
+    padding: 0;
+}*/
+.green-text 
+{    
+    color: #4CAF50 !important;
+}
+.glyphicon.glyphicon-user
+{
+    font-size: 17px;
+}
+.navbar-default .navbar-nav>.active>a {
+    background-color: transparent;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body 
+{
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+footer 
+{
+    height: 60px;
+    background-color: #eeeeee;
+}
+#wrap 
+{
+    /*background-color: #bdbdbd !important;*/
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+.container .credit 
+{
+    margin: 20px 0;
+}
+.page-header 
+{
+    margin: 0 0 20px;
+}

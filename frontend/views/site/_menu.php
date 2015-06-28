@@ -3,6 +3,7 @@
 $this->widget('bootstrap.widgets.TbNavbar', array(
     'brand' => Yii::app()->name,
     'fixed' => true,
+    'type'=>'inverse',
     'brandUrl' => '/',
     'collapse' => true, // requires bootstrap-responsive.css
     'items' => array(
@@ -11,9 +12,12 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'type' => 'navbar',
             'activateParents' => true,
             'items' => array(
-                array('label' => 'Home', 'url' => array('/site/index')),
-                array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-                array('label' => 'Contact', 'url' => array('/site/contact')),
+                array('label' => Yii::t('site','Home'), 'url' => array('/site/index'),'icon'=>'glyphicon glyphicon-home'),
+                array('label' => Yii::t('site','News'), 'url' => Yii::app()->createUrl('/news'),'icon'=>'glyphicon glyphicon-list'),
+                array('label' => Yii::t('site','Catalog'), 'url' => array('/catalog'),'icon'=>'glyphicon glyphicon-list-alt'),
+                array('label' => Yii::t('site','Forum'), 'url' => array('/forum'),'icon'=>'glyphicon glyphicon-globe'),
+                array('label' => Yii::t('site','About us'), 'url' => array('/site/page', 'view' => 'about'),'icon'=>'glyphicon glyphicon-info-sign'),
+                array('label' => Yii::t('site','Contact'), 'url' => array('/site/contact'),'icon'=>'glyphicon glyphicon-envelope'),
             ), 'htmlOptions' => array(
             ),
         ),
@@ -21,21 +25,16 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'class' => 'bootstrap.widgets.TbMenu',
             'type' => 'navbar',
             'activateParents' => true,
-            'items' => array(
-                array('label' => 'Account', 'url' => '#',
                     'items' => array(
-                        array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'General info', 'url' => '/users/dashboard', 'visible' => !Yii::app()->user->isGuest,
-                            'active' => Yii::app()->controller->action->id == "index" && Yii::app()->controller->id == "default"),
-                        array('label' => 'Change password', 'url' => '/users/dashboard/changePassword', 'visible' => !Yii::app()->user->isGuest,
-                            'active' => Yii::app()->controller->action->id == "changePassword"),
-                        array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm', 'visible' => !Yii::app()->user->isGuest &&
-                            Yii::app()->user->role == 'user' ||
-                            Yii::app()->user->role == "driver",
-                            'active' => Yii::app()->controller->action->id == "driverForm"),
-                        '---',
-                        array('label' => 'Registration', 'url' => array('/site/registration'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
+                array('label' => 'Account', 'url' => '#','icon'=>'glyphicon glyphicon-user',
+                    'items' => array(
+                        array('label' => Yii::t('site','Login'), 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest,'icon'=>'glyphicon glyphicon-log-in'),
+                        array('label' => Yii::t('site','General info'), 'url' => '/users/dashboard', 'visible' => !Yii::app()->user->isGuest,
+                            'active' => Yii::app()->controller->action->id == "index" && Yii::app()->controller->id == "default",'icon'=>'glyphicon glyphicon-pencil'),
+                        array('label' => Yii::t('site','Change password'), 'url' => '/users/dashboard/changePassword', 'visible' => !Yii::app()->user->isGuest,
+                            'active' => Yii::app()->controller->action->id == "changePassword",'icon'=>'glyphicon glyphicon-adjust'),
+                        array('label' => Yii::t('site','Registration'), 'url' => array('/site/registration'), 'visible' => Yii::app()->user->isGuest,'icon'=>'glyphicon glyphicon-registration-mark'),
+                        array('label' => Yii::t('site','Logout (' . Yii::app()->user->name . ')'), 'url' => array('/site/logout'),'icon'=>'glyphicon glyphicon-log-out', 'visible' => !Yii::app()->user->isGuest),
                     )
                 ),
             ), 'htmlOptions' => array(
@@ -43,6 +42,8 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             ),
         ),
     ), 'htmlOptions' => array(
+//        'class'=>(Yii::app()->controller->id =='site'&&Yii::app()->controller->action->id=='index')?'navbar navbar-inverse hero':'navbar navbar-inverse',
+//        'style'=>'margin-bottom:0!important;'
     ),
 ));
 ?>

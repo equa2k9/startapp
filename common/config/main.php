@@ -80,6 +80,26 @@ return array(
                 ),
             ),
         ),
+        'request' => array(
+            'class' => 'DLanguageHttpRequest',
+            'enableCookieValidation' => true,
+            'enableCsrfValidation' => true,
+        ),
+        'class' => 'DLanguageUrlManager',
+        'urlManager' => array(
+            'class' => 'DLanguageUrlManager',
+            'urlFormat' => 'path',
+//            'useStrictParsing' => true,
+            'showScriptName' => false,
+            'rules' => array(
+                '' => 'site/index',
+                '<action:(contact|login|logout|registration|aboutus)>' => 'site/<action>',
+                '<controller:\w+>/<alias_url>' => '<controller>/view',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ),
+        ),
         // database settings are configured in database.php
         'db' => require(dirname(__FILE__) . '/database.php'),
         'log' => array(
@@ -95,5 +115,11 @@ return array(
     'params' => array(
         // this is used in contact page
         'uploads' => Yii::getPathOfAlias('uploads'),
+        'translatedLanguages' => array(
+            'ru' => 'Русский',
+            'en' => 'English',
+            'ua' => 'Українська',
+        ),
+        'defaultLanguage' => 'en',
     ),
 );

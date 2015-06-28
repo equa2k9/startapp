@@ -24,7 +24,24 @@ class FrontendSiteController extends CommonController
      * for more details on how to specify this property.
      */
     public $breadcrumbs = array();
+    public $bodyId = 'home';
 
+    public function init()
+    {
+        $this->getMenu(); //in init this sets menu list
+        parent::init();
+    }
 
+    /**
+     * overdrived function to set menu
+     */
+    public function getMenu()
+    {
+        return $this->menu = array(
+            array('label' => 'Home', 'url' => array('/site/index'),'htmlOptions'=>array('class'=>'list-group-item')),
+            array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+            array('label' => 'Contact', 'url' => array('/site/contact'))
+        );
+    }
 
 }

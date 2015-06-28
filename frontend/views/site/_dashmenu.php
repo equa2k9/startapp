@@ -1,16 +1,26 @@
-<?php
-
+<div class="list-group">
+   <?php
 $this->widget(
-        'booster.widgets.TbPanel', array(
-    'title' => 'Menu',
-    'headerIcon' => 'list',
-        'context' => 'primary',
-    'padContent' => false,
-    'content' => $this->widget(
             'booster.widgets.TbMenu', array(
         'type' => 'list',
+                'htmlOptions'=>array(
+                    'encode'=>false,
+                ),
         'activateParents' => true,
         'items' => $this->menu,
-            ), true),
-        )
-);
+                'htmlOptions'=>array()
+            ));?>
+  
+</div>
+<?php 
+//array(
+//            'class' => 'bootstrap.widgets.TbMenu',
+//            'type' => 'navbar',
+//            'activateParents' => true,
+//            'items' => array(
+//                array('label' => 'Home', 'url' => array('/site/index')),
+//                array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+//                array('label' => 'Contact', 'url' => array('/site/contact')),
+//            ), 'htmlOptions' => array(
+//            ),
+//        ),

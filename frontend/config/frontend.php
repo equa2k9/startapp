@@ -4,9 +4,11 @@ Yii::setPathOfAlias('bootstrap', Yii::getPathOfAlias('common') . '/extensions/yi
 Yii::setPathOfAlias('editable', Yii::getPathOfAlias('common') . '/extensions/x-editable');
 return array(
     'basePath' => 'frontend',
-    'name' => 'Frontend',
+    'name' => 'JAZZ-ACOUSTICS',
     'theme' => 'bootstrap', //not use booster core css, because it's old 3.1.1 version
-    //now it's replaced in this extension with new version
+    //now it's replaced in this extension with new styled version
+    'sourceLanguage' => 'en',
+    'language' => 'en',
     'preload' => array('bootstrap'),
     'aliases' => array(
         'xupload' => 'common.extensions.xupload',
@@ -16,34 +18,11 @@ return array(
         'users' => array(
             'class' => 'frontend.modules.users.UsersModule',
         ),
-        'driver' => array(
-            'class' => 'frontend.modules.driver.DriverModule',
-        ),
-        'reader' => array(
-            'class' => 'frontend.modules.reader.ReaderModule',
-        ),
-        'accountant' => array(
-            'class' => 'frontend.modules.accountant.AccountantModule',
-        ),
-        'dispatcher' => array(
-            'class' => 'frontend.modules.dispatcher.DispatcherModule',
-        ),
         'administrator' => array(
             'class' => 'frontend.modules.administrator.AdministratorModule',
         ),
     ),
     'components' => array(
-        'urlManager' => array(
-            'urlFormat' => 'path',
-            'showScriptName' => false,
-            'rules' => array(
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-                '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-            ),
-        ),
 //        'request' => array('class' => 'EHttpRequest',),
         'errorHandler' => array(
             // use 'site/error' action to display errors
@@ -66,17 +45,20 @@ return array(
             'enableCdn' => false,
             'responsiveCss' => true,
             'minify' => true,
-            'coreCss' => true,
+            'coreCss' => false,
         ),
+        
 //        'yiiwheels' => array(
 //            'class' => 'yiiwheels.YiiWheels',
 //        ),
         'themeManager' => array(
             'basePath' => ROOT_DIR . '/themes',
         ),
+        'clientScript' => require (dirname(__FILE__).'/packages.php'),
     ),
     'params' => array(
         // this is used in contact page
         'adminEmail' => 'ololo@gmail.com',
+        
     ),
 );

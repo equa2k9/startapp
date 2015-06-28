@@ -28,6 +28,7 @@ Yii::setPathOfAlias('root', ROOT_DIR);
 Yii::setPathOfAlias('common', ROOT_DIR . '/common');
 Yii::setPathOfAlias('vendor', ROOT_DIR . '/vendor');
 Yii::setPathOfAlias('uploads', ROOT_DIR . '/uploads');
+Yii::setPathOfAlias('themes', ROOT_DIR . '/themes');
 Yii::setPathOfAlias('images.mail', ROOT_DIR . '/frontend/www/images/mail');
 # Global timezone setting
 # PWD will be the root dir of the project

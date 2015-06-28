@@ -14,13 +14,36 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <?php Yii::app()->clientScript->registerPackage('custom') ?>
     </head>
     <body>
-        <!-- Navigation -->
-        <?php $this->renderPartial('_menu') ?>
-        <div class="container">
-            <?php echo $content ?>
+        <div id="wrap">
+             <?php $this->widget('LanguageSwitcherWidget') ?>
+            <!-- Navigation -->
+            <?php $this->renderPartial('//site/_menu') ?>
+            <?php $this->renderPartial('//site/_bread')?>
+
+
+            <div class="container">
+                <?php
+                $this->widget('bootstrap.widgets.TbAlert', array(
+                    'fade' => true, // use transitions?
+                    'closeText' => '&times;', // close link text - if set to false, no close link is displayed
+                    'alerts' => array(// configurations per alert type
+                        'success' => array('block' => true, 'fade' => true, 'closeText' => '&times;'), // success, info, warning, error or danger
+                        'error' => array('block' => true, 'fade' => true, 'closeText' => '&times;'),
+                        'warning' => array('block' => true, 'fade' => true, 'closeText' => '&times;'),
+                        'danger' => array('block' => true, 'fade' => true, 'closeText' => '&times;'),
+                        'info' => array('block' => true, 'fade' => true, 'closeText' => '&times;'),
+                    ),
+                ));
+                ?>
+                <?php echo $content ?>
+                
+            </div>
+            
         </div>
+        
+        <?php $this->renderPartial('//site/_footer') ?>
     </body>
 </html>

@@ -53,9 +53,10 @@ class SiteController extends FrontendSiteController
     public function actionIndex()
     {
 
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-        $this->render('index');
+        $dataProvider = new CActiveDataProvider('News');
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+        ));
     }
 
     /**
@@ -77,6 +78,7 @@ class SiteController extends FrontendSiteController
      */
     public function actionContact()
     {
+        $this->bodyId = 'services';
         $model = new ContactForm();
         if (isset($_POST['ContactForm']))
         {
@@ -127,7 +129,6 @@ class SiteController extends FrontendSiteController
                 {
                     $role = Yii::app()->user->role;
                 }
-                Activity::logUser(Yii::app()->user->id);
                 $this->redirect('/' . $role . '/');
             }
         }
@@ -171,7 +172,7 @@ class SiteController extends FrontendSiteController
      */
     public function actionLogout()
     {
-        Activity::logUser(Yii::app()->user->id, false);
+
         Yii::app()->user->logout();
         Yii::app()->session->clear();
         $this->redirect(Yii::app()->homeUrl);

@@ -33,7 +33,6 @@ class Users extends CActiveRecord
     public $userPasswordRe; //re-type password
     public $oldPassword; //for change password
     public $skype;
-    public $dependent;
     public $fullname;
 
     /*
@@ -113,7 +112,7 @@ class Users extends CActiveRecord
          */
         if ($this->getScenario() == 'registration')
         {
-            Yii::app()->sendConfirmMail('registration', $this, Yii::t('site', 'Registration on Alpha Paratransit'));
+            Yii::app()->sendConfirmMail('registration', $this, Yii::t('site', 'Jazz-Acoustics'));
             return true;
         }
         parent::afterSave();
@@ -169,17 +168,17 @@ class Users extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'activities' => array(self::HAS_MANY, 'Activity', 'users_id'),
-            'cashieringreceipts' => array(self::HAS_MANY, 'Cashieringreceipt', 'users_id'),
-            'comments' => array(self::HAS_MANY, 'Comments', 'users_id'),
-            'driversFiles' => array(self::HAS_MANY, 'DriversFiles', 'users_id'),
-            'driversInfo' => array(self::HAS_ONE, 'DriversInfo', 'id'),
-            'driversRates' => array(self::HAS_MANY, 'DriversRate', 'users_id'),
-            'routesheets' => array(self::HAS_MANY, 'Routesheet', 'users_id'),
-            'tmptrips' => array(self::HAS_MANY, 'Tmptrip', 'users_id'),
-            'tripsActivities' => array(self::HAS_MANY, 'TripsActivity', 'users_id'),
-            'driversComments' => array(self::HAS_MANY, 'DriversComments', 'leave_comment_id'),
-            'driversComments1' => array(self::HAS_MANY, 'DriversComments', 'users_id'),
+//            'activities' => array(self::HAS_MANY, 'Activity', 'users_id'),
+//            'cashieringreceipts' => array(self::HAS_MANY, 'Cashieringreceipt', 'users_id'),
+//            'comments' => array(self::HAS_MANY, 'Comments', 'users_id'),
+//            'driversFiles' => array(self::HAS_MANY, 'DriversFiles', 'users_id'),
+//            'driversInfo' => array(self::HAS_ONE, 'DriversInfo', 'id'),
+//            'driversRates' => array(self::HAS_MANY, 'DriversRate', 'users_id'),
+//            'routesheets' => array(self::HAS_MANY, 'Routesheet', 'users_id'),
+//            'tmptrips' => array(self::HAS_MANY, 'Tmptrip', 'users_id'),
+//            'tripsActivities' => array(self::HAS_MANY, 'TripsActivity', 'users_id'),
+//            'driversComments' => array(self::HAS_MANY, 'DriversComments', 'leave_comment_id'),
+//            'driversComments1' => array(self::HAS_MANY, 'DriversComments', 'users_id'),
         );
     }
 
@@ -222,8 +221,8 @@ class Users extends CActiveRecord
 
         $criteria = new CDbCriteria;
 //        $criteria->with = array('driversInfo','driversRates');
-        $criteria->scopes = array('all_drivers', 'activated');
-        $criteria->with = array('driversInfo');
+//        $criteria->scopes = array('all_drivers', 'activated');
+//        $criteria->with = array('driversInfo');
 
         if (isset($this->id))
         {
@@ -231,7 +230,7 @@ class Users extends CActiveRecord
         }
         if (isset($this->fullname))
         {
-            $criteria->compare('driversInfo.fullname', $this->fullname, true);
+//            $criteria->compare('driversInfo.fullname', $this->fullname, true);
         }
         if (isset($this->email))
         {
@@ -239,7 +238,7 @@ class Users extends CActiveRecord
         }
         if (isset($this->dependent))
         {
-            $criteria->compare('driversInfo.dependent', $this->dependent, true);
+//            $criteria->compare('driversInfo.dependent', $this->dependent, true);
         }
         if (isset($this->created_at))
         {
@@ -252,64 +251,14 @@ class Users extends CActiveRecord
             'sort' => array(
                 'defaultOrder' => 't.id DESC',
                 'attributes' => array(
-                    'fullname' => array(
-                        'asc' => 'driversInfo.fullname',
-                        'desc' => 'driversInfo.fullname DESC',
-                    ),
-                    'dependent' => array(
-                        'asc' => 'driversInfo.dependent',
-                        'desc' => 'driversInfo.dependent DESC',
-                    ),
-                    '*',
-                ),
-            ),
-        ));
-    }
-
-    public function searchforms()
-    {
-        // @todo Please modify the following code to remove attributes that should not be searched.
-        $criteria = new CDbCriteria;
-//        $criteria->with = array('driversInfo','driversRates');
-        $criteria->scopes = array('all_drivers', 'not_activated');
-
-        $criteria->with = array('driversInfo');
-
-        if (isset($this->id))
-        {
-            $criteria->compare('t.id', $this->id);
-        }
-        if (isset($this->fullname))
-        {
-            $criteria->compare('driversInfo.fullname', $this->fullname, true);
-        }
-        if (isset($this->email))
-        {
-            $criteria->compare('t.email', $this->email, true);
-        }
-        if (isset($this->dependent))
-        {
-            $criteria->compare('driversInfo.dependent', $this->dependent, true);
-        }
-        if (isset($this->created_at))
-        {
-            $criteria->compare('t.created_at', $this->created_at);
-        }
-
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            'pagination' => false,
-            'sort' => array(
-                'defaultOrder' => 't.id DESC',
-                'attributes' => array(
-                    'fullname' => array(
-                        'asc' => 'driversInfo.fullname',
-                        'desc' => 'driversInfo.fullname DESC',
-                    ),
-                    'dependent' => array(
-                        'asc' => 'driversInfo.dependent',
-                        'desc' => 'driversInfo.dependent DESC',
-                    ),
+//                    'fullname' => array(
+//                        'asc' => 'driversInfo.fullname',
+//                        'desc' => 'driversInfo.fullname DESC',
+//                    ),
+//                    'dependent' => array(
+//                        'asc' => 'driversInfo.dependent',
+//                        'desc' => 'driversInfo.dependent DESC',
+//                    ),
                     '*',
                 ),
             ),
@@ -426,29 +375,27 @@ class Users extends CActiveRecord
         }
     }
 
-    /**
-     * enroll this driver
-     * @return bool
-     */
-    public function activateDriver()
-    {
-        $this->is_activated = self::IS_ACTIVATED;
-        Yii::app()->sendConfirmMail('activedriver', $this, 'Driver profile is activated');
-        $this->save(false);
-
-        return true;
-    }
-
-    /**
-     *
-     * @return bool
-     */
-    public function deactivateDriver()
-    {
-        $this->is_activated = self::IS_NOT_ACTIVATED;
-        $this->save(false);
-
-        return true;
-    }
-
+//    /**
+//     * enroll this driver
+//     * @return bool
+//     */
+//    public function activateDriver()
+//    {
+//        $this->is_activated = self::IS_ACTIVATED;
+//        Yii::app()->sendConfirmMail('activedriver', $this, 'Driver profile is activated');
+//        $this->save(false);
+//
+//        return true;
+//    }
+//    /**
+//     *
+//     * @return bool
+//     */
+//    public function deactivateDriver()
+//    {
+//        $this->is_activated = self::IS_NOT_ACTIVATED;
+//        $this->save(false);
+//
+//        return true;
+//    }
 }

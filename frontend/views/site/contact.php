@@ -1,67 +1,27 @@
-<?php
-/* @var $this SiteController */
-/* @var $model ContactForm */
-/* @var $form CActiveForm */
-
-$this->pageTitle = Yii::app()->name . ' - Contact Us';
-$this->breadcrumbs = array(
-    'Contact',
-);
-?>
-
-<h1>Contact Us</h1>
-
-<?php if (Yii::app()->user->hasFlash('contact')): ?>
-
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('contact'); ?>
+<?php $this->pageTitle = 'Contact us'?>
+<div class="col-md-5">
+    <div class="form-area">  
+        <form role="form">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+    				<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+					</div>
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                    </div>
+            
+        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+        </form>
     </div>
-
-<?php else: ?>
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-    <?php
-    $this->widget('booster.widgets.TbAlert', array(
-//            'block' => true, // display a larger alert block?
-        'fade' => true, // use transitions?
-        'closeText' => '&times;', // close link text - if set to false, no close link is displayed
-        'alerts' => array(// configurations per alert type
-            'success' => array('block' => true, 'fade' => true, 'closeText' => '&times;')// success, info, warning, error or danger
-        ),
-    ));
-    ?>
-    <?php
-    $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-        'id' => 'contact-form',
-        'enableClientValidation' => true,
-        'clientOptions' => array(
-            'validateOnSubmit' => true,
-        ),
-    ));
-    ?>
-    <?php echo $form->textFieldGroup($model, 'name'); ?>
-    <?php echo $form->textFieldGroup($model, 'email'); ?>
-    <?php echo $form->textFieldGroup($model, 'subject', array('size' => 60, 'maxlength' => 128)); ?>
-    <?php echo $form->textAreaGroup($model, 'body', array('rows' => 6, 'cols' => 50)); ?>
-    <?php if (CCaptcha::checkRequirements()): ?>
-
-        <div>
-            <?php $this->widget('CCaptcha'); ?>
-            <?php
-            echo $form->textFieldGroup($model, 'verifyCode', array(
-                'widgetOptions' => array(
-                ),
-                'hint' => 'Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.',
-            ));
-            ?>
-        </div>
-    <?php endif; ?>
-    <?php
-    $this->widget(
-            'booster.widgets.TbButton', array('buttonType' => 'submit', 'label' => 'submit')
-    );
-    ?>
-    <?php $this->endWidget(); ?>
-<?php endif; ?>
+</div>

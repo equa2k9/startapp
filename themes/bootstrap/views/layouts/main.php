@@ -18,7 +18,6 @@
     </head>
     <body>
         <div id="wrap">
-             <?php $this->widget('LanguageSwitcherWidget') ?>
             <!-- Navigation -->
             <?php $this->renderPartial('//site/_menu') ?>
             <?php $this->renderPartial('//site/_bread')?>
@@ -45,5 +44,6 @@
         </div>
         
         <?php $this->renderPartial('//site/_footer') ?>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     </body>
 </html>

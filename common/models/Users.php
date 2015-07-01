@@ -40,10 +40,6 @@ class Users extends CActiveRecord
      */
 
     const ROLE_ADMIN = 'administrator';
-    const ROLE_DISPATCHER = 'dispatcher';
-    const ROLE_ACCOUNTANT = 'accountant';
-    const ROLE_DRIVER = 'driver';
-    const ROLE_ADMIN_READER = 'admin_reader';
     const ROLE_USER = 'user';
     const ROLE_BANNED = 'banned';
 
@@ -142,6 +138,7 @@ class Users extends CActiveRecord
             array('image', 'safe', 'on' => 'updateuser'),
             array('hash_link', 'safe', 'on' => 'confirm'),
             //rules for change password
+            array('oldPassword','required','on'=>'changepassword'),
             array('userPasswordRe',
                 'compare',
                 'compareAttribute' => 'userPassword',
@@ -168,17 +165,7 @@ class Users extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-//            'activities' => array(self::HAS_MANY, 'Activity', 'users_id'),
-//            'cashieringreceipts' => array(self::HAS_MANY, 'Cashieringreceipt', 'users_id'),
-//            'comments' => array(self::HAS_MANY, 'Comments', 'users_id'),
-//            'driversFiles' => array(self::HAS_MANY, 'DriversFiles', 'users_id'),
-//            'driversInfo' => array(self::HAS_ONE, 'DriversInfo', 'id'),
-//            'driversRates' => array(self::HAS_MANY, 'DriversRate', 'users_id'),
-//            'routesheets' => array(self::HAS_MANY, 'Routesheet', 'users_id'),
-//            'tmptrips' => array(self::HAS_MANY, 'Tmptrip', 'users_id'),
-//            'tripsActivities' => array(self::HAS_MANY, 'TripsActivity', 'users_id'),
-//            'driversComments' => array(self::HAS_MANY, 'DriversComments', 'leave_comment_id'),
-//            'driversComments1' => array(self::HAS_MANY, 'DriversComments', 'users_id'),
+
         );
     }
 
@@ -236,10 +223,6 @@ class Users extends CActiveRecord
         {
             $criteria->compare('t.email', $this->email, true);
         }
-        if (isset($this->dependent))
-        {
-//            $criteria->compare('driversInfo.dependent', $this->dependent, true);
-        }
         if (isset($this->created_at))
         {
             $criteria->compare('t.created_at', $this->created_at);
@@ -284,9 +267,6 @@ class Users extends CActiveRecord
             ),
             'not_activated' => array(
                 'condition' => 'is_activated =' . self::IS_NOT_ACTIVATED
-            ),
-            'all_drivers' => array(
-                'condition' => "role =" . "'" . self::ROLE_DRIVER . "'"
             ),
         );
     }
@@ -361,7 +341,7 @@ class Users extends CActiveRecord
         {
             if ($user->password !== crypt($this->oldPassword, $user->password_hash))
             {
-                $this->addError($attribute, "You type, wrong password");
+                $this->addError($attribute, "You type wrong password");
                 return FALSE;
             }
             else

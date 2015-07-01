@@ -11,10 +11,11 @@ class NewsController extends FrontendSiteController
         ));
     }
 
-    public function actionView($id)
+    public function actionView($alias_url)
     {
+        
         $this->render('view', array(
-            'model' => $this->loadModel($id),
+            'model' => $this->loadModelByAlias($alias_url),
         ));
     }
 
@@ -26,6 +27,14 @@ class NewsController extends FrontendSiteController
             throw new CHttpException(404, 'The requested page does not exist.');
         }
 
+        return $model;
+    }
+
+    public function loadModelByAlias($alias_url)
+    {
+        $model = News::model()->findByAttributes(array('alias_url' => $alias_url));
+        if ($model === null)
+            throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
     }
 

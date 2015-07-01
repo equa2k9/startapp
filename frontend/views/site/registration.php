@@ -3,31 +3,14 @@
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
 
-$this->pageTitle = Yii::app()->name . ' - Log in';
+$this->pageTitle = Yii::app()->name . ' - '.Yii::t('site','Registration');
+$this->breadcrumbs = array(Yii::t('site','Registration'));
 ?>
-
-<div class="row header">
-    <div class="col-md-12">
-        <h4><?php echo Yii::t('site', 'Register new account') ?></h4>
-    </div>
+<div class="col-md-8 col-md-offset-2 well">
+<div class="page-header">
+        <h2><?php echo Yii::t('site', 'Register new account') ?></h2>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="wrapper clearfix">
-            <div class="formy">
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php
-                        $this->widget('booster.widgets.TbAlert', array(
-//            'block' => true, // display a larger alert block?
-                            'fade' => true, // use transitions?
-                            'closeText' => '&times;', // close link text - if set to false, no close link is displayed
-                            'alerts' => array(// configurations per alert type
-                                'success' => array('block' => true, 'fade' => true, 'closeText' => '&times;')// success, info, warning, error or danger
-                            ),
-                        ));
-                        ?>
 
                         <?php
                         $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -63,14 +46,9 @@ $this->pageTitle = Yii::app()->name . ' - Log in';
                         ?>
 
                         <?php $this->endWidget(); ?>
-                    </div>
-                </div>						
-            </div>
-        </div>
+            
         <div class="already-account">
             <?php echo Yii::t('site', 'Already have an account?') ?>
             <a href="<?php echo Yii::app()->createUrl('site/login') ?>"><?php echo Yii::t('site', 'Log in here') ?></a>
         </div>
-    </div>
-</div>
-</div>
+  </div>

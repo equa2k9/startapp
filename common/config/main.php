@@ -10,6 +10,8 @@ return array(
     'name' => 'Common application',
     // preloading 'log' component
     'preload' => array('log'),
+    'sourceLanguage' => 'en',
+    'language' => 'ua',
     // autoloading model and component classes
     'import' => array(
         'common.components.*',
@@ -93,7 +95,7 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '' => 'site/index',
-                '<action:(contact|login|logout|registration|aboutus)>' => 'site/<action>',
+                '<action:(contact|login|logout|registration|about)>' => 'site/<action>',
                 '<controller:\w+>/<alias_url>' => '<controller>/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
@@ -116,10 +118,10 @@ return array(
         // this is used in contact page
         'uploads' => Yii::getPathOfAlias('uploads'),
         'translatedLanguages' => array(
+            'ua' => 'Українська',
             'ru' => 'Русский',
             'en' => 'English',
-            'ua' => 'Українська',
         ),
-        'defaultLanguage' => 'en',
+        'defaultLanguage' => 'ua',
     ),
 );

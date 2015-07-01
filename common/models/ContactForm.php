@@ -12,7 +12,8 @@ class ContactForm extends CFormModel
     public $email;
     public $subject;
     public $body;
-    public $verifyCode;
+//    public $verifyCode;
+    public $phone;
 
     /**
      * Declares the validation rules.
@@ -22,10 +23,12 @@ class ContactForm extends CFormModel
         return array(
             // name, email, subject and body are required
             array('name, email, subject, body', 'required'),
+            
+           array('name, phone, email, body', 'length', 'min' => 8),
             // email has to be a valid email address
             array('email', 'email'),
             // verifyCode needs to be entered correctly
-            array('verifyCode', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements()),
+//            array('verifyCode', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements()),
         );
     }
 
@@ -37,7 +40,11 @@ class ContactForm extends CFormModel
     public function attributeLabels()
     {
         return array(
-            'verifyCode' => 'Verification Code',
+            'name' => Yii::t('site','Full name'),
+            'phone' => Yii::t('site','Phone'),
+            'email' => Yii::t('site','E-mail'),
+            'body' => Yii::t('site','Message'),
+            'subject' => Yii::t('site','Subject of message'),
         );
     }
 

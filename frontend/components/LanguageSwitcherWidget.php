@@ -1,17 +1,32 @@
 <?php
+
 class LanguageSwitcherWidget extends CWidget
 {
+    public $languagesSelect = array(
+        'Українська'=>'ua',
+        'Русский'=>'ru',
+        'English'=>'gb'
+    );
+     public $languagesName = array(
+        'ua'=>'Українська',
+        'ru'=>'Русский',
+        'en'=>'English'
+    );
     public function run()
     {
+        
         $currentUrl = ltrim(Yii::app()->request->url, '/');
         $links = array();
-        foreach (DMultilangHelper::suffixList() as $suffix => $name){
+        foreach (DMultilangHelper::suffixList() as $suffix => $name)
+        {
             $url = '/' . ($suffix ? trim($suffix, '_') . '/' : '') . $currentUrl;
-            $links[] = CHtml::tag('div', array('class'=>(YII::app()->language==$url)?"btn btn-warning elements":'btn btn-default elements'), Chtml::image(Yii::app()->theme->baseUrl."/img/".(($suffix!="")?$suffix:'_ru').'.png').CHtml::link($name, $url));
-            
+            $links[] = '<li><a href="' . $url . '"><i class="flag-icon flag-icon-'.$this->languagesSelect[$name].'"></i>'.$name.'</a></li>';
         }
-       
-        echo CHtml::tag('div
-', array('class'=>'language'), implode("\n", $links)); 
+
+        echo
+        '
+      <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe fa-3x"></i></a>
+      <ul class="dropdown-menu">' . implode("\n", $links) . ' </ul>';
     }
+
 }

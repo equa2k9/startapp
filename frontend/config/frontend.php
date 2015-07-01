@@ -7,8 +7,6 @@ return array(
     'name' => 'JAZZ-ACOUSTICS',
     'theme' => 'bootstrap', //not use booster core css, because it's old 3.1.1 version
     //now it's replaced in this extension with new styled version
-    'sourceLanguage' => 'en',
-    'language' => 'en',
     'preload' => array('bootstrap'),
     'aliases' => array(
         'xupload' => 'common.extensions.xupload',

@@ -2,7 +2,7 @@
 
 class DashboardController extends ModuleController
 {
-
+    
     public function actions()
     {
         return array(
@@ -31,7 +31,7 @@ class DashboardController extends ModuleController
             ),
             array('deny',
                 'actions' => array('driverForm'),
-                'expression' => 'Yii::app()->user->role !="user"&&Yii::app()->user->role !="driver"',
+                'expression' => 'Yii::app()->user->role !="user"',
             ),
             array('allow', // allow authenticated users to access all actions
                 'roles' => array('user'),
@@ -77,7 +77,7 @@ class DashboardController extends ModuleController
                 'url' => '/users',
             ),
             array('label' => 'Change password', 'url' => '/users/dashboard/changePassword'),
-            array('label' => 'Driver form', 'url' => '/users/dashboard/driverForm', 'visible' => Yii::app()->user->role == array(Users::ROLE_DRIVER, Users::ROLE_USER)),
+            
         );
     }
 

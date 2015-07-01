@@ -12,9 +12,9 @@
  * @property string $picture
  * @property integer $created_at
  */
-class News extends CActiveRecord
+class News extends CommonActiveRecord
 {
-
+    public $modelClass = 'news';
     /**
      * @return string the associated database table name
      */

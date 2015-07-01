@@ -1,5 +1,6 @@
+<div class="well">
 <div class="page-header">
-    <h2>Change password <small>Here you can change your password</small></h2>
+    <h2><?php echo Yii::t('site','Change password')?> <small><?php echo Yii::t('site','Here you can change your password')?></small></h2>
 </div>
 <?php
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -32,19 +33,19 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <hr>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-md-8">
     </div>
-    <div class="col-lg-4 text-right">
+    <div class="col-md-4 text-right">
         <?php
         $this->widget('bootstrap.widgets.TbButton', array(
             'buttonType' => 'submit',
             'label' => Yii::t('site', 'Change'),
-            'htmlOptions' => array('class' => 'btn btn-success btn-flat'),
+            'htmlOptions' => array('class' => 'btn btn-success'),
         ));
         ?>
     </div>
-    <br><br><br>
 </div>
 <?php $this->endWidget(); ?>
+</div>
  
 

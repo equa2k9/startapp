@@ -1,4 +1,5 @@
-<?php $this->pageTitle = Yii::app()->name." - ".Yii::t('site','News') ?>
+<?php $this->pageTitle = Yii::app()->name." - ".Yii::t('site','News') ;
+$this->breadcrumbs = array(Yii::t('site','News'))?>
 
 <?php
 $this->widget('zii.widgets.CListView', array(

@@ -11,14 +11,14 @@ return array(
     // preloading 'log' component
     'preload' => array('log'),
     'sourceLanguage' => 'en',
-    'language' => 'ua',
+    'language' => 'uk',
     // autoloading model and component classes
     'import' => array(
         'common.components.*',
         'common.components.actions.*',
         'common.controllers.*',
         'common.extensions.*',
-        'common.extensions.dynamictabularform.*',
+//        'common.extensions.dynamictabularform.*',
         'common.models.*',
         'common.helpers.*',
         'common.extensions.YiiMailer.YiiMailer',
@@ -85,7 +85,7 @@ return array(
         'request' => array(
             'class' => 'DLanguageHttpRequest',
             'enableCookieValidation' => true,
-            'enableCsrfValidation' => true,
+//            'enableCsrfValidation' => true,
         ),
         'class' => 'DLanguageUrlManager',
         'urlManager' => array(
@@ -96,10 +96,23 @@ return array(
             'rules' => array(
                 '' => 'site/index',
                 '<action:(contact|login|logout|registration|about)>' => 'site/<action>',
-                '<controller:\w+>/<alias_url>' => '<controller>/view',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:(news)>/<alias_url>' => 'news/view',
+                '<controller:(catalog)>/<alias_url>/<alias>' => '<controller>/view',
+                '<controller:(catalog)>/<alias_url>' => '<controller>/index',
+                
+//                '<controller:\w+>/<alias_url>' => '<controller>/viewitem',
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                
+//                '' => 'site/index',
+//                '<action:(contact|login|logout|registration|about)>' => 'site/<action>',
+//                
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+//                '<controller:(news)>/<alias_url>' => 'news/view/',
+//                '<controller:\w+>/<action:(index)>' => '<controller>/<action>',
+//                '<controller:(catalog)>/<alias_url>' => 'catalog/view/',
             ),
         ),
         // database settings are configured in database.php
@@ -118,10 +131,10 @@ return array(
         // this is used in contact page
         'uploads' => Yii::getPathOfAlias('uploads'),
         'translatedLanguages' => array(
-            'ua' => 'Українська',
+            'uk' => 'Українська',
             'ru' => 'Русский',
             'en' => 'English',
         ),
-        'defaultLanguage' => 'ua',
+        'defaultLanguage' => 'uk',
     ),
 );

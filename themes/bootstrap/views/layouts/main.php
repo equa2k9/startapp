@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo Yii::app()->language?>">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,6 @@
                 ));
                 ?>
                 <?php echo $content ?>
-                
             </div>
             
         </div>

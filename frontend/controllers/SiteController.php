@@ -40,9 +40,6 @@ class SiteController extends FrontendSiteController
             ),
             // page action renders "static" pages stored under 'protected/views/site/pages'
             // They can be accessed via: index.php?r=site/page&view=FileName
-            'page' => array(
-                'class' => 'CViewAction',
-            ),
         );
     }
 
@@ -58,7 +55,11 @@ class SiteController extends FrontendSiteController
             'dataProvider' => $dataProvider,
         ));
     }
-
+    public function actionAbout()
+    {
+        $this->render('about');
+    }
+    
     /**
      * This is the action to handle external exceptions.
      */

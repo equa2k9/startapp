@@ -4,7 +4,7 @@ Yii::setPathOfAlias('bootstrap', Yii::getPathOfAlias('common') . '/extensions/yi
 Yii::setPathOfAlias('editable', Yii::getPathOfAlias('common') . '/extensions/x-editable');
 return array(
     'basePath' => 'frontend',
-    'name' => 'JAZZ-ACOUSTICS',
+    'name' => 'Jazz-Acoustics',
     'theme' => 'bootstrap', //not use booster core css, because it's old 3.1.1 version
     //now it's replaced in this extension with new styled version
     'preload' => array('bootstrap'),

@@ -9,5 +9,4 @@ $this->widget('zii.widgets.CListView', array(
     'template' => "{sorter}\n{items}\n{pager}",
     'emptyText' => '',
 ));
-?>
-</div>
+

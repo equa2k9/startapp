@@ -130,7 +130,7 @@ class Categories extends CommonActiveRecord
      * get menu items to sidebar
      * @return array
      */
-    public static function getCategoriesMenu()
+    public static function getCategoriesMenu($look=false)
     {
         $model = self::model()->findAll();
         $menu = array();

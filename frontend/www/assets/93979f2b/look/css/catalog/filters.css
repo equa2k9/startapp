@@ -1,0 +1,48 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/catalog/filters.scss */
+.filters {
+  background-color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 5, ../../scss/catalog/filters.scss */
+.filters h3 {
+  font-size: 19px;
+  color: #000;
+  font-family: "BitterBold", sans-serif;
+}
+
+/* line 15, ../../scss/catalog/filters.scss */
+.filters_list p {
+  color: #313131;
+  font-size: 15.5px;
+  padding-bottom: 7px;
+  font-weight: normal;
+}
+/* line 22, ../../scss/catalog/filters.scss */
+.filters_list ul li {
+  list-style: url(../img/list_style_icons/list_icon.png) inside;
+  line-height: 30px;
+}
+/* line 23, ../../scss/catalog/filters.scss */
+.filters_list ul li:hover {
+  list-style: url(../img/list_style_icons/list_icon_hover.png) inside;
+}
+/* line 24, ../../scss/catalog/filters.scss */
+.filters_list ul li:hover a {
+  color: #33b3cd;
+}
+/* line 30, ../../scss/catalog/filters.scss */
+.filters_list ul li a:hover, .filters_list ul li a:focus, .filters_list ul li a:active {
+  text-decoration: none;
+}

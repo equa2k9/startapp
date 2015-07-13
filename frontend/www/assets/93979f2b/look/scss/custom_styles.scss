@@ -1,0 +1,30 @@
+/*DEPENDENCIES*/
+@import "variables";
+@import "base_styles";
+@import "buttons";
+@import "fonts";
+/*DEPENDENCIES*/
+
+/*LANDING*/
+@import "landing/preheader";
+@import "landing/navbar";
+@import "landing/slider";
+@import "landing/categories_nav";
+@import "landing/popular_products";
+@import "common/common";
+@import "landing/footer_and_prefooter";
+/*LANDING*/
+
+/*CATALOG*/
+@import "catalog/catalog";
+@import "catalog/filters";
+@import "catalog/product_info";
+/*CATALOG*/
+
+/*CONTACTS*/
+@import "contacts_and_delivery/contacts_and_delivery";
+/*CONTACTS*/
+
+/*ABOUT US*/
+@import "about_us/about_us";
+/*ABOUT US*/

@@ -5,66 +5,60 @@ Yii::import('zii.widgets.CListView');
 class ExtendedCListView extends CListView
 {
 
-    public $class = 'btn-info';
-    
+    public $class = 'active';
+
     /**
      * render buttons to style clistviewitems, like square or list
      */
     public function renderItemstyle()
     {
+
         
-        echo '<div class="btn-group">';
         $class = '';
         if (Yii::app()->session->get('view', 'list') == 'list')
         {
             $class = $this->class;
         }
         echo CHtml::ajaxLink(
-                '<button type="button" class="btn btn-default ' . $class . '" id="list"><i class="fa fa-bars"></i></button>', Yii::app()->createUrl('ajax/changeView'), array(
+                '<i class="prod_cards_style"></i>', Yii::app()->createUrl('ajax/changeView'), array(
             'data' => array('type' => 'list'),
             'method' => 'POST',
             'complete' => 'function() {
           $.fn.yiiListView.update("catalog-products");
-          $("#list").addClass("btn-info");
-          $("#square").removeClass("btn-info");
-        }')
+          $("#list").addClass("active");
+          $("#square").removeClass("active");
+        }'),array('class'=>$class,'id'=>'list')
         );
-        
+
         $class = '';
         if (Yii::app()->session->get('view', 'list') == 'square')
         {
             $class = $this->class;
         }
         echo CHtml::ajaxLink(
-                '<button type="button" class="btn btn-default ' . $class . '" id="square"><i class="fa fa-th"></i></button>', Yii::app()->createUrl('ajax/changeView'), array(
+                '<i class="prod_list_style"></i>', Yii::app()->createUrl('ajax/changeView'), array(
             'data' => array('type' => 'square'),
             'method' => 'POST',
             'complete' => 'function() {
           $.fn.yiiListView.update("catalog-products");
-          $("#square").addClass("btn-info");
-          $("#list").removeClass("btn-info");
-        }')
+          $("#square").addClass("active");
+          $("#list").removeClass("active");
+        }'),array('class'=>$class,'id'=>'square')
         );
-        echo '</div>';
+       
     }
+
     /**
-	 * Renders the empty message when there is no data.
-	 */
-	public function renderEmptyText()
-	{
-		$emptyText=$this->emptyText===null ? Yii::t('zii','No results found.') : $this->emptyText;
-                if(Yii::app()->session->get('view', 'list') == 'list')
-                {
-                    echo '<div class="row">';
-                }
-		echo CHtml::tag($this->emptyTagName, array('class'=>$this->emptyCssClass), 
-                        '<div class="alert alert-dismissable alert-warning">'.$emptyText.'</div>');
-                if(Yii::app()->session->get('view', 'list') == 'list')
-                {
-                    echo '</div>';
-                }
-	}
-    
+     * Renders the empty message when there is no data.
+     */
+    public function renderEmptyText()
+    {
+        $emptyText = $this->emptyText === null ? Yii::t('zii', 'No results found.') : $this->emptyText;
+        
+        echo CHtml::tag($this->emptyTagName, array('class' => $this->emptyCssClass), $emptyText);
+        
+    }
+
 //    /**
 //	 * Renders the sorter.
 //	 */
@@ -92,5 +86,4 @@ class ExtendedCListView extends CListView
 //
 //
 //	}
-
 }

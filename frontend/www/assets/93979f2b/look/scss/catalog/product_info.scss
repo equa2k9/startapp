@@ -1,0 +1,83 @@
+@import "../variables";
+@import "compass";
+
+///////////*PRODUCT INFO*/////////
+.product_wrapper {
+  .price {
+    p {
+      span {
+        font-size: 20px;
+      }
+      font-size: 28px;
+      font-weight: bold;
+    }
+    text-align: left;
+    margin-bottom: 18px;
+  }
+  .product_description {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  padding: 40px 0;
+  background: $backgroundChrome;
+  border-bottom: $border1;
+  border-top: $border1;
+}
+
+.main_photo {
+  img {
+    width: 100%;
+  }
+}
+
+.one_preview {
+  img {
+    width: 100%;
+  }
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+  width: calc(33.333% - 10px);
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 15px;
+  float: left;
+}
+
+.product_info {
+  h2 {
+    font-family: $font1;
+    font-size: 28px;
+    color: $base1;
+    margin-bottom: 17px;
+  }
+}
+
+.product_details {
+  .panel {
+    border: none;
+    @include box-shadow(none);
+  }
+  .panel-heading {
+    h4 {
+      a {
+        &:hover, &:focus, &:active {
+          text-decoration: none;
+        }
+        display: block;
+        padding: 10px 15px;
+        font-size: 15px;
+      }
+      color: $fullWhite;
+      font-size: 16px;
+    }
+    padding: 0;
+    background: none;
+    background-color: $base1;
+  }
+}
+
+.product_colors {
+  list-style: url(../img/list_style_icons/list_icon.png) inside;
+}
+///////////*PRODUCT INFO*/////////

@@ -49,7 +49,8 @@ return array(
             'allowAutoLogin' => true,
         ),
         'assetManager' => array(
-            'linkAssets' => true,
+            'linkAssets' => false,
+            'forceCopy'=>false,
         ),
         'cache' => array(
             'class' => 'system.caching.CFileCache',
@@ -95,24 +96,12 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '' => 'site/index',
-                '<action:(contact|login|logout|registration|about)>' => 'site/<action>',
+                '<action:(contact|login|logout|registration|about|delivery)>' => 'site/<action>',
                 '<controller:(news)>/<alias_url>' => 'news/view',
                 '<controller:(catalog)>/<alias_url>/<alias>' => '<controller>/view',
                 '<controller:(catalog)>/<alias_url>' => '<controller>/index',
-                
-//                '<controller:\w+>/<alias_url>' => '<controller>/viewitem',
-//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                
-//                '' => 'site/index',
-//                '<action:(contact|login|logout|registration|about)>' => 'site/<action>',
-//                
-//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-//                '<controller:(news)>/<alias_url>' => 'news/view/',
-//                '<controller:\w+>/<action:(index)>' => '<controller>/<action>',
-//                '<controller:(catalog)>/<alias_url>' => 'catalog/view/',
             ),
         ),
         // database settings are configured in database.php

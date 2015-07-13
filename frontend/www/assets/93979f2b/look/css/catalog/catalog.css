@@ -1,0 +1,67 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/catalog/catalog.scss */
+.catalog {
+  padding: 40px 0;
+  background: url(../img/backgrounds/chrome_point.png);
+  border-bottom: 1px solid #E4E4E4;
+  border-top: 1px solid #E4E4E4;
+}
+/* line 6, ../../scss/catalog/catalog.scss */
+.catalog .one_product:nth-child(3n) {
+  margin-right: 0;
+}
+
+/* line 16, ../../scss/catalog/catalog.scss */
+.catalog_heading {
+  font-family: "BitterBold", sans-serif;
+  color: #313131;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+/* line 23, ../../scss/catalog/catalog.scss */
+.product_grid_switcher {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 24, ../../scss/catalog/catalog.scss */
+.product_grid_switcher a {
+  display: inline-block;
+  float: left;
+}
+/* line 27, ../../scss/catalog/catalog.scss */
+.product_grid_switcher a:first-child.active i {
+  background-position: 0px -31px;
+}
+/* line 31, ../../scss/catalog/catalog.scss */
+.product_grid_switcher a:first-child i {
+  background: url(../img/grid_icons.png) no-repeat 0 0;
+  display: inline-block;
+  width: 27px;
+  height: 31px;
+}
+/* line 40, ../../scss/catalog/catalog.scss */
+.product_grid_switcher a:last-child.active i {
+  background-position: -27px 0px;
+}
+/* line 44, ../../scss/catalog/catalog.scss */
+.product_grid_switcher a:last-child i {
+  background: url(../img/grid_icons.png) -27px -31px no-repeat;
+  display: inline-block;
+  width: 27px;
+  height: 31px;
+}
+/* line 51, ../../scss/catalog/catalog.scss */
+.product_grid_switcher a:hover, .product_grid_switcher a:focus, .product_grid_switcher a:active {
+  text-decoration: none;
+}

@@ -1,0 +1,40 @@
+@import "../variables";
+@import "compass";
+///////////*COMMON CATEGORIES*/////////
+.common_categories {
+  background: $backgroundChrome;
+  padding: 40px 0 34px;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.one_category {
+  &:hover {
+    .category_hover {
+      opacity: 1;
+    }
+  }
+  .category_hover {
+    p {
+      font-size: 18px;
+      margin-top: 55px;
+      color: $fullBlack;
+    }
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: rgba(237, 237, 237, 0.85);
+    @include transition(opacity 0.15s ease-in);
+  }
+  img {
+    width: 100%;
+  }
+  position: relative;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid $fullWhite;
+}
+///////////*COMMON CATEGORIES*/////////

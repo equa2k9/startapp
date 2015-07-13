@@ -1,0 +1,18 @@
+@import "../variables";
+@import "compass";
+///////////*POPULAR PRODUCTS*//////////
+.popular_products_wrap {
+  h4 {
+    font-family: $font1;
+    color: $fullBlack;
+    margin-bottom: 40px;
+  }
+  padding: 40px 0 34px;
+  background: $backgroundChrome;
+  border-bottom: $border1;
+}
+
+.popular_products {
+  padding: 0px 20px;
+}
+///////////*POPUAR PRODUCTS*//////////

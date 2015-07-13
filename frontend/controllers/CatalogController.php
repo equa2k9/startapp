@@ -2,7 +2,7 @@
 
 class CatalogController extends FrontendSiteController
 {
-
+    public $headerTitle = '';
     public $layout = '//layouts/column2';
 
     public function actionIndex($alias_url = false)
@@ -13,7 +13,7 @@ class CatalogController extends FrontendSiteController
         }
         
         $dataProvider = Articles::model()->category($alias_url)->search();
-        $this->breadcrumbs = array(Yii::t('site','Catalog')=>array('link'=>Yii::app()->createUrl('catalog')),  ($alias_url!=false)?Categories::getNameByAlias($alias_url):'');
+        $this->headerTitle = ($alias_url!=false)?Categories::getNameByAlias($alias_url):Yii::t('site','All products');
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));
@@ -21,7 +21,7 @@ class CatalogController extends FrontendSiteController
 
     public function actionView($alias_url,$alias)
     {
-        
+        $this->layout = '//layouts/column1';
         $this->render('view', array(
             'model' => $this->loadModelByAlias(strtolower($alias)),
         ));

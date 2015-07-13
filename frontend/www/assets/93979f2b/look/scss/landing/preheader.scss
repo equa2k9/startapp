@@ -1,0 +1,36 @@
+@import "../variables";
+@import "compass";
+///////////*PREHEADER*////////////
+.preheader {
+  background: $backgroundChrome;
+  border-bottom: $border1;
+}
+
+.welcome_phrase {
+  padding: 10px 0;
+}
+
+.contact_info {
+  span {
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: $base1;
+    }
+    &:last-child {
+      border-left: 1px solid #e8e8e8;
+    }
+    display: inline-block;
+    position: relative;
+    padding: 10px 5px;
+    border-left: 1px solid #e8e8e8;
+    background: $backgroundLight;
+    float: right;
+  }
+}
+///////////*END OF PREHEADER*////////////

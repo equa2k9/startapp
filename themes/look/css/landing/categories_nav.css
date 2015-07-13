@@ -1,0 +1,53 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/landing/categories_nav.scss */
+.common_categories {
+  background: url(../img/backgrounds/chrome_point.png);
+  padding: 40px 0 34px;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+/* line 10, ../../scss/landing/categories_nav.scss */
+.one_category {
+  position: relative;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+/* line 12, ../../scss/landing/categories_nav.scss */
+.one_category:hover .category_hover {
+  opacity: 1;
+}
+/* line 16, ../../scss/landing/categories_nav.scss */
+.one_category .category_hover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-color: rgba(237, 237, 237, 0.85);
+  -moz-transition: opacity 0.15s ease-in;
+  -o-transition: opacity 0.15s ease-in;
+  -webkit-transition: opacity 0.15s ease-in;
+  transition: opacity 0.15s ease-in;
+}
+/* line 17, ../../scss/landing/categories_nav.scss */
+.one_category .category_hover p {
+  font-size: 18px;
+  margin-top: 55px;
+  color: #000;
+}
+/* line 32, ../../scss/landing/categories_nav.scss */
+.one_category img {
+  width: 100%;
+}

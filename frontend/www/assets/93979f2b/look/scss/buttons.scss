@@ -1,0 +1,41 @@
+/*DEPENDENCIES*/
+@import "variables";
+@import "compass";
+/*DEPENDENCIES*/
+
+.nav_btn {
+  &.active {
+    color: $fullWhite;
+    background-color: $base1;
+  }
+  &:hover, &:focus, &:active {
+    color: $fullWhite;
+    background-color: $base1;
+    text-decoration: none;
+  }
+  color: $fullBlack;
+  display: inline-block;
+  padding: 8px 15px;
+  font-weight: bold;
+  @include border-radius(2px);
+}
+
+.base_btn {
+  &.sm {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+  &:hover, &:focus, &:active {
+    color: $fullWhite;
+    background-color: darken($base1, 7%);
+    text-decoration: none;
+  }
+  color: $fullWhite;
+  background-color: $base1;
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 13px;
+  text-transform: uppercase;
+  @include border-radius(2px);
+  transition: background-color 0.15s ease;
+}

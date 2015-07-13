@@ -59,6 +59,10 @@ class SiteController extends FrontendSiteController
     {
         $this->render('about');
     }
+    public function actionDelivery()
+    {
+        $this->render('delivery');
+    }
     
     /**
      * This is the action to handle external exceptions.

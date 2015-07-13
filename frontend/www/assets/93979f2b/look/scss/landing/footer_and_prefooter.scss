@@ -1,0 +1,36 @@
+@import "../variables";
+@import "compass";
+//////////*PREFOOTER*//////////
+.prefooter {
+  h4 {
+    color: $fullBlack;
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
+  padding: 40px 0 34px;
+}
+
+.prefooter_contacts {
+  li {
+    font-size: 17px;
+    margin-bottom: 5px;
+  }
+  .email_contact {
+    color: $base1;
+  }
+}
+//////////*PREFOOTER*//////////
+
+//////////*FOOTER*/////////
+footer {
+  p {
+    span {
+      color: $base1;
+    }
+  }
+  padding: 20px 0 20px;
+  background: $backgroundChrome;
+  border-top: $border1;
+  border-bottom: $border1;
+}
+//////////*FOOTER*/////////

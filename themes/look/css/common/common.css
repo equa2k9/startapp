@@ -1,0 +1,172 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 5, ../../scss/common/common.scss */
+.one_product {
+  width: 236px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-transition: box-shadow 0.15s ease-in;
+  -o-transition: box-shadow 0.15s ease-in;
+  -webkit-transition: box-shadow 0.15s ease-in;
+  transition: box-shadow 0.15s ease-in;
+  background-color: #fff;
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  padding-top: 20px;
+}
+/* line 6, ../../scss/common/common.scss */
+.one_product:hover {
+  -moz-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.46);
+  -webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.46);
+}
+/* line 10, ../../scss/common/common.scss */
+.one_product a:hover, .one_product a:focus, .one_product a:active {
+  text-decoration: none;
+}
+/* line 14, ../../scss/common/common.scss */
+.one_product h4 {
+  padding: 0 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+  text-align: center;
+  font-family: "BitterBold", sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+/* line 26, ../../scss/common/common.scss */
+.one_product .img_wrap {
+  height: 218px;
+  text-align: center;
+}
+/* line 27, ../../scss/common/common.scss */
+.one_product .img_wrap img {
+  max-height: 100%;
+  max-width: 100%;
+}
+/* line 34, ../../scss/common/common.scss */
+.one_product:last-child {
+  margin-right: 0;
+}
+
+/* line 48, ../../scss/common/common.scss */
+.price {
+  text-align: center;
+  padding: 0 15px;
+}
+/* line 49, ../../scss/common/common.scss */
+.price p {
+  font-size: 21px;
+  color: #33b3cd;
+}
+/* line 50, ../../scss/common/common.scss */
+.price p span {
+  vertical-align: top;
+  font-size: 13px;
+  color: #33b3cd;
+  display: inline-block;
+  margin-top: 3px;
+  margin-right: -5px;
+}
+
+/* line 65, ../../scss/common/common.scss */
+.product_description {
+  text-align: center;
+  line-height: 19.6px;
+  padding: 0 15px;
+  max-height: 38px;
+}
+
+/* line 72, ../../scss/common/common.scss */
+.view_btn_wrap {
+  padding: 8px 15px 20px 15px;
+  text-align: center;
+}
+
+/* line 79, ../../scss/common/common.scss */
+.products_list.full_width_cards .one_product {
+  position: relative;
+  padding-left: 30%;
+  padding-right: 15px;
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+  padding-top: 20px;
+  min-height: 240px;
+}
+/* line 80, ../../scss/common/common.scss */
+.products_list.full_width_cards .one_product .img_wrap {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+/* line 85, ../../scss/common/common.scss */
+.products_list.full_width_cards .one_product h4 {
+  text-align: left;
+  color: #33b3cd;
+}
+/* line 89, ../../scss/common/common.scss */
+.products_list.full_width_cards .one_product .product_description {
+  text-align: left;
+  max-height: 75px;
+}
+/* line 93, ../../scss/common/common.scss */
+.products_list.full_width_cards .one_product .price {
+  text-align: left;
+}
+/* line 96, ../../scss/common/common.scss */
+.products_list.full_width_cards .one_product .view_btn_wrap {
+  text-align: left;
+}
+
+/*SIDE BOX*/
+/* line 113, ../../scss/common/common.scss */
+.side_box {
+  border-top: 1px solid #ececec;
+  padding: 30px 20px 30px 30px;
+}
+
+/*SIDE BOX*/
+/*PAGINATION*/
+/* line 124, ../../scss/common/common.scss */
+.products_pagination ul li.active a {
+  background-color: #33b3cd !important;
+}
+/* line 128, ../../scss/common/common.scss */
+.products_pagination ul li a {
+  border: none;
+  color: #33b3cd;
+}
+
+/*PAGINATION*/
+/*BREADCRUBMS*/
+/* line 138, ../../scss/common/common.scss */
+.crumbs_wrapper {
+  position: relative;
+}
+
+/* line 142, ../../scss/common/common.scss */
+.crumbs {
+  background: none;
+  padding-left: 0;
+}
+/* line 144, ../../scss/common/common.scss */
+.crumbs li a {
+  color: #33b3cd;
+}
+
+/*BREADCRUBMS*/

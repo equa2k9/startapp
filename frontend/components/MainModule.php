@@ -10,7 +10,7 @@ class MainModule extends CWebModule
     {
         // this method is called when the module is being created
         // you may place code here to customize the module or the application
-        Yii::app()->theme = 'bootstrap';
+        
         // import the module-level models and components
         $this->setImport(array(
             $this->moduleName . '.models.*',

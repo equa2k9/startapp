@@ -1,0 +1,74 @@
+@import "variables";
+@import "compass";
+///////////////////////////////////////////////////////////
+/////////////////////////*RESET*///////////////////////////
+///////////////////////////////////////////////////////////
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 14px;
+  color: $text1;
+}
+
+textarea {
+  resize: none;
+  overflow-y: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+a {
+  &:focus {
+    outline: 0;
+  }
+  cursor: pointer;
+}
+
+.base_input {
+  background-color: $fullWhite;
+  box-shadow: 0 1px 0 0 #E5E5E5 inset;
+  border: medium none;
+  @include border-radius(5px);
+}
+///////////////////////////////////////////////////////////
+/////////////////////*END OF RESET*////////////////////////
+///////////////////////////////////////////////////////////
+
+
+//////////////////////*FIXED CONTAINER*///////////////////////////
+//.container {
+//  width: 1000px !important;
+//}
+//
+//body {
+//  min-width: 1000px;
+//}
+//////////////////////*FIXED CONTAINER*///////////////////////////
+
+
+//////////////////////*HEADINGS*///////////////////////////
+h1 {font-size: 35px;}
+h2 {font-size: 30px;}
+h3 {font-size: 21px;}
+h4 {font-size: 18px;}
+h5 {font-size: 14px;}
+h6 {font-size: 12px;}
+//////////////////////*END OF HEADINGS*////////////////////

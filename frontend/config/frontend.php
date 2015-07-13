@@ -5,7 +5,7 @@ Yii::setPathOfAlias('editable', Yii::getPathOfAlias('common') . '/extensions/x-e
 return array(
     'basePath' => 'frontend',
     'name' => 'Jazz-Acoustics',
-    'theme' => 'bootstrap', //not use booster core css, because it's old 3.1.1 version
+    'theme' => 'look', //not use booster core css, because it's old 3.1.1 version
     //now it's replaced in this extension with new styled version
     'preload' => array('bootstrap'),
     'aliases' => array(
@@ -19,17 +19,16 @@ return array(
         'administrator' => array(
             'class' => 'frontend.modules.administrator.AdministratorModule',
         ),
-    ),
+	),
     'components' => array(
-//        'request' => array('class' => 'EHttpRequest',),
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
         ),
-//        'phpThumb' => array(
-//            'class' => 'common.ext.EPhpThumb.EPhpThumb',
-//            'options' => array(),
-//        ),
+        'phpThumb' => array(
+            'class' => 'common.ext.EPhpThumb.EPhpThumb',
+            'options' => array(),
+        ),
         'editable' => array(
             'class' => 'editable.EditableConfig',
             'form' => 'bootstrap', //form style: 'bootstrap', 'jqueryui', 'plain'
@@ -45,10 +44,6 @@ return array(
             'minify' => true,
             'coreCss' => false,
         ),
-        
-//        'yiiwheels' => array(
-//            'class' => 'yiiwheels.YiiWheels',
-//        ),
         'themeManager' => array(
             'basePath' => ROOT_DIR . '/themes',
         ),

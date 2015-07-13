@@ -34,6 +34,7 @@ class Users extends CActiveRecord
     public $oldPassword; //for change password
     public $skype;
     public $fullname;
+    public $phone;
 
     /*
      * ROLES of users
@@ -135,7 +136,7 @@ class Users extends CActiveRecord
             array('email', 'unique', 'attributeName' => 'email', 'className' => 'Users', 'enableClientValidation' => true, 'on' => 'registration'),
             array('username', 'unique', 'attributeName' => 'username', 'className' => 'Users', 'enableClientValidation' => true, 'on' => 'registration'),
             array('id, username,skype,phone,is_activated,dependent,email,fullname', 'safe', 'on' => 'search,searchforms'),
-            array('image', 'safe', 'on' => 'updateuser'),
+            array('image,skype,role', 'safe'),
             array('hash_link', 'safe', 'on' => 'confirm'),
             //rules for change password
             array('oldPassword','required','on'=>'changepassword'),

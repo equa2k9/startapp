@@ -1,0 +1,42 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/landing/footer_and_prefooter.scss */
+.prefooter {
+  padding: 40px 0 34px;
+}
+/* line 5, ../../scss/landing/footer_and_prefooter.scss */
+.prefooter h4 {
+  color: #000;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+/* line 14, ../../scss/landing/footer_and_prefooter.scss */
+.prefooter_contacts li {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+/* line 18, ../../scss/landing/footer_and_prefooter.scss */
+.prefooter_contacts .email_contact {
+  color: #33b3cd;
+}
+
+/* line 25, ../../scss/landing/footer_and_prefooter.scss */
+footer {
+  padding: 20px 0 20px;
+  background: url(../img/backgrounds/chrome_point.png);
+  border-top: 1px solid #E4E4E4;
+  border-bottom: 1px solid #E4E4E4;
+}
+/* line 27, ../../scss/landing/footer_and_prefooter.scss */
+footer p span {
+  color: #33b3cd;
+}

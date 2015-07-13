@@ -21,7 +21,13 @@
  */
 class Articles extends CommonActiveRecord
 {
-    public $picture;
+    
+    public static $curr = array(
+        1 => '₴', 2 => '€', 3 => '$',
+    );
+//    public $currency = array(
+//        1 => '₴', 2 => '€', 3 => '$',
+//    );
     public $modelClass='catalog';
     /**
      * @return string the associated database table name
@@ -60,6 +66,7 @@ class Articles extends CommonActiveRecord
             'category' => array(self::BELONGS_TO, 'Categories', 'category_id'),
             'articlesPictures' => array(self::HAS_MANY, 'ArticlesPictures', 'article_id'),
             'onePicture'=>array(self::HAS_ONE, 'ArticlesPictures', 'article_id'),
+            'slider' => array(self::HAS_ONE, 'Slider', 'id'),
         );
     }
 
@@ -79,6 +86,8 @@ class Articles extends CommonActiveRecord
             'description_ru' => 'Description Ru',
             'alias_url' => 'Alias Url',
             'sort' => 'Sort',
+            'price' => 'Price',
+            'currency' => 'Currency',
         );
     }
 
@@ -113,7 +122,9 @@ class Articles extends CommonActiveRecord
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'pagination'=>false,
+            'pagination' => array(
+                        'pageSize' => 9,
+                    ),
         ));
     }
 
@@ -170,6 +181,12 @@ class Articles extends CommonActiveRecord
     {
         $attribute = 'description_' . Yii::app()->language;
         $this->{$attribute} = $value;
+    }
+    
+    public function getCurrency()
+    {
+       
+        return static::$curr[$this->currency];
     }
 
 }

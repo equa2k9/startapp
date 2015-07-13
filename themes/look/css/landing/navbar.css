@@ -1,0 +1,30 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/landing/navbar.scss */
+header {
+  padding: 40px 0 32px;
+}
+
+/* line 8, ../../scss/landing/navbar.scss */
+.nav_bar {
+  padding: 7px 0px;
+  float: right;
+}
+/* line 9, ../../scss/landing/navbar.scss */
+.nav_bar li {
+  display: inline-block;
+  float: left;
+  margin-right: 3px;
+}
+/* line 10, ../../scss/landing/navbar.scss */
+.nav_bar li:last-child {
+  margin-right: 0;
+}

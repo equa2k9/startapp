@@ -1,0 +1,16 @@
+@import "../variables";
+@import "compass";
+
+/*ABOUT US*/
+.about_us {
+  padding: 40px 0;
+  background: $backgroundChrome;
+  border-bottom: $border1;
+  border-top: $border1;
+  min-height: 600px;
+}
+
+#photo_gallery {
+  margin-top: 30px;
+}
+/*ABOUT US*/

@@ -1,0 +1,45 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/landing/preheader.scss */
+.preheader {
+  background: url(../img/backgrounds/chrome_point.png);
+  border-bottom: 1px solid #E4E4E4;
+}
+
+/* line 9, ../../scss/landing/preheader.scss */
+.welcome_phrase {
+  padding: 10px 0;
+}
+
+/* line 14, ../../scss/landing/preheader.scss */
+.contact_info span {
+  display: inline-block;
+  position: relative;
+  padding: 10px 5px;
+  border-left: 1px solid #e8e8e8;
+  background: url(../img/backgrounds/light_backgound.png);
+  float: right;
+}
+/* line 15, ../../scss/landing/preheader.scss */
+.contact_info span:before {
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #33b3cd;
+}
+/* line 25, ../../scss/landing/preheader.scss */
+.contact_info span:last-child {
+  border-left: 1px solid #e8e8e8;
+}

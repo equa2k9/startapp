@@ -1,0 +1,60 @@
+@import "../variables";
+@import "compass";
+
+.catalog {
+  .one_product {
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  padding: 40px 0;
+  background: $backgroundChrome;
+  border-bottom: $border1;
+  border-top: $border1;
+}
+
+.catalog_heading {
+  font-family: $font1;
+  color: $text2;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.product_grid_switcher {
+  a {
+    &:first-child {
+      &.active {
+        i {
+          background-position: 0px -31px;
+        }
+      }
+      i {
+        background: url(../img/grid_icons.png) no-repeat 0 0;
+        display: inline-block;
+        width: 27px;
+        height: 31px;
+      }
+    }
+    &:last-child {
+      &.active {
+        i {
+          background-position: -27px 0px;
+        }
+      }
+      i {
+        background: url(../img/grid_icons.png) -27px -31px no-repeat;
+        display: inline-block;
+        width: 27px;
+        height: 31px;
+      }
+    }
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+    }
+    display: inline-block;
+    float: left;
+  }
+  position: absolute;
+  top: 0;
+  right: 0;
+}

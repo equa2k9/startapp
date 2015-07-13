@@ -1,0 +1,122 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/landing/slider.scss */
+.slider_wrapper {
+  background: url(../img/backgrounds/dark_background.png);
+}
+/* line 6, ../../scss/landing/slider.scss */
+.slider_wrapper:hover .next_slide, .slider_wrapper:hover .prev_slide {
+  opacity: 1;
+}
+
+/* line 13, ../../scss/landing/slider.scss */
+.slider_wrapper .carousel-inner {
+  background: url(../img/backgrounds/slide_bg.png);
+}
+
+/* line 17, ../../scss/landing/slider.scss */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+}
+/* line 18, ../../scss/landing/slider.scss */
+.carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  margin-left: 5px;
+  background-color: transparent;
+  border: 1px solid #999999;
+}
+/* line 19, ../../scss/landing/slider.scss */
+.carousel-indicators li.active {
+  margin-left: 5px;
+  border: 1px solid #999999;
+  background-color: #999999;
+}
+/* line 24, ../../scss/landing/slider.scss */
+.carousel-indicators li:hover {
+  background-color: #999999;
+}
+/* line 27, ../../scss/landing/slider.scss */
+.carousel-indicators li:last-child {
+  margin-right: 0;
+}
+
+/* line 42, ../../scss/landing/slider.scss */
+.carousel-control.left {
+  background: url(../img/slider_controls/arrow_prev.png) 0 0;
+}
+/* line 45, ../../scss/landing/slider.scss */
+.carousel-control.right {
+  background: url(../img/slider_controls/arrow_next.png) 0 0;
+}
+
+/* line 50, ../../scss/landing/slider.scss */
+.next_slide {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  top: 50%;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.15s ease;
+}
+
+/* line 62, ../../scss/landing/slider.scss */
+.prev_slide {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  top: 50%;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.15s ease;
+}
+
+/* line 74, ../../scss/landing/slider.scss */
+.slide_data {
+  padding-top: 40px;
+}
+/* line 75, ../../scss/landing/slider.scss */
+.slide_data h1 {
+  font-family: "BitterRegular", sans-serif;
+  color: #33b3cd;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+/* line 81, ../../scss/landing/slider.scss */
+.slide_data .description {
+  font-size: 15px;
+  color: #fff;
+}
+/* line 85, ../../scss/landing/slider.scss */
+.slide_data .price {
+  color: #eeeeee;
+  font-size: 25px;
+  font-family: "BitterRegular", sans-serif;
+  margin-top: 18px;
+  margin-bottom: 15px;
+}
+/* line 86, ../../scss/landing/slider.scss */
+.slide_data .price span {
+  font-size: 15px;
+  vertical-align: top;
+  font-family: inherit;
+  color: #eeeeee;
+  margin-right: -3px;
+  margin-top: 3px;
+  display: inline-block;
+}

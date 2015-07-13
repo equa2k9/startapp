@@ -1,0 +1,59 @@
+@import "../variables";
+@import "compass";
+
+/*CONTACTS*/
+.contacts {
+  h4 {
+    font-weight: bold;
+    font-family: $font1;
+    color: $fullBlack;
+    margin-bottom: 22px;
+  }
+  padding: 40px 0;
+  background: $backgroundChrome;
+  border-bottom: $border1;
+  border-top: $border1;
+}
+
+.map_wrapper {
+  padding: 5px;
+  background-color: $fullWhite;
+  height: 385px;
+  @include border-radius(3px);
+  margin-bottom: 25px;
+}
+
+.contact_us_form {
+  margin-top: 20px;
+}
+
+.other_info {
+  ul {
+    li {
+      span {
+        margin-right: 10px;
+      }
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    padding-bottom: 10px;
+  }
+}
+/*CONTACTS*/
+
+/*DELIVERY*/
+.delivery {
+  p {
+    margin-bottom: 20px;
+  }
+  padding: 40px 0;
+  background: $backgroundChrome;
+  border-bottom: $border1;
+  border-top: $border1;
+  min-height: 600px;
+}
+
+.delivery_block {
+  margin-bottom: 35px;
+}
+/*DELIVERY*/

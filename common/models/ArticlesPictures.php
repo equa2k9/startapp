@@ -100,4 +100,6 @@ class ArticlesPictures extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        
 }

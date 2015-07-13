@@ -1,0 +1,38 @@
+@import "../variables";
+@import "compass";
+
+.filters {
+  h3 {
+    font-size: 19px;
+    color: $fullBlack;
+    font-family: $font1;
+  }
+  background-color: $fullWhite;
+  @include border-radius(5px);
+}
+
+.filters_list {
+  p {
+    color: $text2;
+    font-size: 15.5px;
+    padding-bottom: 7px;
+    font-weight: normal;
+  }
+  ul {
+    li {
+      &:hover {
+        a {
+          color: $base1;
+        }
+        list-style: url(../img/list_style_icons/list_icon_hover.png) inside;
+      }
+      a {
+        &:hover, &:focus, &:active {
+          text-decoration: none;
+        }
+      }
+      list-style: url(../img/list_style_icons/list_icon.png) inside;
+      line-height: 30px;
+    }
+  }
+}

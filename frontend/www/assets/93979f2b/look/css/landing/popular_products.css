@@ -1,0 +1,27 @@
+/*BACKGROUNDS*/
+/*BACKGROUNDS*/
+/*BORDERS*/
+/*BORDERS*/
+/*TEXT COLORS*/
+/*TEXT COLORS*/
+/*BASE COLORS*/
+/*BASE COLORS*/
+/*FONTS*/
+/*FONTS*/
+/* line 4, ../../scss/landing/popular_products.scss */
+.popular_products_wrap {
+  padding: 40px 0 34px;
+  background: url(../img/backgrounds/chrome_point.png);
+  border-bottom: 1px solid #E4E4E4;
+}
+/* line 5, ../../scss/landing/popular_products.scss */
+.popular_products_wrap h4 {
+  font-family: "BitterBold", sans-serif;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+/* line 15, ../../scss/landing/popular_products.scss */
+.popular_products {
+  padding: 0px 20px;
+}

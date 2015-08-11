@@ -4,11 +4,11 @@
     <div class="one_product animated bounceInUp" style="-webkit-animation-delay: 0.<?php echo $index + 1 ?>s;">
         <a href="<?php echo $data->getUrl() ?>">
             <div class="img_wrap">
-                <img class="img-responsive" src="/images/catalog/<?php echo isset($data->onePicture->picture) ? $data->onePicture->picture : '' ?>" alt="">
+                <img  src="/images/catalog/<?php echo isset($data->onePicture->picture) ? $data->onePicture->picture : '' ?>" alt="">
             </div>
             <h4><?php echo $data->name ?></h4>
             <p class="product_description">
-                <?php echo YText::characterLimiter($data->description, 200) ?>
+                <?php echo YText::characterLimiter($data->description, ($itemView=='list')?200:40) ?>
             </p>
             <div class="price">
                 <p>

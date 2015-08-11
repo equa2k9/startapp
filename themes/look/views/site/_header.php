@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xs-5 columns">
                 <div class="logo">
-                    <img src="<?php echo Yii::app()->assetManager->publish(Yii::app()->theme->basePath . '/img/logo.png') ?>" alt="">
+                    <img src="<?php // echo Yii::app()->assetManager->publish(Yii::app()->theme->basePath . '/img/logo.png') ?>" alt="">
                 </div>
             </div>
             <div class="col-xs-7 columns">

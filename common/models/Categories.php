@@ -35,12 +35,12 @@ class Categories extends CommonActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('name_uk, name_ru, name_en, alias, picture', 'required'),
-            array('name_uk, name_ru, name_en, alias', 'length', 'max' => 50),
+            array('name_uk, name_ru, name_en, alias_url, picture', 'required'),
+            array('name_uk, name_ru, name_en, alias_url', 'length', 'max' => 50),
             array('picture', 'length', 'max' => 255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, name,name_uk, name_ru, name_en, alias, picture', 'safe', 'on' => 'search'),
+            array('id, name,name_uk, name_ru, name_en, alias_url, picture', 'safe', 'on' => 'search'),
         );
     }
 
@@ -66,7 +66,7 @@ class Categories extends CommonActiveRecord
             'name_uk' => 'Name Uk',
             'name_ru' => 'Name Ru',
             'name_en' => 'Name En',
-            'alias' => 'Alias',
+            'alias_url' => 'Alias',
             'picture' => 'Picture',
         );
     }
@@ -91,7 +91,7 @@ class Categories extends CommonActiveRecord
 
         $criteria->compare('id', $this->id);
         $criteria->compare('name_'.Yii::app()->language, $this->name, true);
-        $criteria->compare('alias', $this->alias, true);
+        $criteria->compare('alias_url', $this->alias_url, true);
         $criteria->compare('picture', $this->picture, true);
 
         return new CActiveDataProvider($this, array(

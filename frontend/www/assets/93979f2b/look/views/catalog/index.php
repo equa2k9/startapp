@@ -6,14 +6,14 @@ $this->widget('frontend.components.ExtendedCListView', array(
     'dataProvider' => $dataProvider,
     'itemView' => '_view',
     'ajaxUpdate' => true,
-    'afterAjaxUpdate'=>'js:function(){useMasonry()}',
+//    'afterAjaxUpdate'=>'js:function(){useMasonry()}',
     'itemsCssClass' => (Yii::app()->session->get('view', 'list') == 'list') ? 'products_list full_width_cards clearfix test' : 'products_list clearfix test',
     'enablePagination' => true,
     'template' => "<div class='crumbs_wrapper'><ol class='breadcrumb crumbs'>
-                        <li><a href='#'>Головна</a></li>
-                        <li class='active'>Каталог</li>
+                        <li><a href='/'>".Yii::t('site','Home')."</a></li>
+                        <li class='active'>".Yii::t('site','Catalog')."</li>
                     </ol>"
-    . "<div class='product_grid_switcher'>{itemstyle}</div></div>\n{items}\n<nav class='products_pagination'>{pager}</nav>",
+    . "<div class='product_grid_switcher'>{itemstyle}</div></div>\n{items}\n\n<nav class='products_pagination'>{pager}</nav>",
     'emptyCssClass' => 'col-md-12',
     'emptyTagName' => 'div',
     'enableSorting'=>false,
@@ -25,21 +25,5 @@ $this->widget('frontend.components.ExtendedCListView', array(
     'enableHistory'=>true,
 ));
 ?>
-<?php Yii::app()->clientScript->registerPackage('imagesLoaded');?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"></script>
 
-<script>
-     function useMasonry()
-     {
-         var freeMasonry =[];
-         freeMasonry = $('.test');
-          freeMasonry.imagesLoaded()
-            .done(function () {
-                freeMasonry.masonry({
-                    itemSelector: '.item'
-                });
-            });
-    }
-    useMasonry();
-</script>
 

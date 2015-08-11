@@ -51,6 +51,7 @@ return array(
         'assetManager' => array(
             'linkAssets' => false,
             'forceCopy'=>false,
+            'basePath'=>ROOT_DIR.'/frontend/www/assets/'
         ),
         'cache' => array(
             'class' => 'system.caching.CFileCache',

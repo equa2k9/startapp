@@ -26,7 +26,7 @@ return array(
             'errorAction' => 'site/error',
         ),
         'phpThumb' => array(
-            'class' => 'common.ext.EPhpThumb.EPhpThumb',
+            'class' => 'common.extensions.EPhpThumb.EPhpThumb',
             'options' => array(),
         ),
         'editable' => array(

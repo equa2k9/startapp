@@ -730,14 +730,15 @@ footer p span {
 .product_wrapper .product_description {
   text-align: left;
   margin-bottom: 20px;
+  max-height: none;
 }
 
-/* line 28, ../scss/catalog/product_info.scss */
+/* line 29, ../scss/catalog/product_info.scss */
 .main_photo img {
   width: 100%;
 }
 
-/* line 33, ../scss/catalog/product_info.scss */
+/* line 34, ../scss/catalog/product_info.scss */
 .one_preview {
   width: calc(33.333% - 10px);
   display: inline-block;
@@ -745,16 +746,16 @@ footer p span {
   margin-top: 15px;
   float: left;
 }
-/* line 34, ../scss/catalog/product_info.scss */
+/* line 35, ../scss/catalog/product_info.scss */
 .one_preview img {
   width: 100%;
 }
-/* line 37, ../scss/catalog/product_info.scss */
+/* line 38, ../scss/catalog/product_info.scss */
 .one_preview:nth-child(3n) {
   margin-right: 0;
 }
 
-/* line 48, ../scss/catalog/product_info.scss */
+/* line 49, ../scss/catalog/product_info.scss */
 .product_info h2 {
   font-family: "BitterBold", sans-serif;
   font-size: 28px;
@@ -762,36 +763,36 @@ footer p span {
   margin-bottom: 17px;
 }
 
-/* line 57, ../scss/catalog/product_info.scss */
+/* line 58, ../scss/catalog/product_info.scss */
 .product_details .panel {
   border: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 61, ../scss/catalog/product_info.scss */
+/* line 62, ../scss/catalog/product_info.scss */
 .product_details .panel-heading {
   padding: 0;
   background: none;
   background-color: #33b3cd;
 }
-/* line 62, ../scss/catalog/product_info.scss */
+/* line 63, ../scss/catalog/product_info.scss */
 .product_details .panel-heading h4 {
   color: #fff;
   font-size: 16px;
 }
-/* line 63, ../scss/catalog/product_info.scss */
+/* line 64, ../scss/catalog/product_info.scss */
 .product_details .panel-heading h4 a {
   display: block;
   padding: 10px 15px;
   font-size: 15px;
 }
-/* line 64, ../scss/catalog/product_info.scss */
+/* line 65, ../scss/catalog/product_info.scss */
 .product_details .panel-heading h4 a:hover, .product_details .panel-heading h4 a:focus, .product_details .panel-heading h4 a:active {
   text-decoration: none;
 }
 
-/* line 80, ../scss/catalog/product_info.scss */
+/* line 81, ../scss/catalog/product_info.scss */
 .product_colors {
   list-style: url(../img/list_style_icons/list_icon.png) inside;
 }

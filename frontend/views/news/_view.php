@@ -1,4 +1,4 @@
-<?php // var_dump($data);exit;?>
+
 <div class="col-md-12 col-xs-12 well single_item animated bounceInUp" style="-webkit-animation-delay: 0.<?php echo $index+1?>s;">
     <div class="col-md-2 col-sm-3 text-center">
         <a class="story-img" href="#"><img src="<?php echo "/images/news/$data->picture"?>" style="width:150px;height:150px" class="img-circle"></a>

@@ -10,8 +10,8 @@ Yii::app()->clientScript->registerPackage('colorCss');
             <div class="col-xs-5">
                 <div class="product_photos">
                     <div class="main_photo">
-                        <a href="/images/catalog/<?php echo isset($model->onePicture->picture) ? $model->onePicture->picture : '' ?>" class="gallery">
-                            <img src="/images/catalog/<?php echo isset($model->onePicture->picture) ? $model->onePicture->picture : '' ?>" alt="<?php echo $model->name ?>">
+                        <a href="/images/catalog/<?php echo $model->id?>/<?php echo isset($model->onePicture->picture) ? $model->onePicture->picture : '' ?>" class="gallery">
+                            <img src="/images/catalog/<?php echo $model->id?>/<?php echo isset($model->onePicture->picture) ? $model->onePicture->picture : '' ?>" alt="<?php echo $model->name ?>">
                         </a>
                     </div>
                     <?php if (count($model->articlesPictures) > 1): ?>
@@ -20,8 +20,8 @@ Yii::app()->clientScript->registerPackage('colorCss');
                             <?php foreach ($model->articlesPictures as $picture): ?>
                                 <?php if ($flag): ?>
                                     <div class="one_preview">
-                                        <a href="/images/catalog/<?php echo $picture->picture ?>" class="gallery">
-                                            <img src="/images/catalog/<?php echo $picture->picture ?>" alt="<?php echo $model->name ?>">
+                                        <a href="/images/catalog/<?php echo $model->id?>/<?php echo $picture->picture ?>" class="gallery">
+                                            <img src="/images/catalog/<?php echo $model->id?>/<?php echo $picture->picture ?>" alt="<?php echo $model->name ?>">
                                         </a>
                                     </div>
                                 <?php endif; ?>
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerPackage('colorCss');
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a role="button" model-toggle="collapse" model-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         Доступні кольори
                                     </a>
                                 </h4>
@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerPackage('colorCss');
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <a class="collapsed" role="button" model-toggle="collapse" model-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         Розміри
                                     </a>
                                 </h4>
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerPackage('colorCss');
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <a class="collapsed" role="button" model-toggle="collapse" model-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Специфікації
                                     </a>
                                 </h4>

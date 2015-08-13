@@ -168,5 +168,16 @@ class Categories extends CommonActiveRecord
             return Yii::t('zii','No results found.');
         }
     }
+    
+    public static function getCategories()
+    {
+        $model = self::model()->findAll();
+        $menu = array();
+        foreach($model as $item)
+        {
+           $menu[$item->id] = $item->name_uk;
+        }
+        return $menu;
+    }
 
 }

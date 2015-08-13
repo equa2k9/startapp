@@ -5,7 +5,7 @@
         <?php
         $this->widget(
                 'bootstrap.widgets.TbButton', array(
-            'label' => 'Add new category',
+            'label' => Yii::t('site', 'Add new'),
             'buttonType' => 'link',
             'url' => $this->createUrl('create'),
             'context' => 'info',

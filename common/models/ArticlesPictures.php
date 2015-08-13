@@ -34,7 +34,7 @@ class ArticlesPictures extends CActiveRecord
 			array('picture', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, article_id, picture', 'safe', 'on'=>'search'),
+			   array('id, description, file, expire, article_id', 'safe', 'on' => 'search'),
 		);
 	}
 

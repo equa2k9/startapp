@@ -51,7 +51,7 @@ class Articles extends CommonActiveRecord
             array('description_uk, description_en, description_ru', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, category_id, name_uk, name_ru, name_en, description_uk, description_en, description_ru, alias_url, sort', 'safe', 'on' => 'search'),
+            array('id, category_id, name_uk, name_ru,price,currency, name_en, description_uk, description_en, description_ru, alias_url, sort', 'safe', 'on' => 'search'),
         );
     }
 
@@ -185,8 +185,67 @@ class Articles extends CommonActiveRecord
     
     public function getCurrency()
     {
-       
+       if(!isset($this->currency))
+       {
+           return null;
+       }
         return static::$curr[$this->currency];
     }
-
+    
+    public function addFiles()
+    {
+        //If we have pending files
+        if (Yii::app()->user->hasState('files'))
+        {
+            $userFiles = Yii::app()->user->getState('files');
+            //Resolve the final path for our files
+            $path = Yii::app()->getBasePath() . "/www/images/catalog/{$this->id}/";
+            //Create the folder and give permissions if it doesnt exists
+            if (!is_dir($path))
+            {
+                mkdir($path);
+                chmod($path, 0777);
+            }
+            //Now lets create the corresponding models and move the files
+            foreach ($userFiles as $file)
+            {
+                if (is_file($file["path"]))
+                {
+                    if (rename($file["path"], $path . $file["filename"]))
+                    {
+                        chmod($path . $file["filename"], 0777);
+                        $fil = new ArticlesPictures();
+                        $fil->size = $file["size"];
+                        $fil->mime = $file["mime"];
+                        $fil->name = $file["name"];
+//                        $fil->thumb = "/files/uploads/{$this->id}/thumb/".$file["filename"];
+                        $fil->picture = $file["filename"];
+                        $fil->source = "/www/images/catalog/{$this->id}/" . $file["filename"];
+                        $fil->article_id = $this->id;
+                        if (!$fil->save())
+                        {
+                            //Its always good to log something
+                            Yii::log("Could not save file:\n" . CVarDumper::dumpAsString(
+                                            $fil->getErrors()), CLogger::LEVEL_ERROR);
+                            //this exception will rollback the transaction
+                            throw new Exception('Could not save file');
+                        }
+                    }
+                }
+                else
+                {
+                    //You can also throw an execption here to rollback the transaction
+                    Yii::log($file["path"] . " is not a file", CLogger::LEVEL_WARNING);
+                }
+            }
+            //Clear the user's session
+            Yii::app()->user->setState('files', null);
+        }
+    }
+    
+    protected function afterSave() {
+        
+        $this->addFiles();
+        parent::afterSave();
+    }
 }

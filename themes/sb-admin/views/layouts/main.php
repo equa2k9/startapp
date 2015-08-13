@@ -60,7 +60,7 @@
                         <ul class="nav" id="side-menu">
                            <li><a href="<?php echo $this->createUrl('/administrator/categories')?>"><i class="fa fa-list fa-fw"></i><?php echo Yii::t('site','Categories')?></a>
                             </li>
-                            <li><a href="/administrator/products"><i class="fa fa-list-alt fa-fw"></i><?php echo Yii::t('site','Products')?></a>
+                            <li><a href="<?php echo $this->createUrl('/administrator/articles')?>"><i class="fa fa-list-alt fa-fw"></i><?php echo Yii::t('site','Products')?></a>
                             </li>
                             <li><a href="<?php echo $this->createUrl('/administrator/slider')?>"><i class="fa fa fa-slideshare fa-fw"></i><?php echo Yii::t('site','Slider')?></a>
                             </li>

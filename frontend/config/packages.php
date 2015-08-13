@@ -12,7 +12,7 @@ return
                 ),
                 'look' => array(
                     'basePath' => 'themes',
-                    'css' => array('look/css/bootstrap.min.css','look/css/bootstrap-theme.min.css','look/css/custom_styles.css','bootstrap/css/flag-icon.css','bootstrap/css/animate.min.css'),
+                    'css' => array('look/css/bootstrap.min.css','look/css/bootstrap-theme.min.css','look/css/custom_styles.css','bootstrap/css/flag-icon.css','bootstrap/css/animate.min.css','look/css/new-styles.css'),
 //                    'js'=>array('react/js/theme.js')
                 ),
                 'colorCss'=>array(

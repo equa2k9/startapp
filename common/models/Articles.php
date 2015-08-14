@@ -45,10 +45,12 @@ class Articles extends CommonActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('category_id, alias_url', 'required'),
+            array('category_id, alias_url,name_uk,name_ru,name_en,description_uk,description_ru,description_en,price,currency', 'required'),
+            array('alias_url', 'unique', 'attributeName' => 'alias_url', 'className' => 'Articles', 'enableClientValidation' => true),
             array('category_id, sort', 'numerical', 'integerOnly' => true),
             array('name_uk, name_ru, name_en, alias_url', 'length', 'max' => 50),
-            array('description_uk, description_en, description_ru', 'safe'),
+            array('description_uk, description_en, description_ru, price,currency,colors_uk,specification_uk,sizes_uk,colors_ru,specification_ru,sizes_ru,colors_en,specification_en,sizes_en', 
+                'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, category_id, name_uk, name_ru,price,currency, name_en, description_uk, description_en, description_ru, alias_url, sort', 'safe', 'on' => 'search'),
@@ -168,6 +170,40 @@ class Articles extends CommonActiveRecord
     public function setName($value)
     {
         $attribute = 'name_' . Yii::app()->language;
+        $this->{$attribute} = $value;
+    }
+    public function getColors()
+    {
+        $attribute = 'colors_' . Yii::app()->language;
+        return $this->{$attribute};
+    }
+
+    public function setColors($value)
+    {
+        $attribute = 'colors_' . Yii::app()->language;
+        $this->{$attribute} = $value;
+    }
+    public function getSpecification()
+    {
+        $attribute = 'specification_' . Yii::app()->language;
+        return $this->{$attribute};
+    }
+
+    public function setSpecification($value)
+    {
+        $attribute = 'specification_' . Yii::app()->language;
+        $this->{$attribute} = $value;
+    }
+    
+    public function getSizes()
+    {
+        $attribute = 'sizes_' . Yii::app()->language;
+        return $this->{$attribute};
+    }
+
+    public function setSizes($value)
+    {
+        $attribute = 'sizes_' . Yii::app()->language;
         $this->{$attribute} = $value;
     }
     

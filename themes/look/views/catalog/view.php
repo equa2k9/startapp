@@ -10,8 +10,8 @@ Yii::app()->clientScript->registerPackage('colorCss');
             <div class="col-xs-5">
                 <div class="product_photos">
                     <div class="main_photo">
-                        <a href="/images/catalog/<?php echo $model->id?>/<?php echo isset($model->onePicture->picture) ? $model->onePicture->picture : '' ?>" class="gallery">
-                            <img src="/images/catalog/<?php echo $model->id?>/<?php echo isset($model->onePicture->picture) ? $model->onePicture->picture : '' ?>" alt="<?php echo $model->name ?>">
+                        <a href="/images/catalog/<?php echo isset($model->onePicture->picture) ? $model->id.'/'.$model->onePicture->picture : 'no-photo.gif' ?>" alt="<?php $model->name?>" class="gallery">
+                            <img src="/images/catalog/<?php echo isset($model->onePicture->picture) ? $model->id.'/'.$model->onePicture->picture : 'no-photo.gif' ?>" alt="<?php $model->name?>" alt="<?php echo $model->name ?>">
                         </a>
                     </div>
                     <?php if (count($model->articlesPictures) > 1): ?>
@@ -61,53 +61,54 @@ Yii::app()->clientScript->registerPackage('colorCss');
                 </p>
                 <div class="product_details">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <?php if(!empty($model->colors)):?>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
                                     <a role="button" model-toggle="collapse" model-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Доступні кольори
+                                        <?php echo Yii::t('site','Avaible colors')?>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                 <div class="panel-body">
-                                    <ul class="product_colors">
-                                        <li>Дуб</li>
-                                        <li>Бук</li>
-                                        <li>Вишня</li>
-                                        <li>Горіх</li>
-                                    </ul>
+                                    <?php echo $model->colors?>
                                 </div>
                             </div>
                         </div>
+                        <?php endif;?>
+                        <?php if(!empty($model->sizes)):?>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" model-toggle="collapse" model-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Розміри
+                                        <?php echo Yii::t('site','Sizes')?>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="panel-body">
-                                    Дані поки-що відсутні. За більш детальною інформацією звертайтесь за вказаними номерами телефонів.
+                                    <?php echo $model->sizes?>
                                 </div>
                             </div>
                         </div>
+                        <?php endif;?>
+                        <?php if(!empty($model->specification)):?>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" model-toggle="collapse" model-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Специфікації
+                                       <?php echo Yii::t('site','Specifications')?>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                 <div class="panel-body">
-                                    Дані поки-що відсутні. За більш детальною інформацією звертайтесь за вказаними номерами телефонів.
+                                    <?php echo $model->specification?>
                                 </div>
                             </div>
                         </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>

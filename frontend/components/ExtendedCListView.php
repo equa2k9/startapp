@@ -20,7 +20,7 @@ class ExtendedCListView extends CListView
             $class = $this->class;
         }
         echo CHtml::ajaxLink(
-                '<i class="prod_cards_style"></i>', Yii::app()->createUrl('ajax/changeView'), array(
+                '<i class="prod_list_style"></i>', Yii::app()->createUrl('ajax/changeView'), array(
             'data' => array('type' => 'list'),
             'method' => 'POST',
             'complete' => 'function() {
@@ -36,7 +36,7 @@ class ExtendedCListView extends CListView
             $class = $this->class;
         }
         echo CHtml::ajaxLink(
-                '<i class="prod_list_style"></i>', Yii::app()->createUrl('ajax/changeView'), array(
+                '<i class="prod_cards_style"></i>', Yii::app()->createUrl('ajax/changeView'), array(
             'data' => array('type' => 'square'),
             'method' => 'POST',
             'complete' => 'function() {

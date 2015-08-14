@@ -11,7 +11,7 @@
                         <div class="one_product">
                             <a href="<?php echo $product->getUrl() ?>">
                                 <div class="img_wrap">
-                                    <img src="/images/catalog/<?php echo isset($product->onePicture->picture) ? $product->onePicture->picture : '' ?>" alt="<?php echo $product->name ?>" >
+                                    <img src="/images/catalog/<?php echo isset($model->onePicture->picture) ? $model->id.'/'.$model->onePicture->picture : 'no-photo.gif' ?>" alt="<?php echo $product->name ?>" >
                                 </div>
                                 <h4><?php echo $product->name ?></h4>
                                 <p class="product_description">

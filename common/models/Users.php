@@ -355,28 +355,4 @@ class Users extends CActiveRecord
             return TRUE;
         }
     }
-
-//    /**
-//     * enroll this driver
-//     * @return bool
-//     */
-//    public function activateDriver()
-//    {
-//        $this->is_activated = self::IS_ACTIVATED;
-//        Yii::app()->sendConfirmMail('activedriver', $this, 'Driver profile is activated');
-//        $this->save(false);
-//
-//        return true;
-//    }
-//    /**
-//     *
-//     * @return bool
-//     */
-//    public function deactivateDriver()
-//    {
-//        $this->is_activated = self::IS_NOT_ACTIVATED;
-//        $this->save(false);
-//
-//        return true;
-//    }
 }

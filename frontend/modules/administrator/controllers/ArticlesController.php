@@ -9,17 +9,11 @@ class ArticlesController extends AdministratorController {
                 'path' => Yii::app()->getBasePath() . "/www/images/catalog",
                 'publicPath' => Yii::app()->getBaseUrl() . "/www/images/catalog",
             ),
+            'delete' => array(
+                'class' => 'common.components.actions.DeleteAjaxAction',
+                'model_name' => 'Articles',
+            ),
         );
-    }
-
-    /**
-     * Displays a particular model.
-     * @param integer $id the ID of the model to be displayed
-     */
-    public function actionView($id) {
-        $this->render('view', array(
-            'model' => $this->loadModel($id),
-        ));
     }
 
     /**
@@ -39,8 +33,7 @@ class ArticlesController extends AdministratorController {
             $model->attributes = $_POST['Articles'];
             if ($model->save())
             {
-                $model->articlesPictures->save();
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('index'));
             }
         }
 
@@ -66,7 +59,7 @@ class ArticlesController extends AdministratorController {
             $model->attributes = $_POST['Articles'];
             if ($model->save())
             {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('index'));
             }
         }
 
@@ -148,9 +141,10 @@ class ArticlesController extends AdministratorController {
                     $delImage = ArticlesPictures::model()->findByPk($_GET["id"]);
                     if ($delImage)
                     {
-                        if (is_file(realpath(Yii::app()->getBasePath() . '/..' . $delImage->source)))
+                        
+                        if (is_file(realpath(Yii::app()->getBasePath() . $delImage->source)))
                         {
-                            @unlink(realpath(Yii::app()->getBasePath() . '/..' . $delImage->source));
+                            @unlink(realpath(Yii::app()->getBasePath() . $delImage->source));
 //                            @unlink(realpath(Yii::app()->getBasePath().'/..'.$delImage->thumb));
                             $delImage->delete(false);
                         }

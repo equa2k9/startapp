@@ -12392,3 +12392,245 @@ REQUEST_URI=/catalog/acoustics/112
 in C:\xampp\htdocs\startapp\themes\look\views\catalog\view.php (13)
 in C:\xampp\htdocs\startapp\frontend\controllers\CatalogController.php (27)
 in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:10:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/9427ff090e6209efdff1b48005f447a4.PNG".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/9427ff090e6209efdff1b48005f447a4.PNG
+HTTP_REFERER=http://startapp/
+---
+2015/08/14 12:10:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "favicon.ico".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://startapp/
+---
+2015/08/14 12:10:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/9427ff090e6209efdff1b48005f447a4.PNG".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/9427ff090e6209efdff1b48005f447a4.PNG
+HTTP_REFERER=http://startapp/
+---
+2015/08/14 12:14:45 [warning] [application] Не вдалося привласнити небезпечний атрибут "price" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (39)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:14:45 [warning] [application] Не вдалося привласнити небезпечний атрибут "currency" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (39)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:15:12 [warning] [application] Не вдалося привласнити небезпечний атрибут "price" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (39)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:15:12 [warning] [application] Не вдалося привласнити небезпечний атрибут "currency" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (39)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:15:41 [warning] [application] Не вдалося привласнити небезпечний атрибут "price" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (39)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:15:41 [warning] [application] Не вдалося привласнити небезпечний атрибут "currency" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (39)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 12:15:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системі не вдалося знайти запитувану дію "delete".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(270): CController->missingAction('delete')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#2 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('administrator/a...')
+#3 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#5 {main}
+REQUEST_URI=/administrator/articles/delete/id/2?ajax=articles-grid
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 12:15:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системі не вдалося знайти запитувану дію "delete".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(270): CController->missingAction('delete')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#2 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('administrator/a...')
+#3 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#5 {main}
+REQUEST_URI=/administrator/articles/delete/id/2?ajax=articles-grid
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 12:48:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/9427ff090e6209efdff1b48005f447a4.PNG".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/9427ff090e6209efdff1b48005f447a4.PNG
+HTTP_REFERER=http://startapp/
+---
+2015/08/14 12:48:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/a2d282b937d85b8799fb5973a41f17ed.PNG".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/a2d282b937d85b8799fb5973a41f17ed.PNG
+HTTP_REFERER=http://startapp/
+---
+2015/08/14 12:53:15 [warning] [application] Не вдалося привласнити небезпечний атрибут "currency" класу "Articles".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (69)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 13:22:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "administrator/no-photo.gif".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('administrator/n...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/administrator/no-photo.gif
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 13:23:23 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CComponent.php(612) : eval()'d code:1)
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridColumn.php(231): TbDataColumn->getDataCellContent()
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridColumn.php(154): TbDataColumn->renderDataCellContent()
+#2 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(638): TbDataColumn->renderDataCell()
+#3 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(622): TbGridView->renderDataCell()
+#4 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(578): TbGridView->renderTableRow()
+#5 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(488): TbGridView->renderTableBody()
+#6 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\CBaseListView.php(181): TbGridView->renderItems()
+#7 unknown(0): TbGridView->renderSection()
+#8 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#9 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\zii\widgets\CBaseListView.php(149): TbGridView->renderContent()
+#10 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(181): TbGridView->run()
+#11 C:\xampp\htdocs\startapp\frontend\modules\administrator\views\articles\index.php(41): ArticlesController->widget()
+#12 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(126): require()
+#13 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(95): ArticlesController->renderInternal()
+#14 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(869): ArticlesController->renderFile()
+#15 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(782): ArticlesController->renderPartial()
+#16 C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php(93): ArticlesController->render()
+#17 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\actions\CInlineAction.php(49): ArticlesController->actionIndex()
+#18 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#19 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CFilterChain.php(133): ArticlesController->runAction()
+#20 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#22 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CInlineFilter.php(58): ArticlesController->filterAccessControl()
+#23 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#24 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(291): CFilterChain->run()
+#25 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(265): ArticlesController->runActionWithFilters()
+#26 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): ArticlesController->run()
+#27 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): FrontendWebApplication->runController()
+#28 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): FrontendWebApplication->processRequest()
+#29 C:\xampp\htdocs\startapp\frontend\www\index.php(12): FrontendWebApplication->run()
+REQUEST_URI=/administrator/articles
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\views\articles\index.php (41)
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php (93)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 13:23:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "administrator/9427ff090e6209efdff1b48005f447a4.PNG".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('administrator/9...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/administrator/9427ff090e6209efdff1b48005f447a4.PNG
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 13:23:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "administrator/no-photo.gif".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('administrator/n...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/administrator/no-photo.gif
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 13:24:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/9427ff090e6209efdff1b48005f447a4.PNG".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/9427ff090e6209efdff1b48005f447a4.PNG
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 13:25:57 [warning] [application] Не вдалося привласнити небезпечний атрибут "id" класу "Slider".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\SliderController.php (43)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 13:25:57 [warning] [application] Не вдалося привласнити небезпечний атрибут "id" класу "Slider".
+in C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\SliderController.php (46)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)
+2015/08/14 14:16:09 [error] [exception.CException] exception 'CException' with message 'Не визначена властивість "Articles.specification_uk".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('specification_u...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\helpers\CHtml.php(2728): CActiveRecord->__get('specification_u...')
+#2 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\helpers\CHtml.php(1833): CHtml::resolveValue(Object(Articles), 'specification_u...')
+#3 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\widgets\CActiveForm.php(853): CHtml::activeTextArea(Object(Articles), 'specification_u...', Array)
+#4 [internal function]: CActiveForm->textArea(Object(Articles), 'specification_u...', Array)
+#5 C:\xampp\htdocs\startapp\common\extensions\yiibooster\widgets\TbActiveForm.php(1293): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\startapp\common\extensions\yiibooster\widgets\TbActiveForm.php(1152): TbActiveForm->verticalGroup(Array, Object(Articles), 'specification_u...', Array)
+#7 C:\xampp\htdocs\startapp\common\extensions\yiibooster\widgets\TbActiveForm.php(465): TbActiveForm->customFieldGroupInternal(Array, Object(Articles), 'specification_u...', Array)
+#8 C:\xampp\htdocs\startapp\frontend\modules\administrator\views\articles\_form.php(71): TbActiveForm->textAreaGroup(Object(Articles), 'specification_u...', Array)
+#9 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\startapp\frontend\modules\administrator\views\articles\update.php(4): CController->renderPartial('_form', Array)
+#13 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#17 C:\xampp\htdocs\startapp\frontend\modules\administrator\controllers\ArticlesController.php(69): CController->render('update', Array)
+#18 [internal function]: ArticlesController->actionUpdate('2')
+#19 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#20 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ArticlesController), Object(ReflectionMethod), Array)
+#21 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#22 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#23 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#24 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(291): CFilterChain->run()
+#28 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#30 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('administrator/a...')
+#31 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#32 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#33 {main}
+REQUEST_URI=/administrator/articles/update/id/2
+HTTP_REFERER=http://startapp/administrator/articles
+---
+2015/08/14 14:40:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/2/no-picture.gif".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/2/no-picture.gif
+HTTP_REFERER=http://startapp/catalog
+---
+2015/08/14 14:41:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/catalog/no-picture.gif".' in C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/catalog/...')
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\startapp\frontend\www\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/catalog/no-picture.gif
+HTTP_REFERER=http://startapp/catalog
+---
+2015/08/14 14:42:30 [error] [php] Undefined variable: data (C:\xampp\htdocs\startapp\themes\look\views\catalog\view.php:13)
+Stack trace:
+#0 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(869): CatalogController->renderFile()
+#1 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(782): CatalogController->renderPartial()
+#2 C:\xampp\htdocs\startapp\frontend\controllers\CatalogController.php(27): CatalogController->render()
+#3 unknown(0): CatalogController->actionView()
+#4 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(286): CatalogController->runAction()
+#8 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CController.php(265): CatalogController->runActionWithFilters()
+#9 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): CatalogController->run()
+#10 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): FrontendWebApplication->runController()
+#11 C:\xampp\htdocs\startapp\vendor\yiisoft\yii\framework\base\CApplication.php(184): FrontendWebApplication->processRequest()
+#12 C:\xampp\htdocs\startapp\frontend\www\index.php(12): FrontendWebApplication->run()
+REQUEST_URI=/catalog/acoustics/ololo
+in C:\xampp\htdocs\startapp\themes\look\views\catalog\view.php (13)
+in C:\xampp\htdocs\startapp\frontend\controllers\CatalogController.php (27)
+in C:\xampp\htdocs\startapp\frontend\www\index.php (12)

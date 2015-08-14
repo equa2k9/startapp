@@ -47,37 +47,75 @@ echo $form->dropDownListGroup(
         )
 );
 ?>
+<div class="row">
+    <div class="col-lg-4">
+        <?php echo $form->textFieldGroup($model, 'name_uk', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->textFieldGroup($model, 'name_en', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->textFieldGroup($model, 'name_ru', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
 
-<?php echo $form->textFieldGroup($model, 'name_uk', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
-
-<?php echo $form->textFieldGroup($model, 'name_ru', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
-
-<?php echo $form->textFieldGroup($model, 'name_en', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
-
-<?php echo $form->textAreaGroup($model, 'description_uk', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
-
-<?php echo $form->textAreaGroup($model, 'description_en', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
-
-<?php echo $form->textAreaGroup($model, 'description_ru', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
-
-<?php echo $form->textFieldGroup($model, 'alias_url', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
-
-<?php echo $form->textFieldGroup($model, 'price', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5')))); ?>
-
-<?php
-echo $form->dropDownListGroup(
-        $model, 'currency', array(
-    'wrapperHtmlOptions' => array(
-        'class' => 'col-sm-5',
-    ),
-    'widgetOptions' => array(
-        'data' => Articles::$curr,
-        'htmlOptions' => array(),
-    )
-        )
-);
-?>
-
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'description_uk', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'description_en', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'description_ru', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'specification_uk', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'specification_ru', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'specification_en', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'colors_uk', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'colors_ru', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'colors_en', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'sizes_uk', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'sizes_ru', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->html5EditorGroup($model, 'sizes_en', array('widgetOptions' => array('htmlOptions' => array('rows' => 6, 'cols' => 50, 'class' => 'span8')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->textFieldGroup($model, 'alias_url', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 50)))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php echo $form->textFieldGroup($model, 'price', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5')))); ?>
+    </div>
+    <div class="col-lg-4">
+        <?php
+        echo $form->dropDownListGroup(
+                $model, 'currency', array(
+            'wrapperHtmlOptions' => array(
+                'class' => 'col-sm-5',
+            ),
+            'widgetOptions' => array(
+                'data' => Articles::$curr,
+                'htmlOptions' => array(),
+            )
+                )
+        );
+        ?>
+    </div>
+</div>
 <div class="form-actions">
     <?php
     $this->widget('booster.widgets.TbButton', array(

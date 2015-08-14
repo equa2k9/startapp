@@ -4,7 +4,7 @@
     <div class="one_product animated bounceInUp" style="-webkit-animation-delay: 0.<?php echo $index + 1 ?>s;">
         <a href="<?php echo $data->getUrl() ?>">
             <div class="img_wrap">
-                <img  src="/images/catalog/<?php echo $data->id?>/<?php echo isset($data->onePicture->picture) ? $data->onePicture->picture : '' ?>" alt="<?php $data->name?>">
+                <img  src="/images/catalog/<?php echo isset($data->onePicture->picture) ? $data->id.'/'.$data->onePicture->picture : 'no-photo.gif' ?>" alt="<?php $data->name?>">
             </div>
             <h4><?php echo $data->name ?></h4>
             <p class="product_description">

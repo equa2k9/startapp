@@ -23,7 +23,7 @@ $this->widget('booster.widgets.TbGridView', array(
     'dataProvider' => $model->search(),
     'type' => 'striped bordered condensed',
     'responsiveTable' => true,
-    'template' => "{items}",
+    'template' => "{items}\n{pager}",
     'filter' => $model,
     'columns' => array(
         'name_uk',
@@ -31,11 +31,11 @@ $this->widget('booster.widgets.TbGridView', array(
         'alias_url',
         array(
             'type' => 'html',
-            'value' => 'Chtml::image("/images/catalog/".empty($data->onePicture) ?  "": $data->onePicture->picture,"",array("style"=>"height:100px;"))'
+            'value' => 'Chtml::image(!empty($data->onePicture)&&isset($data->onePicture) ? "/images/catalog/".$data->id."/". $data->onePicture->picture: "/images/catalog/no-photo.gif","",array("style"=>"height:100px;"))'
         ),
         array(
             'class' => 'booster.widgets.TbButtonColumn',
-            'template'=>'{update}{view}{delete}'
+            'template'=>'{update}{delete}'
         ),
     ),
 ));

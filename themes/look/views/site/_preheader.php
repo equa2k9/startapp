@@ -3,13 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 columns">
-                    <p class="welcome_phrase">Вітаємо в нашому магазині!</p>
+                    <p class="welcome_phrase"><?php echo Yii::t('site','Welcome to our store')?></p>
                 </div>
                 <div class="col-xs-6 columns">
                     <p class="contact_info">
-                        <span>0672921530</span>
-                        <span>0679067098</span>
-                        <span>c.Довге, Універмаг, 2-ий поверх</span>
+                        <span><?php echo Yii::app()->settings->get('admin', 'phone1')?></span>
+                        <span><?php echo Yii::app()->settings->get('admin', 'phone2')?></span>
+                        <span><?php echo Yii::app()->settings->get('admin', 'adress_'.Yii::app()->language)?></span>
                     </p>
                 </div>
             </div>

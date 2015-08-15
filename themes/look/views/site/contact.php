@@ -79,7 +79,6 @@ $this->breadcrumbs = array(Yii::t('site', 'Contact us'));
                     <ul>
                         <li><span class="fa fa-home"></span><?php echo Yii::app()->settings->get('admin', 'adress_' . Yii::app()->language) ?></li>
                     </ul>
-                    <h4><?php echo Yii::t('site', 'Working hours') ?></h4>
                 </div>
 
             </div>

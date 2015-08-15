@@ -32,18 +32,17 @@ class News extends CommonActiveRecord
         // will receive user inputs.
         return array(
             array('created_at', 'numerical', 'integerOnly' => true),
-            array('title_ua,title_ru,title_en, picture', 'length', 'max' => 255),
-            array('picture', 'required', 'on' => 'create', 'message' => 'Input image'),
-            array('picture', 'file', 'maxSize' => 1024 * 1024 * 8,
-                'types' => 'jpg, jpeg, png',
-                'allowEmpty' => true,
-                'wrongType' => 'Restricted file type (only <b>jpg, jpeg, png</b>)',
-                'tooLarge' => 'File has to be smaller than 8MB',),
-            array('text,picture', 'safe'),
+            array('title_uk,title_ru,title_en', 'length', 'max' => 255),
+           
+            array('text,picture, text_uk,text_ru,text_en,alias_url', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, title_ua,title_ru,title_en, text, picture, created_at', 'safe', 'on' => 'search'),
+            array('id, title_uk,title_ru,title_en, text_uk,text_ru,text_en, picture, created_at', 'safe', 'on' => 'search'),
         );
+    }
+    protected function beforeSave() {
+        $this->created_at = time();
+        return true;
     }
 
     /**
@@ -91,7 +90,7 @@ class News extends CommonActiveRecord
 
         $criteria->compare('id', $this->id);
         $criteria->compare('title', $this->title, true);
-        $criteria->compare('text', $this->text, true);
+         $criteria->compare('text', $this->text, true);
         $criteria->compare('picture', $this->picture, true);
         $criteria->compare('created_at', $this->created_at);
 

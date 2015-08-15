@@ -3,35 +3,11 @@
 class DashboardController extends AdministratorController
 {
 
-    public function actions()
-    {
-        return array(
-//            'updateTripsStatus' => array(
-//                'class' => 'common.components.actions.UpdateEditable',
-//                'model_name' => 'TripsStatus',
-//            ),
-//            'updateRouteStatus' => array(
-//                'class' => 'common.components.actions.UpdateEditable',
-//                'model_name' => 'RoutesheetStatus',
-//            ),
-//            'deleteTripsStatus' => array(
-//                'class' => 'common.components.actions.DeleteAjaxAction',
-//                'model_name' => 'TripsStatus',
-//            ),
-//            'deleteRouteStatus' => array(
-//                'class' => 'common.components.actions.DeleteAjaxAction',
-//                'model_name' => 'RoutesheetStatus',
-//            ),
-//            'createTripsStatus' => array(
-//                'class' => 'common.components.actions.AjaxAdd',
-//                'model_name' => 'TripsStatus',
-//            ),
-//            'createRouteStatus' => array(
-//                'class' => 'common.components.actions.AjaxAdd',
-//                'model_name' => 'RoutesheetStatus',
-//            ),
-        );
-    }
+//    public function actions()
+//    {
+//        return array(
+//        );
+//    }
 
     public function actionIndex()
     {
@@ -54,6 +30,21 @@ class DashboardController extends AdministratorController
         }
 
         $this->render('activity', array('model' => $model));
+    }
+    
+    public function actionSettings()
+    {
+        $delivery = new Delivery();
+        $contact = new ContactSettings();
+        if(Yii::app()->request->isPostRequest)
+        {
+            if($delivery->attributes = Yii::app()->request->getPost('Delivery')) 
+                $delivery->save();
+            if($contact->attributes = Yii::app()->request->getPost('ContactSettings')) 
+                $contact->save();
+        }
+        
+        $this->render('settings',array('delivery'=>$delivery,'contact'=>$contact));
     }
 
 

@@ -66,9 +66,9 @@
                             </li>
                             <li><a href="<?php echo $this->createUrl('/administrator/users')?>"><i class="fa fa-users fa-fw"></i><?php echo Yii::t('site','Users')?></a>
                             </li>
-                             <li><a href="/users/dashboard/index"><i class="fa fa-newspaper-o fa-fw"></i><?php echo Yii::t('site','News')?></a>
+                             <li><a href="<?php echo $this->createUrl('/administrator/news')?>"><i class="fa fa-newspaper-o fa-fw"></i><?php echo Yii::t('site','News')?></a>
                             </li>
-                            <li><a href="/users/dashboard/index"><i class="fa fa-language fa-fw"></i><?php echo Yii::t('site','Languages')?></a>
+                            <li><a href="<?php echo $this->createUrl('/administrator/dashboard/settings')?>"><i class="fa fa-wrench fa-fw"></i><?php echo Yii::t('site','Settings')?></a>
                             </li>
                         </ul>
                     </div>

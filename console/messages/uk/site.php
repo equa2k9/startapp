@@ -76,7 +76,7 @@ return array (
   'Re-enter password' => 'Повторіть',
   'Register new account' => 'Зареєструйте аккаунт',
   'Registration' => 'Реєстрація',
-  'Remember me next time' => 'Запам\'ятати себе',
+  'Remember me next time' => 'Запамятати себе',
   'Save' => 'Зберегти',
   'Send' => 'Надіслати',
   'Sergiy' => 'Сергій',

@@ -8,7 +8,7 @@ return array(
     'connectionString' => 'mysql:host=localhost;dbname=jazzme',
     'emulatePrepare' => true,
     'username' => 'root',
-    'password' => '',
+    'password' => 'superctrlesc25',
     'charset' => 'utf8',
     'schemaCachingDuration' => 3600,
 );

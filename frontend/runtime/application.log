@@ -1,0 +1,29 @@
+2015/08/17 13:03:56 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'jazzme.sessions' doesn't exist. Спроба виконати SQL-запит: DELETE FROM `sessions` WHERE expire<:expire.
+in /var/www/startapp/frontend/www/index.php (12)
+2015/08/17 13:11:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "forum".' in /var/www/startapp/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/startapp/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('forum')
+#1 /var/www/startapp/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/startapp/frontend/www/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/forum
+HTTP_REFERER=http://startapp/news
+---
+2015/08/17 14:40:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "forum".' in /var/www/startapp/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/startapp/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('forum')
+#1 /var/www/startapp/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/startapp/frontend/www/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/forum
+HTTP_REFERER=http://startapp/news
+---
+2015/08/17 15:23:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "forum".' in /var/www/startapp/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/startapp/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('forum')
+#1 /var/www/startapp/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/startapp/frontend/www/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/forum
+HTTP_REFERER=http://startapp/news
+---
